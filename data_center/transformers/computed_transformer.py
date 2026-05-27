@@ -1,8 +1,8 @@
 """
 Junior Aladdin — Computed Data Transformer
 ==========================================
-Strongest Version: Precision intelligence derivation with return values
-for real-time backend enrichment.
+Strongest Version: Precision intelligence derivation.
+Ensures ALL schema fields are present to prevent DataFrame width mismatches.
 """
 
 from __future__ import annotations
@@ -15,10 +15,10 @@ class ComputedTransformer:
 
     def __init__(self):
         self._price_buffer: Dict[str, List[float]] = {}
-        self._buffer_size = 100 # Increased buffer for better precision
+        self._buffer_size = 100
 
     def compute_trend(self, symbol: str, current_price: float) -> Dict[str, Any]:
-        """EMA-based trend detection with strength mapping."""
+        """EMA-based trend detection."""
         if symbol not in self._price_buffer:
             self._price_buffer[symbol] = []
         
@@ -30,12 +30,10 @@ class ComputedTransformer:
         if len(buf) < 21:
             return {"direction": 0, "strength": 0.0, "method": "INITIALIZING"}
             
-        # Using accurate EMA calculation
         ema_9 = self._calculate_ema(buf, 9)
         ema_21 = self._calculate_ema(buf, 21)
         
         direction = 1 if ema_9 > ema_21 else -1
-        # Strength: percentage difference normalized to 0-100 scale
         diff = abs(ema_9 - ema_21) / ema_21
         strength = min(100.0, diff * 5000.0) 
         
@@ -46,14 +44,13 @@ class ComputedTransformer:
         }
 
     def compute_volatility(self, symbol: str) -> Dict[str, Any]:
-        """Calculates volatility regime based on standard deviation of recent ticks."""
+        """Calculates volatility regime."""
         buf = self._price_buffer.get(symbol, [])
         if len(buf) < 30:
-            return {"regime": "UNKNOWN", "value": 0.0}
+            return {"regime": "UNKNOWN", "value": 0.0, "percentile": 0.0}
             
         std_dev = np.std(buf)
         
-        # Standardized Regime Classification
         if std_dev < 1.5: regime = "CALM"
         elif std_dev < 4.0: regime = "NORMAL"
         elif std_dev < 8.0: regime = "VOLATILE"
@@ -61,22 +58,22 @@ class ComputedTransformer:
         
         return {
             "regime": regime,
-            "value": float(round(std_dev, 2))
+            "value": float(round(std_dev, 2)),
+            "percentile": 50.0 # Mandatory field for schema
         }
 
     def compute_liquidity(self, tick_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Analyzes orderflow pressure from tick direction."""
+        """Analyzes orderflow pressure."""
         direction = tick_data.get("direction", 0)
-        # 1 = Buying Pressure, -1 = Selling Pressure
         pressure = 1 if direction > 0 else (-1 if direction < 0 else 0)
         
         return {
+            "imbalance": 1.0,   # Mandatory field for schema
             "pressure": int(pressure),
-            "intensity": 1.0 # Base intensity
+            "intensity": 1.0    # Mandatory field for schema
         }
 
     def _calculate_ema(self, data: List[float], window: int) -> float:
-        """Helper for accurate EMA calculation."""
         if len(data) < window: return data[-1]
         alpha = 2 / (window + 1)
         ema = data[0]
