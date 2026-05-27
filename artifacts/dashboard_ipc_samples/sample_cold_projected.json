@@ -1,0 +1,26 @@
+{
+  "raw_opportunities": [
+    {
+      "id": 1,
+      "strategy": "VWAP Pullback"
+    }
+  ],
+  "trapped_opportunities": [],
+  "scored_opportunities": [],
+  "ml_filtered": [],
+  "behavioral_filtered": [],
+  "approved_opportunities": [
+    {
+      "id": 1,
+      "strategy": "VWAP Pullback"
+    }
+  ],
+  "open_positions": [],
+  "engine_health": {
+    "data_engine": {
+      "alive": true,
+      "last_heartbeat": "2026-05-22T10:15:00+05:30"
+    }
+  },
+  "timestamp": "2026-05-22T10:15:00+05:30"
+}

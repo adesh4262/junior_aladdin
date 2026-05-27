@@ -1,0 +1,57 @@
+# ============================================
+# Junior Aladdin - Git Ignore Rules
+# ============================================
+
+# SECRETS — NEVER EVER COMMIT
+.env
+*.env
+.env.*
+
+# Virtual Environment
+venv/
+.venv/
+
+# Data Files (too large for git)
+data/
+*.parquet
+*.db
+*.sqlite
+*.sqlite3
+
+# Model Files
+models/*.onnx
+models/*.pkl
+models/*.joblib
+
+# Logs
+logs/
+*.log
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Backups
+backups/
+
+# Temp files
+*.tmp
+*.bak
+test_imports.py
+# Generated dashboard smoke reports
+dashboard_report.json

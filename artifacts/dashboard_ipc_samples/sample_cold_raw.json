@@ -1,0 +1,179 @@
+{
+  "timestamp": "2026-05-22T10:15:00+05:30",
+  "last_update_timestamp": "2026-05-22T10:15:00+05:30",
+  "system_state": "ACTIVE",
+  "mode": "PAPER",
+  "feed_health": "HEALTHY",
+  "data_quality_score": 92.0,
+  "ticks_per_second": 14.5,
+  "feed_lag_ms": 34.0,
+  "using_fallback": false,
+  "spot": 24580.25,
+  "previous_close": 24520.1,
+  "capital": 50000.0,
+  "daily_pnl": 1245.0,
+  "drawdown_pct": 0.018,
+  "trades_today": 2,
+  "consecutive_losses": 0,
+  "tilt_score": 14.0,
+  "risk_state": "NORMAL",
+  "session_phase": "GOLDEN_AM",
+  "day_type": "TREND_DAY",
+  "regime": "TRENDING",
+  "narrative_label": "MILD_BULLISH",
+  "regime_transition_prob": 0.12,
+  "active_brains": [
+    "structural",
+    "institutional"
+  ],
+  "narrative_score": 68.0,
+  "regime_confidence": 0.84,
+  "narrative_fit_factors": {
+    "long_fit": 1.0,
+    "short_fit": 0.4
+  },
+  "features": {
+    "1min": {
+      "rsi": 58.0,
+      "vwap": 24562.0
+    },
+    "5min": {
+      "rsi": 61.0
+    }
+  },
+  "features_1m": {
+    "rsi": 58.0,
+    "vwap": 24562.0
+  },
+  "options_features": {
+    "pcr_oi": 1.08,
+    "atm_iv": 0.14
+  },
+  "smart_money_5m": {
+    "sm_direction_score": 18.0,
+    "total_fvgs": 2,
+    "bullish_fvgs": 2,
+    "bearish_fvgs": 0
+  },
+  "smart_money": {
+    "5min": {
+      "fvg_zones": 2
+    }
+  },
+  "mtf_candles": {
+    "1m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24540,
+        "high": 24565,
+        "low": 24535,
+        "close": 24560,
+        "volume": 1100
+      },
+      {
+        "timestamp": "2026-05-22T10:11:00+05:30",
+        "open": 24560,
+        "high": 24585,
+        "low": 24558,
+        "close": 24580,
+        "volume": 980
+      }
+    ],
+    "5m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24520,
+        "high": 24585,
+        "low": 24510,
+        "close": 24580,
+        "volume": 4200
+      }
+    ]
+  },
+  "vwap_bands": {
+    "5m": {
+      "vwap": [
+        24540.0
+      ],
+      "upper1": [
+        24570.0
+      ],
+      "lower1": [
+        24510.0
+      ],
+      "upper2": [
+        24600.0
+      ],
+      "lower2": [
+        24480.0
+      ]
+    }
+  },
+  "or_levels": {
+    "high": 24590.0,
+    "low": 24505.0
+  },
+  "ib_levels": {
+    "high": 24605.0,
+    "low": 24495.0
+  },
+  "volume_profile": {
+    "poc": 24550,
+    "vah": 24590,
+    "val": 24515
+  },
+  "session_volume_profile": {
+    "poc": 24550
+  },
+  "microstructure": {
+    "spread": 0.8,
+    "imbalance": 0.61
+  },
+  "order_flow": {
+    "delta": 125,
+    "aggression": "buy"
+  },
+  "cvd": 640,
+  "imbalance": {
+    "buy": 0.61,
+    "sell": 0.39
+  },
+  "absorption_alerts": [
+    {
+      "id": 1,
+      "side": "buy"
+    }
+  ],
+  "exhaustion_alerts": [
+    {
+      "id": 1,
+      "side": "sell"
+    }
+  ],
+  "session_profile_anchors": {
+    "open": 24520,
+    "mid": 24555
+  },
+  "poc": 24550,
+  "vah": 24590,
+  "val": 24515,
+  "raw_opportunities": [
+    {
+      "id": 1,
+      "strategy": "VWAP Pullback"
+    }
+  ],
+  "approved_opportunities": [
+    {
+      "id": 1,
+      "strategy": "VWAP Pullback"
+    }
+  ],
+  "open_positions": [],
+  "engine_health": {
+    "data_engine": {
+      "alive": true,
+      "last_heartbeat": "2026-05-22T10:15:00+05:30"
+    }
+  }
+}

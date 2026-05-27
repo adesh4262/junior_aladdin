@@ -1,0 +1,625 @@
+Junior Aladdin — End-to-End Data Center
+Architecture & Implementation Master Plan
+1. Vision
+Junior Aladdin system architecture will be built using a strict layered structure:
+MARKET
+  ↓
+DATA CENTER
+  ↓
+BACKEND COMPUTATION
+  ↓
+DASHBOARD
+The system philosophy is:
+Data First
+Clean Structured Pipeline
+Backend Intelligence
+Lightweight Architecture
+Replay Friendly
+Scalable Design
+Modular Components
+Low-Latency Processing
+The Data Center is the foundation of the entire system.
+Backend and Dashboard will depend on the Data Center .
+The Data Center itself will remain an independent subsystem.
+2. Root Architecture
+junior_aladdin/
+│
+├── data_center/
+├── backend/
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+1
+
+├── dashboard/
+├── artifacts/
+├── configs/
+├── scripts/
+├── tests/
+└── docs/
+3. Final Data Center Architecture
+data_center/
+│
+├── major/
+│   ├── raw/
+│   ├── cleaned/
+│   ├── structured/
+│   └── review/
+│
+├── minor/
+│   ├── raw/
+│   ├── cleaned/
+│   ├── structured/
+│   └── review/
+│
+├── computed/
+│   ├── volatility/
+│   ├── structure/
+│   ├── liquidity/
+│   ├── orderflow/
+│   ├── trend/
+│   └── bias/
+│
+├── collectors/
+├── cleaners/
+├── validators/
+├── transformers/
+├── writers/
+├── connectors/
+├── replay/
+├── monitoring/
+├── schemas/
+├── queues/
+├── logs/
+2
+
+├── configs/
+└── utils/
+4. Major Data Definition
+Major Data = High-frequency real market truth.
+Source:
+AngelOne WebSocket
+AngelOne APIs
+Only NIFTY-focused architecture initially.
+5. Major Data Scope
+NIFTY Spot
+Store:
+LTP
+Volume
+OHLC
+Tick timestamps
+Tick direction
+Options Coverage
+Store only:
+ATM CE
+ATM PE
+2 ITM CE
+2 ITM PE
+2 OTM CE
+2 OTM PE
+Total:
+10 contracts maximum
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+3
+
+This avoids unnecessary load.
+Market Depth
+Store:
+Top 5 bid levels
+Top 5 ask levels
+Quantities
+Spread
+Volatility Inputs
+Store:
+IV
+OI
+OI Change
+Volume
+6. Minor Data Definition
+Minor Data = Slow contextual snapshots.
+Source:
+AngelOne APIs
+Snapshot polling
+Examples:
+PCR
+Max Pain
+IV Summary
+Liquidity Snapshot
+Option Chain Snapshot
+Minor implementation is lower priority.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+4
+
+7. Computed Data Definition
+Computed Data = Backend-generated intelligence.
+Examples:
+Trend Strength
+Volatility Regime
+Liquidity Pressure
+Structure State
+Orderflow Approximation
+Market Bias
+Momentum
+Computed layer is future phase.
+Priority is MAJOR layer first.
+8. Processing Philosophy
+The system will NEVER assume:
+1 second = fixed number of ticks
+Instead:
+Accept ALL incoming ticks dynamically.
+Market tick flow is variable.
+9. Tick Processing Pipeline
+WebSocket
+   ↓
+Tick Receiver
+   ↓
+In-Memory Queue
+   ↓
+Raw Writer
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+5
+
+   ↓
+Cleaner Queue
+   ↓
+Cleaner Workers
+   ↓
+Structured Writer
+   ↓
+Review Engine
+   ↓
+Verified Storage
+10. Queue-Based Architecture
+The system MUST use queue-based processing.
+Never use sequential blocking processing.
+Wrong:
+tick → clean → write → next tick
+Correct:
+tick → queue → async workers
+11. Data Lifecycle
+Step 1 — Receive Tick
+Tick enters receiver .
+Step 2 — Raw Storage
+Raw tick immediately stored.
+No modification.
+6
+
+Step 3 — Validation
+Check:
+duplicates
+corruption
+missing timestamps
+invalid values
+Step 4 — Cleaning
+Perform:
+normalization
+sorting
+type fixing
+sequence fixing
+Step 5 — Structured Storage
+Store as:
+parquet
+indexed
+partitioned
+Step 6 — Review Engine
+Verify:
+row count
+continuity
+corruption
+schema validity
+Step 7 — Verification
+If valid:
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+7
+
+verified = TRUE
+Step 8 — Raw Retention Cleanup
+Raw retained for:
+3 trading days
+Then auto-delete.
+12. Storage Strategy
+Primary Format
+Parquet only
+Reason:
+compressed
+fast
+columnar
+replay-friendly
+analytics optimized
+13. File Rotation Strategy
+Adaptive file rotation.
+High Tick Load
+1 hour per file
+• 
+• 
+• 
+• 
+• 
+8
+
+Moderate Load
+2 hours per file
+Low Load
+4 hours per file
+14. Folder Partitioning Strategy
+structured/
+   YYYY-MM-DD/
+      NIFTY/
+         expiry/
+            10_11.parquet
+            11_12.parquet
+15. Raw Retention Policy
+Raw Data:
+kept for 3 trading days
+auto cleanup after retention expiry
+Reason:
+debugging
+corruption recovery
+replay recovery
+16. Structured Retention Policy
+Structured Data:
+• 
+• 
+• 
+• 
+• 
+9
+
+Permanent storage
+Reason:
+replay
+research
+future AI
+backtesting
+analytics
+17. Computed Retention Policy
+Adaptive retention.
+Examples:
+Type Retention
+Trend 30 days
+Liquidity 15 days
+Volatility 90 days
+18. Review Engine Architecture
+The Review Engine is mandatory.
+Purpose:
+compare raw vs structured
+verify data integrity
+Checks:
+row counts
+timestamp continuity
+corruption
+missing packets
+duplicate mismatch
+schema mismatch
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+10
+
+19. Review Output Example
+{
+"verified": true,
+"raw_rows": 152225,
+"structured_rows": 152223,
+"dropped_rows": 2
+}
+20. Memory Strategy
+Use:
+lightweight adaptive hybrid
+Features:
+rolling buffers
+automatic cleanup
+minimal RAM pressure
+bounded queues
+21. Tick Buffer
+Rolling in-memory buffer:
+30 seconds
+Purpose:
+replay safety
+queue recovery
+temporary fallback
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+11
+
+22. Cleaner Failure Policy
+If cleaner crashes:
+Raw Writer MUST continue.
+System behavior:
+raw storage continues
+cleaner retries
+logs generated
+alerts generated
+Raw truth must never be lost.
+23. Connectors Architecture
+Connectors are future phases.
+Connectors:
+backend_connector.py
+dashboard_connector.py
+replay_connector.py
+24. Backend Integration Philosophy
+Backend NEVER directly depends on:
+websocket
+raw storage
+Backend uses:
+structured + computed
+• 
+• 
+• 
+• 
+• 
+• 
+12
+
+25. Dashboard Integration Philosophy
+Dashboard NEVER directly reads parquet.
+Dashboard receives:
+backend snapshots
+backend IPC feeds
+Dashboard wiring is a later phase.
+26. Replay System
+Replay modes:
+Exact Tick Replay
+Tick-by-tick reproduction.
+Accelerated Replay
+Fast-forward simulation.
+Candle Replay
+Timeframe reconstruction.
+27. Monitoring System
+Monitoring tracks:
+websocket health
+queue size
+storage lag
+cleaner lag
+RAM usage
+corruption
+latency
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+13
+
+28. Logging System
+Separate logs:
+fetch.log
+cleaner.log
+validator.log
+writer.log
+review.log
+connector.log
+29. Schema Philosophy
+Schemas must be:
+versioned
+strict
+typed
+replay compatible
+30. Core Engineering Rules
+Rule 1
+Raw data immutable.
+Never modify raw.
+Rule 2
+Cleaned != Raw.
+Rule 3
+Computed != Truth.
+• 
+• 
+• 
+• 
+14
+
+Rule 4
+Everything replay-compatible.
+Rule 5
+Queue-based architecture only.
+Rule 6
+No blocking processing.
+Rule 7
+Verification mandatory before cleanup.
+Rule 8
+Dashboard independent from raw.
+31. Future Placeholder Architecture
+Keep empty placeholders for:
+sentiment
+macro
+FII/DII
+multi-broker
+distributed systems
+Kafka
+AI training
+Do NOT implement yet.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+15
+
+32. Initial Implementation Priority
+P0
+Folder architecture.
+P1
+Major raw collector .
+P2
+Queue system.
+P3
+Raw writer .
+P4
+Validator .
+P5
+Cleaner .
+P6
+Structured parquet writer .
+P7
+Review engine.
+16
+
+P8
+Retention engine.
+P9
+Replay system.
+P10
+Minor layer .
+P11
+Computed layer .
+P12
+Backend connectors.
+P13
+Dashboard connectors.
+33. Initial File Plan
+Collectors
+collectors/
+   angel_ws_client.py
+   tick_receiver.py
+   option_receiver.py
+17
+
+Queues
+queues/
+   tick_queue.py
+   cleaner_queue.py
+Writers
+writers/
+   raw_writer.py
+   structured_writer.py
+Validators
+validators/
+   duplicate_validator.py
+   schema_validator.py
+   timestamp_validator.py
+Cleaners
+cleaners/
+   tick_cleaner.py
+   options_cleaner.py
+Transformers
+transformers/
+   tick_transformer.py
+   options_transformer.py
+18
+
+Monitoring
+monitoring/
+   queue_monitor.py
+   storage_monitor.py
+   websocket_monitor.py
+34. Final System Flow
+MARKET
+ ↓
+WEBSOCKET/API
+ ↓
+COLLECTORS
+ ↓
+QUEUE SYSTEM
+ ↓
+RAW STORAGE
+ ↓
+VALIDATION
+ ↓
+CLEANING
+ ↓
+TRANSFORMATION
+ ↓
+STRUCTURED STORAGE
+ ↓
+REVIEW ENGINE
+ ↓
+VERIFICATION
+ ↓
+BACKEND CONNECTORS
+ ↓
+BACKEND COMPUTATION
+ ↓
+COMPUTED STORAGE
+ ↓
+DASHBOARD CONNECTOR
+ ↓
+DASHBOARD
+19
+
+35. Final Goal
+The goal is NOT:
+random indicators
+random prediction
+random bot logic
+The goal is:
+Professional Market Data Infrastructure
+Everything else will be built on top of this foundation.
+END OF MASTER BLUEPRINT V1
+• 
+• 
+• 
+20

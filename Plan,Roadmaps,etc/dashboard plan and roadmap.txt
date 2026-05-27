@@ -1,0 +1,1443 @@
+JUNIOR ALADDIN DASHBOARD ROADMAP
+Obsidian Night / Institutional Terminal Edition
+
+SOURCE ANCHORS
+===============================================================================
+This document is aligned to:
+1. system plan and roadmap.txt
+2. main plan and roadmap.pdf
+3. ChatGPT dash.png
+
+The design target is not a generic admin dashboard. It is an institutional
+trading terminal inspired by Bloomberg, Reuters Eikon, and sovereign command
+centers. The visual language must preserve the deep-night, cyan-accent,
+high-density cockpit seen in the image while becoming sharper, more legible,
+more deterministic, and more useful for a junior developer to build step by step.
+
+PRIMARY RULE
+===============================================================================
+The dashboard never creates alpha. It only reveals alpha, protects the operator,
+and exposes the backend state with absolute fidelity.
+
+If a field is not already known by the backend, the dashboard must show it as
+missing, stale, or disabled. It must never guess.
+
+SYSTEM INTENT
+===============================================================================
+Junior Aladdin is a 16-layer sovereign trading stack. The dashboard is Layer 15C
+and the visibility layer for the entire machine. It is a read-only control tower
+with command handshakes for safe mode changes, live enablement, and emergency
+containment.
+
+The dashboard must reflect all 16 backend layers:
+1. External Data Universe
+2. Data Validation and Ingestion
+3. Feature Computation
+4. Narrative Engine
+5. Regime Engine
+6. Time Context Engine
+7. Market DNA Fingerprint Engine
+8. Four-Brain Orchestrator
+9. Strategy Engine
+10. Trap Detection Engine
+11. Dynamic Confluence Scoring Engine
+12. ML / AI Filter Layer
+13. Behavioral Sentinel
+14. Portfolio Risk Engine
+15. Captain Orchestrator, Position Management, Compliance, Journal, Self-Learning
+16. Dashboard Surface and Operator Command Plane
+
+The dashboard must expose these layers as live panels, charts, alerts, and
+operator actions without duplicating backend logic.
+
+===============================================================================
+SECTION 1: OBSIDIAN NIGHT VISUAL STANDARD
+===============================================================================
+
+1.1 VISUAL PHILOSOPHY
+-------------------------------------------------------------------------------
+The screenshot defines the base tone: very dark navy-black background, subdued
+glass panels, cyan highlights, neon green profit states, amber caution states,
+and restrained typography. The refinement target is “institutional quiet”:
+
+- no loud gradients
+- no cartoon shadows
+- no saturated purple bias
+- no oversized rounded cards
+- no soft playful UI language
+
+The terminal should feel like a serious operations desk that can survive a live
+trading morning without visual fatigue.
+
+1.2 COLOR SYSTEM
+-------------------------------------------------------------------------------
+All colors are fixed and must be centralized in one theme file.
+
+Core surfaces:
+- BG_0 / App background: #050B12
+- BG_1 / Primary panel: #07131D
+- BG_2 / Elevated panel: #0B1724
+- BG_3 / Deep inset: #102131
+- BG_4 / Hover overlay: #14283A
+
+Borders and lines:
+- Border default: #163043
+- Border soft: #20384B
+- Border active: #2A7FFF
+- Border glow cyan: #27D7FF
+- Border warning: #D68B00
+- Border danger: #C94A4A
+
+Text palette:
+- Text primary: #EAF2FF
+- Text secondary: #9FB0C3
+- Text muted: #6F8298
+- Text disabled: #4C5B6D
+
+Signal palette:
+- Bullish / positive: #22D48A
+- Bullish strong: #41F3A2
+- Bearish / negative: #FF6161
+- Bearish strong: #FF3A52
+- Neutral: #A8B3C7
+- Caution: #FFB020
+- Alert: #FF7A18
+- Critical: #FF3D57
+
+SMC palette:
+- Liquidity pool buy side: #2ED0FF
+- Liquidity pool sell side: #FFB020
+- Order block bullish: #49E6A6
+- Order block bearish: #FF6D6D
+- FVG fill: #8BDAFF
+- BOS / CHoCH: #C2FF4E
+
+ML palette:
+- ML pass: #4DD6FF
+- ML reject: #FF9E57
+- ML uncertain: #8C99AA
+- SHAP positive: #35D07F
+- SHAP negative: #FF6677
+
+Component Guard palette:
+- Veto green: #21D28B
+- Veto amber: #F5A524
+- Veto red: #FF4B5C
+- Index follow-through blue: #48B9FF
+
+1.3 HEX CONTRACT FOR STATES
+-------------------------------------------------------------------------------
+The dashboard must render these states consistently:
+
+Bullish states:
+- primary bullish text: #22D48A
+- bullish accent glow: #41F3A2
+- bullish chart line: #2ED47A
+- bullish badge background: rgba(34, 212, 138, 0.12)
+
+Bearish states:
+- primary bearish text: #FF6161
+- bearish accent glow: #FF3A52
+- bearish chart line: #FF3D57
+- bearish badge background: rgba(255, 97, 97, 0.12)
+
+Neutral states:
+- neutral text: #A8B3C7
+- neutral accent: #6F8298
+- neutral badge background: rgba(168, 179, 199, 0.08)
+
+SMC states:
+- liquidity high: #2ED0FF
+- liquidity low: #FFB020
+- imbalance caution: #D68B00
+- trap state: #FF7A18
+
+ML states:
+- approved: #4DD6FF
+- rejected: #FF9E57
+- stale: #8C99AA
+- explainability positive: #35D07F
+
+1.4 TYPOGRAPHY
+-------------------------------------------------------------------------------
+Font stack:
+- UI font: Inter, Segoe UI, system-ui, sans-serif
+- Numeric font: JetBrains Mono, Cascadia Code, Consolas, monospace
+- Chart labels: Inter SemiBold
+
+Sizing contract:
+- App title: 18 px, 700 weight
+- Panel title: 13 px, 700 weight
+- Section subtitle: 11 px, 600 weight
+- Primary metric: 20 px, 700 weight
+- Secondary metric: 14 px, 600 weight
+- Label text: 11 px, 500 weight
+- Monospaced data text: 12 px, 500 weight
+- Tiny diagnostic text: 10 px, 400 weight
+
+Monospaced rules:
+- all prices, P&L, ratios, timestamps, and raw state IDs use monospace
+- labels never use monospace unless they are hashes, codes, or numeric IDs
+- monospaced text must use tabular numbers where the renderer supports it
+
+1.5 SPACING AND SURFACE RULES
+-------------------------------------------------------------------------------
+- Base grid: 8 px
+- Panel padding: 12 px
+- Inner content gap: 8 px
+- Card corner radius: 10 px
+- Button radius: 8 px
+- Badge radius: 999 px
+- Border width default: 1 px
+- Active border width: 1.5 px
+- Chart container padding: 10 px
+- Status strip height: 28 px
+- Top nav height: 56 px
+- Content density target: high, but readable
+
+1.6 MOTION RULES
+-------------------------------------------------------------------------------
+- Pulse only for true state changes, not decorative motion
+- Danger pulse: 500 ms loop
+- Warning pulse: 900 ms loop
+- Success flash: 250 ms fade-in and fade-out
+- Chart transitions: no full redraw if a patch update is possible
+- Panel hover: subtle 4 px lift equivalent only in shadow, never layout shift
+
+===============================================================================
+SECTION 2: SYSTEM ARCHITECTURE ALIGNMENT
+===============================================================================
+
+2.1 DASHBOARD POSITION IN THE 16-LAYER STACK
+-------------------------------------------------------------------------------
+The dashboard reads a snapshot of backend state and renders it into:
+- panels
+- gauges
+- charts
+- logs
+- command dialogs
+- kill-switch surfaces
+- compliance overlays
+
+It must never re-compute core alpha logic. If a field is already computed in the
+backend, the dashboard only visualizes it.
+
+2.2 PYQT6 EVENT LOOP MODEL
+-------------------------------------------------------------------------------
+The dashboard runtime shall use a single QApplication event loop with three
+independent update rhythms:
+
+HOT loop:
+- frequency: 100 to 250 ms
+- purpose: system health, positions summary, live risk, clock, kill-switch
+- implementation: QTimer in the GUI thread consuming prebuilt hot frames
+
+WARM loop:
+- frequency: 1000 ms
+- purpose: most panel content, narrative, regime, permissions, logs, alerts
+- implementation: queued signal update from a worker thread
+
+COLD loop:
+- frequency: 5000 ms to 30000 ms depending on payload
+- purpose: history tables, ML explainability, journal preview, diagnostics
+- implementation: batch refresh or lazy load
+
+The event loop must stay deterministic:
+1. read kill-switch first
+2. decode latest valid snapshot
+3. apply diff to shared state
+4. update hot widgets
+5. schedule warm widgets
+6. schedule cold widgets only if visible
+
+2.3 SNAPSHOT TIERS
+-------------------------------------------------------------------------------
+HOT tier:
+- latency budget: under 50 ms end to end
+- payload size target: under 8 KB
+- format: binary frame with fixed header + compact binary payload
+- contents: clock, mode, feed health, LTP, P&L, risk state, active positions,
+  regime flag, captain state, critical alerts
+
+WARM tier:
+- latency budget: under 250 ms
+- payload size target: under 128 KB
+- format: binary payload or compressed JSON
+- contents: candles, features, option chain summary, narrative, regime,
+  opportunities, brain status, session context
+
+COLD tier:
+- latency budget: under 5 seconds
+- payload size target: under 1 MB after compression
+- format: compressed JSON or msgpack bundle
+- contents: full history, logs, journal entries, SHAP snippets, replay state
+
+2.4 BINARY SERIALIZATION FOR HOT TIER
+-------------------------------------------------------------------------------
+The HOT tier must use a binary envelope so the GUI can decode a frame quickly
+without allocating large Python objects.
+
+Recommended wire format:
+
++------------+------------+------------+------------+------------+------------+
+| MAGIC(4)   | VERSION(2) | KIND(2)    | SEQ(8)     | TS(8)      | FLAGS(4)   |
++------------+------------+------------+------------+------------+------------+
+| PAYLOAD_LEN(4) | CRC32(4) | PAYLOAD(N bytes)                                |
++-----------------+---------+--------------------------------------------------+
+
+Payload encoding:
+- msgpack for compact structured values
+- optional zstd compression when payload exceeds a threshold
+- field names are stable and versioned
+- numeric arrays should be sent as packed lists, not nested dicts, when the
+  receiving widget only needs sequential values
+
+Validation steps:
+1. verify magic
+2. verify version
+3. verify payload length
+4. verify CRC32
+5. discard stale sequence numbers
+6. reject frames older than the last accepted timestamp
+
+The dashboard must keep the last valid hot frame so the UI can degrade gracefully
+instead of blanking out on a temporary bad packet.
+
+2.5 SHARED MEMORY KILL-SWITCH
+-------------------------------------------------------------------------------
+The kill-switch must live in a tiny shared memory block or equivalent atomic
+control channel that both backend and dashboard can read with near-zero latency.
+
+Control block contract:
+- version
+- backend pid
+- dashboard pid
+- mode flag
+- emergency stop flag
+- live approval flag
+- compliance state
+- heartbeat timestamp
+- last acknowledged sequence
+- safe-lock reason code
+
+Required behavior:
+- if heartbeat is stale beyond threshold, dashboard shows SAFE and locks live
+  enablement dialogs
+- if emergency stop is set, all live control surfaces turn red immediately
+- if compliance state is invalid, LIVE mode cannot be enabled
+- if shared memory cannot be read, dashboard enters conservative display mode
+
+2.6 DATA FLOW DIAGRAM
+-------------------------------------------------------------------------------
+
+BACKEND
+  |  MarketState snapshot
+  v
+Snapshot Packager
+  |  HOT/WARM/COLD frames
+  v
+Shared Memory / IPC Queue
+  |  binary frames
+  v
+Dashboard Decoder
+  |  validated state diff
+  v
+Widget Model -> Panels -> Charts -> Alerts
+
+The dashboard only renders state that has already passed backend validation.
+
+===============================================================================
+SECTION 3: REFERENCE FILE ARCHITECTURE
+===============================================================================
+
+3.1 CURRENT FILES IN SCOPE
+-------------------------------------------------------------------------------
+These files already exist and form the starting point:
+- dashboard/app.py
+- dashboard/panels/__init__.py
+- dashboard/panels/catalog.py
+- src/core/market_state.py
+- src/core/data_engine.py
+- src/core/candle_builder.py
+- src/core/feed_health.py
+- src/core/option_chain_poller.py
+- src/core/websocket_manager.py
+- src/core/auth_manager.py
+- src/execution/angel_one_broker.py
+- src/execution/paper_broker.py
+- src/execution/compliance.py
+- src/journal/trade_journal.py
+- src/journal/daily_summary.py
+- src/learning/self_learning.py
+
+3.2 TARGET DASHBOARD FILE TREE
+-------------------------------------------------------------------------------
+The long-term target structure should be:
+
+dashboard/
+  __init__.py
+  app.py
+  main.py
+  assets/
+    theme.json
+    plotly_bridge.js
+    app.css
+  core/
+    __init__.py
+    snapshot_bus.py
+    binary_frame.py
+    shared_memory_kill_switch.py
+    command_router.py
+    dashboard_clock.py
+    state_projection.py
+  ui/
+    __init__.py
+    main_window.py
+    cockpit_toolbar.py
+    layout_manager.py
+    modal_stack.py
+    status_strip.py
+  charts/
+    __init__.py
+    qwebengine_plotly_bridge.py
+    mtf_chart.py
+    order_flow_chart.py
+    option_chain_chart.py
+  panels/
+    __init__.py
+    status_panel.py
+    briefing_panel.py
+    mtf_chart_panel.py
+    volume_profile_panel.py
+    option_chain_panel.py
+    narrative_panel.py
+    regime_panel.py
+    risk_panel.py
+    positions_panel.py
+    history_panel.py
+    behavioral_panel.py
+    ml_insights_panel.py
+    smc_visuals_panel.py
+    system_health_panel.py
+    captains_log_panel.py
+    global_vitals_panel.py
+  dialogs/
+    __init__.py
+    live_mode_handshake.py
+    compliance_gate.py
+    emergency_stop.py
+    operator_notes.py
+  tests/
+    test_theme_contract.py
+    test_snapshot_decode.py
+    test_kill_switch.py
+    test_panel_registry.py
+
+The existing lightweight dashboard runtime can remain as a textual preview or
+headless adapter. The new PyQt6 terminal should be added beside it, not on top
+of it, until the UI layer is stable.
+
+3.3 RESPONSIBILITY SPLIT
+-------------------------------------------------------------------------------
+- backend: computes truth
+- dashboard/core: decodes and routes truth
+- dashboard/ui: arranges the visible terminal
+- dashboard/charts: renders interactive market visuals
+- dashboard/panels: translates state into human readable cockpit widgets
+- dashboard/dialogs: handles command and control safely
+- dashboard/assets: owns the visual theme
+
+===============================================================================
+SECTION 4: 16-PANEL ATOMIC SPECIFICATION
+===============================================================================
+
+Panel design rule:
+Each panel must have:
+1. a container frame
+2. a header row
+3. a content body
+4. a status badge
+5. a refresh classification
+6. a controlled alert behavior
+
+The widget hierarchy should be expressed as:
+QFrame -> QVBoxLayout -> Header QWidget -> Body QWidget -> Footer strip
+
+All panel widgets must support staleness overlays and gracefully degrade if the
+expected MarketState keys are missing.
+
+4.1 PANEL 01 - STATUS
+-------------------------------------------------------------------------------
+Purpose:
+- show top-of-screen system truth in one glance
+- expose feed state, mode, risk state, and execution readiness
+
+Widget hierarchy:
+QFrame(StatusPanel)
+  -> QVBoxLayout
+     -> QHBoxLayout(Header)
+        -> QLabel("STATUS")
+        -> QLabel(time clock)
+        -> QLabel(mode badge)
+     -> QGridLayout(Body)
+        -> QLabel(feed_health)
+        -> QLabel(system_state)
+        -> QLabel(risk_state)
+        -> QLabel(data_quality_score)
+        -> QLabel(ticks_per_second)
+        -> QLabel(feed_lag_ms)
+        -> QLabel(using_fallback)
+        -> QLabel(last_update)
+     -> QFrame(Footer strip)
+
+MarketState keys read:
+- system_state
+- mode
+- feed_health
+- using_fallback
+- data_quality_score
+- ticks_per_second
+- feed_lag_ms
+- last_update
+- engine_health
+- risk_state
+- trades_today
+- consecutive_losses
+
+Refresh rate:
+- HOT every 200 ms
+
+Alert behavior:
+- if feed_health becomes STALE or DOWN, border pulses Border warning or danger
+- if system_state becomes SAFE or LOCKED, entire panel hard-switches to amber
+- if data_quality_score < 40, show a reduced-confidence overlay
+
+4.2 PANEL 02 - BRIEFING
+-------------------------------------------------------------------------------
+Purpose:
+- replace noisy chart interpretation with a crisp market narrative
+- show the operator why the system is allowed or not allowed to engage
+
+Widget hierarchy:
+QFrame(BriefingPanel)
+  -> QVBoxLayout
+     -> QLabel("MORNING BRIEFING")
+     -> QLabel(narrative_label)
+     -> QLabel(narrative_score)
+     -> QProgressBar(fit score)
+     -> QListView(key catalysts)
+     -> QLabel(day_personality summary)
+     -> QLabel(session_memory summary)
+
+MarketState keys read:
+- narrative_score
+- narrative_label
+- narrative_fit_factors
+- day_personality
+- historical_match_score
+- session_memory
+- regime
+- regime_confidence
+- session_phase
+- day_type
+
+Refresh rate:
+- WARM every 1000 ms
+
+Alert behavior:
+- if narrative_label is EVENT_RISK, panel turns amber-red and suppresses long bias
+- if historical_match_score is extreme and fit factors are aligned, show a green
+  institutional match badge
+
+4.3 PANEL 03 - MTF CHART
+-------------------------------------------------------------------------------
+Purpose:
+- the primary candlestick cockpit for 1m / 3m / 5m / 15m structure
+- expose trend, swing points, overlays, and liquidity context
+
+Widget hierarchy:
+QFrame(MtfChartPanel)
+  -> QVBoxLayout
+     -> QHBoxLayout(Header)
+        -> QLabel("MULTI-TIMEFRAME CHART")
+        -> QLabel(active timeframe)
+        -> QLabel(symbol)
+     -> QWebEngineView(Plotly chart)
+     -> QHBoxLayout(Footer)
+        -> QLabel(ORH / ORL)
+        -> QLabel(IBH / IBL)
+        -> QLabel(VWAP)
+        -> QLabel(time cursor)
+
+MarketState keys read:
+- spot
+- previous_close
+- candles
+- features
+- key_levels
+- smart_money
+- candle_patterns
+- market_depth
+- option_chain
+- timestamp
+- or_high
+- or_low
+- ib_high
+- ib_low
+- ib_width
+
+Refresh rate:
+- HOT patch every 200 ms for cursor and markers
+- WARM every 1000 ms for candle geometry
+
+Alert behavior:
+- if price breaks a major level with volume support, the corresponding line flashes
+- if a liquidity sweep is detected, the chart overlays a trap marker
+
+4.4 PANEL 04 - VOLUME PROFILE
+-------------------------------------------------------------------------------
+Purpose:
+- show session profile, HVN/LVN structure, CVD, and order flow exhaustion
+- explain where the market accepted or rejected price
+
+Widget hierarchy:
+QFrame(VolumeProfilePanel)
+  -> QVBoxLayout
+     -> QLabel("VOLUME PROFILE")
+     -> QHBoxLayout
+        -> QCanvas/Plotly area
+        -> QVBoxLayout(side gauges)
+           -> QLabel(POC)
+           -> QLabel(VAH)
+           -> QLabel(VAL)
+           -> QLabel(CVD gauge)
+           -> QLabel(order flow imbalance)
+           -> QLabel(exhaustion warning)
+
+MarketState keys read:
+- candles
+- microstructure
+- option_chain
+- options_features
+- key_levels
+- session_memory
+- spot
+- feed_health
+
+Refresh rate:
+- HOT every 250 ms for CVD and imbalance
+- WARM every 1000 ms for profile rebuild preview
+
+Alert behavior:
+- if CVD diverges from price for 3 candles, show exhaustion amber
+- if volume acceptance fails at a key level, show rejection red
+- if spread widens while CVD stalls, raise microstructure caution
+
+4.5 PANEL 05 - OPTION CHAIN
+-------------------------------------------------------------------------------
+Purpose:
+- display option chain pressure, walls, IV structure, max pain, and synthetic bias
+
+Widget hierarchy:
+QFrame(OptionChainPanel)
+  -> QVBoxLayout
+     -> QLabel("OPTION CHAIN")
+     -> QTableView(strikes)
+     -> QHBoxLayout(summary cards)
+        -> QLabel(PCR)
+        -> QLabel(ATM IV)
+        -> QLabel(max pain)
+        -> QLabel(put wall)
+        -> QLabel(call wall)
+     -> Mini chart strip for strikes and OI heatmap
+
+MarketState keys read:
+- option_chain
+- options_features
+- market_depth
+- spot
+- previous_close
+- data_quality_score
+
+Refresh rate:
+- WARM every 1000 ms
+- HOT refresh only for the selected ATM region if the backend exposes deltas
+
+Alert behavior:
+- if call wall strengthens and price is below it, mark overhead resistance
+- if put wall disappears into a vacuum, mark support failure
+- if IV spikes beyond session baseline, display volatility risk badge
+
+4.6 PANEL 06 - NARRATIVE
+-------------------------------------------------------------------------------
+Purpose:
+- summarize macro bias and event pressure in one sentence and one score
+
+Widget hierarchy:
+QFrame(NarrativePanel)
+  -> QVBoxLayout
+     -> QLabel("NARRATIVE")
+     -> QLabel(score meter)
+     -> QLabel(label)
+     -> QTextBrowser(short explanation)
+     -> QLabel(event risk chip)
+
+MarketState keys read:
+- narrative_score
+- narrative_label
+- narrative_fit_factors
+- day_personality
+- historical_match_score
+- session_memory
+- regime
+- day_type
+
+Refresh rate:
+- WARM every 1000 ms
+
+Alert behavior:
+- if narrative shifts from bullish to neutral or bearish, the text must animate
+  only the color, not the layout
+- if event risk becomes dominant, long/short permission chips become dimmed
+
+4.7 PANEL 07 - REGIME
+-------------------------------------------------------------------------------
+Purpose:
+- show current regime, confidence, and predictive regime transition risk
+- host the Predictive Regime HUD
+
+Widget hierarchy:
+QFrame(RegimePanel)
+  -> QVBoxLayout
+     -> QLabel("REGIME")
+     -> QDial or radial gauge(confidence)
+     -> QLabel(regime state)
+     -> QLabel(transition probability)
+     -> QLabel(transition direction)
+     -> QLabel(VIX and ATR drivers)
+     -> QLabel(predicted trend-to-chop transition)
+
+MarketState keys read:
+- regime
+- regime_confidence
+- regime_transition_prob
+- day_type
+- session_phase
+- data_quality_score
+- features
+- narrative_score
+
+Refresh rate:
+- HOT every 250 ms for the predictive HUD
+- WARM every 1000 ms for state and confidence
+
+Alert behavior:
+- if transition probability > 0.6, show an amber caution ring
+- if regime becomes CHOP, tighten the whole dashboard color language toward
+  caution and low confidence
+
+4.8 PANEL 08 - RISK
+-------------------------------------------------------------------------------
+Purpose:
+- expose capital protection state, drawdown, exposure, and lock conditions
+
+Widget hierarchy:
+QFrame(RiskPanel)
+  -> QVBoxLayout
+     -> QLabel("RISK")
+     -> QLabel(daily P&L)
+     -> QLabel(drawdown)
+     -> QLabel(capital)
+     -> QLabel(trades today)
+     -> QLabel(consecutive losses)
+     -> QProgressBar(risk usage)
+     -> QLabel(risk_state)
+
+MarketState keys read:
+- capital
+- daily_pnl
+- drawdown_pct
+- trades_today
+- consecutive_losses
+- tilt_score
+- risk_state
+- approved_opportunities
+- open_positions
+
+Refresh rate:
+- HOT every 200 ms
+
+Alert behavior:
+- if P&L < -2 percent of capital, the border pulses Critical every 500 ms
+- if drawdown crosses the configured limit, trading approval badges turn red
+- if consecutive losses rise, the panel should reduce all optimistic styling
+
+4.9 PANEL 09 - POSITIONS
+-------------------------------------------------------------------------------
+Purpose:
+- show live positions, exits, quantity, average price, and book-level P&L
+
+Widget hierarchy:
+QFrame(PositionsPanel)
+  -> QVBoxLayout
+     -> QLabel("POSITIONS")
+     -> QTableView(open positions)
+     -> QHBoxLayout(summary chips)
+        -> QLabel(net quantity)
+        -> QLabel(unrealized P&L)
+        -> QLabel(realized P&L)
+        -> QLabel(exposure)
+
+MarketState keys read:
+- open_positions
+- daily_pnl
+- capital
+- trades_today
+- system_state
+
+Refresh rate:
+- HOT every 200 ms
+
+Alert behavior:
+- if any position moves against the thesis beyond the contextual stop, row turns
+  caution or danger
+- if no open positions exist, render a calm neutral empty state, not a blank pane
+
+4.10 PANEL 10 - HISTORY
+-------------------------------------------------------------------------------
+Purpose:
+- show recent decision history and a compressed decision trail
+
+Widget hierarchy:
+QFrame(HistoryPanel)
+  -> QVBoxLayout
+     -> QLabel("HISTORY")
+     -> QListView(decision feed)
+     -> QTableView(opportunity history)
+     -> QTextBrowser(selected event detail)
+
+MarketState keys read:
+- raw_opportunities
+- trapped_opportunities
+- scored_opportunities
+- ml_filtered
+- behavioral_filtered
+- approved_opportunities
+- last_updated_fields
+- session_memory
+
+Refresh rate:
+- COLD every 5000 ms
+
+Alert behavior:
+- if many opportunities are rejected by the trap engine, show a learning note
+- if history is stale while live data is active, show a synchrony warning
+
+4.11 PANEL 11 - BEHAVIORAL
+-------------------------------------------------------------------------------
+Purpose:
+- expose tilt, revenge risk, FOMO, and self-control gating
+
+Widget hierarchy:
+QFrame(BehavioralPanel)
+  -> QVBoxLayout
+     -> QLabel("BEHAVIORAL SENTINEL")
+     -> QDial(tilt score)
+     -> QLabel(revenge flag)
+     -> QLabel(FOMO lock)
+     -> QLabel(overtrading guard)
+     -> QLabel(cooldown state)
+
+MarketState keys read:
+- tilt_score
+- consecutive_losses
+- session_memory
+- risk_state
+- behavioral_filtered
+- approved_opportunities
+- system_state
+
+Refresh rate:
+- HOT every 250 ms
+
+Alert behavior:
+- if tilt_score rises, trading permission badges dim automatically
+- if consecutive losses trigger the behavioral lock, show a hard amber overlay
+
+4.12 PANEL 12 - ML INSIGHTS
+-------------------------------------------------------------------------------
+Purpose:
+- show what the ML filter accepted, rejected, or found uncertain
+
+Widget hierarchy:
+QFrame(MLInsightsPanel)
+  -> QVBoxLayout
+     -> QLabel("ML INSIGHTS")
+     -> QTableView(filter outputs)
+     -> QLabel(model verdict)
+     -> QLabel(SHAP summary)
+     -> QLabel(rejection reason)
+
+MarketState keys read:
+- raw_opportunities
+- scored_opportunities
+- ml_filtered
+- approved_opportunities
+- features
+- options_features
+- microstructure
+- narrative_score
+- regime
+- engine_health
+
+Refresh rate:
+- WARM every 1000 ms
+- COLD every 5000 ms for explainability panels
+
+Alert behavior:
+- if model rejects everything for a long time, show a model-staleness warning
+- if SHAP shows one dominant negative factor, highlight it in bearish red
+
+4.13 PANEL 13 - SMC VISUALS
+-------------------------------------------------------------------------------
+Purpose:
+- visualize smart money concepts directly on the terminal without clutter
+- show order blocks, FVGs, liquidity pools, BOS, CHoCH, and breaker blocks
+
+Widget hierarchy:
+QFrame(SMCVisualsPanel)
+  -> QVBoxLayout
+     -> QLabel("SMC VISUALS")
+     -> QWebEngineView or canvas overlay
+     -> Legend widget
+     -> QListView(active SMC objects)
+     -> QLabel(trap / sweep summary)
+
+MarketState keys read:
+- smart_money
+- key_levels
+- candles
+- candle_patterns
+- market_depth
+- features
+- session_memory
+
+Refresh rate:
+- HOT every 250 ms for overlays
+- WARM every 1000 ms for object list
+
+Alert behavior:
+- if a liquidity sweep happens at a major pool, paint the pool red and tag it
+- if a fair value gap remains unmitigated near trend continuation, mark it blue
+
+4.14 PANEL 14 - SYSTEM HEALTH
+-------------------------------------------------------------------------------
+Purpose:
+- show overall runtime health for every engine and every channel
+
+Widget hierarchy:
+QFrame(SystemHealthPanel)
+  -> QVBoxLayout
+     -> QLabel("SYSTEM HEALTH")
+     -> QGridLayout(engine matrix)
+     -> QLabel(last update)
+     -> QLabel(feed latency)
+     -> QLabel(kill-switch state)
+     -> QLabel(snapshot age)
+
+MarketState keys read:
+- engine_health
+- last_update
+- feed_health
+- using_fallback
+- data_quality_score
+- ticks_per_second
+- feed_lag_ms
+- system_state
+- mode
+
+Refresh rate:
+- HOT every 200 ms
+
+Alert behavior:
+- if any engine health becomes degraded, mark the specific row yellow
+- if multiple engines degrade together, escalate to a system-wide caution banner
+
+4.15 PANEL 15 - CAPTAIN'S LOG
+-------------------------------------------------------------------------------
+Purpose:
+- show what the Captain decided and why
+- provide a readable decision trail for debugging and audit
+
+Widget hierarchy:
+QFrame(CaptainsLogPanel)
+  -> QVBoxLayout
+     -> QLabel("CAPTAIN'S LOG")
+     -> QTextBrowser(decision narrative)
+     -> QTableView(brain selection trace)
+     -> QLabel(active brains)
+     -> QLabel(confidence)
+
+MarketState keys read:
+- system_state
+- mode
+- active_brains
+- brain_confidence
+- raw_opportunities
+- trapped_opportunities
+- scored_opportunities
+- ml_filtered
+- behavioral_filtered
+- approved_opportunities
+- last_updated_fields
+
+Refresh rate:
+- WARM every 1000 ms
+- COLD every 5000 ms for trace expansion
+
+Alert behavior:
+- if the Captain repeatedly stays silent, show a silence reason note
+- if brain selection flips frequently, show instability caution
+
+4.16 PANEL 16 - GLOBAL VITALS
+-------------------------------------------------------------------------------
+Purpose:
+- the highest-level health and market summary card
+- host the Component Guard and the sovereign top-line view
+
+Widget hierarchy:
+QFrame(GlobalVitalsPanel)
+  -> QVBoxLayout
+     -> QHBoxLayout(top row)
+        -> QLabel(spot)
+        -> QLabel(previous close)
+        -> QLabel(regime)
+        -> QLabel(narrative)
+        -> QLabel(mode)
+     -> QGridLayout(macro vitals)
+        -> QLabel(feed_health)
+        -> QLabel(data_quality_score)
+        -> QLabel(regime_transition_prob)
+        -> QLabel(drawdown_pct)
+        -> QLabel(system_state)
+        -> QLabel(session_phase)
+        -> QLabel(day_type)
+     -> QWidget(Component Guard strip)
+        -> Heavyweight 1 badge
+        -> Heavyweight 2 badge
+        -> Heavyweight 3 badge
+        -> Heavyweight 4 badge
+        -> Heavyweight 5 badge
+        -> Veto indicator
+
+MarketState keys read:
+- spot
+- previous_close
+- feed_health
+- data_quality_score
+- regime
+- regime_transition_prob
+- narrative_score
+- system_state
+- mode
+- session_phase
+- day_type
+- active_brains
+- risk_state
+- capital
+- daily_pnl
+- drawdown_pct
+- using_fallback
+- features
+
+Refresh rate:
+- HOT every 200 ms
+
+Alert behavior:
+- if component guard veto is red, the entire dashboard enters a caution frame
+- if the index is strong but heavyweight participation is weak, show a divergence
+  warning
+- if the top 5 names are aligned, show a breadth approval badge
+
+Component Guard specification:
+- monitor top 5 NIFTY heavyweights from backend-configured names
+- each heavyweight gets state: OK / WATCH / VETO / DISABLED
+- each name gets a micro sparkline, price change, and contribution ratio
+- veto logic should be configurable and should not rely on any UI assumption
+
+===============================================================================
+SECTION 5: COMMAND AND CONTROL
+===============================================================================
+
+5.1 LIVE MODE THREE-STEP HANDSHAKE
+-------------------------------------------------------------------------------
+LIVE mode is not a button. It is a compliance handshake.
+
+Step 1: Identity verification screen
+- confirm broker connection
+- confirm user role or operator profile
+- confirm static IP is the approved one
+- confirm backend PID and dashboard PID are both healthy
+
+Step 2: Compliance verification screen
+- confirm Algo-ID is valid
+- confirm limit orders only mode is available
+- confirm emergency stop channel is working
+- confirm audit trail sink is writable
+
+Step 3: Live enable confirmation screen
+- user types a short confirmation phrase
+- dashboard receives a backend signed token with TTL
+- backend flips mode only if kill-switch, compliance, and health all pass
+
+The dashboard must visually lock LIVE mode until all three steps succeed.
+
+5.2 MODE SURFACES
+-------------------------------------------------------------------------------
+- ALERT: read-only, no live order capability, safest first mode
+- PAPER: live data, simulated execution
+- LIVE: real execution, strict compliance gates
+
+5.3 EMERGENCY STOP
+-------------------------------------------------------------------------------
+Emergency stop is always visible.
+It must:
+- be one click or one hotkey away
+- require no scrolling
+- turn the terminal red and freeze LIVE enablement
+- preserve current state for audit after activation
+
+===============================================================================
+SECTION 6: CHARTING ENGINE
+===============================================================================
+
+6.1 QWEBENGINE + PLOTLY BRIDGE
+-------------------------------------------------------------------------------
+Plotly must run inside a QWebEngineView and never be reloaded per tick.
+The page is loaded once, then updated by JavaScript patches.
+
+Bridge contract:
+- Python prepares a compact frame
+- the bridge emits a JavaScript payload
+- Plotly receives incremental updates
+- the chart maintains its own ring buffers in browser memory
+
+6.2 EXTENDTRACES STRATEGY FOR 5000+ TICKS
+-------------------------------------------------------------------------------
+The chart must not freeze when the tick count passes 5000.
+
+Required method:
+- initialize traces once
+- use Plotly.extendTraces for live points
+- limit each visible trace with maxpoints
+- batch incoming points into one animation frame
+- never call full Plotly.newPlot on every update
+
+Anti-freeze rules:
+1. batch tick writes into 100 ms or 250 ms windows
+2. keep only visible window points in the DOM layer
+3. store history in Python or backend memory, not in the browser DOM
+4. use requestAnimationFrame or equivalent timing in JS
+5. if the chart falls behind, coalesce frames instead of queueing all of them
+
+6.3 PLOTLY DATA POLICY
+-------------------------------------------------------------------------------
+- candlestick chart traces are primary
+- volume histogram is secondary
+- overlays for VWAP, OR, IB, SMC, liquidity, and component guard must be thin
+- tooltips must be informative but not cluttered
+- no animated rainbow indicators
+
+===============================================================================
+SECTION 7: REALTIME PERFORMANCE CONTRACT
+===============================================================================
+
+7.1 LATENCY BUDGETS
+-------------------------------------------------------------------------------
+- hot state decode: under 10 ms
+- hot widget patch: under 20 ms
+- warm panel refresh: under 100 ms
+- chart delta apply: under 30 ms for a small batch
+- live mode handshake: under 2 seconds including user confirmation
+
+7.2 GRACEFUL DEGRADATION
+-------------------------------------------------------------------------------
+If the backend pauses or feed quality drops:
+- freeze warm and cold widgets first
+- keep hot status alive longer than everything else
+- retain last valid chart frame
+- show stale badges instead of blanking panels
+- preserve the last successful kill-switch state
+
+7.3 MEMORY POLICY
+-------------------------------------------------------------------------------
+- avoid loading full historical arrays into every widget
+- use shared projections, not duplicate copies
+- panel-local caches must be bounded
+- chart history must be ring-buffer based
+
+===============================================================================
+SECTION 8: IMPLEMENTATION FILE-BY-FILE ROADMAP
+===============================================================================
+
+8.1 FILE PURPOSES
+-------------------------------------------------------------------------------
+dashboard/main.py
+- application entry point for PyQt6 terminal
+
+dashboard/core/binary_frame.py
+- pack and unpack HOT/WARM/COLD frames
+
+dashboard/core/snapshot_bus.py
+- receive, validate, and distribute decoded state
+
+dashboard/core/shared_memory_kill_switch.py
+- read the control block and enforce emergency states
+
+dashboard/core/command_router.py
+- send safe user commands back to backend
+
+dashboard/core/state_projection.py
+- project MarketState into panel-friendly slices
+
+dashboard/core/dashboard_clock.py
+- own panel timers and deterministic refresh order
+
+dashboard/ui/main_window.py
+- construct the cockpit frame, nav, docking, and status strip
+
+dashboard/ui/layout_manager.py
+- manage panel placement and density rules
+
+dashboard/ui/cockpit_toolbar.py
+- host mode actions, search, and compliance badges
+
+dashboard/ui/modal_stack.py
+- handle live mode and emergency stop dialogs
+
+dashboard/charts/qwebengine_plotly_bridge.py
+- manage JavaScript execution and incremental traces
+
+dashboard/panels/*.py
+- one panel per terminal surface
+
+dashboard/dialogs/*.py
+- handshake and safety dialogs
+
+8.2 FILES TO KEEP LIGHTWEIGHT
+-------------------------------------------------------------------------------
+- app.py should remain a preview adapter
+- panels/__init__.py should remain the contract and registry layer
+- catalog.py should keep a default registry for tests and headless rendering
+
+===============================================================================
+SECTION 9: 18-WEEK IMPLEMENTATION SPRINT
+===============================================================================
+
+Sprint rule:
+- each week must end with a visible, running artifact
+- each week must include one validation step
+- no week may depend on unbuilt future work
+- if a week slips, the dashboard must still remain runnable
+
+WEEK 01 - FOUNDATION AND THEME
+-------------------------------------------------------------------------------
+Mon: create dashboard/main.py with QApplication bootstrap and basic window.
+Tue: add dashboard/assets/theme.json with all hex values and density tokens.
+Wed: add dashboard/ui/main_window.py shell with top bar and content area.
+Thu: add dashboard/ui/status_strip.py and confirm app launch.
+Fri: add dashboard/tests/test_theme_contract.py to verify palette keys.
+Weekend buffer: polish spacing and validate no layout overflow.
+
+WEEK 02 - CORE STATE PIPELINE
+-------------------------------------------------------------------------------
+Mon: write dashboard/core/binary_frame.py with header struct and msgpack payload.
+Tue: write dashboard/core/snapshot_bus.py to decode frames safely.
+Wed: write dashboard/core/state_projection.py to map MarketState slices.
+Thu: write dashboard/core/dashboard_clock.py for HOT/WARM/COLD scheduling.
+Fri: add dashboard/tests/test_snapshot_decode.py.
+Weekend buffer: benchmark frame decode latency.
+
+WEEK 03 - KILL SWITCH AND COMMAND ROUTING
+-------------------------------------------------------------------------------
+Mon: write dashboard/core/shared_memory_kill_switch.py.
+Tue: write dashboard/core/command_router.py.
+Wed: add dashboard/dialogs/emergency_stop.py.
+Thu: add dashboard/dialogs/compliance_gate.py.
+Fri: add dashboard/tests/test_kill_switch.py.
+Weekend buffer: test stale heartbeat fallback.
+
+WEEK 04 - PANEL CONTRACT HARDENING
+-------------------------------------------------------------------------------
+Mon: expand dashboard/panels/__init__.py contract if needed.
+Tue: refactor dashboard/panels/catalog.py into one panel per class.
+Wed: add panel registry metrics and stale state support.
+Thu: wire panel validation warnings into status strip.
+Fri: add dashboard/tests/test_panel_registry.py.
+Weekend buffer: confirm isolated panel failures do not crash registry.
+
+WEEK 05 - STATUS, BRIEFING, SYSTEM HEALTH
+-------------------------------------------------------------------------------
+Mon: implement status_panel.py.
+Tue: implement briefing_panel.py.
+Wed: implement system_health_panel.py.
+Thu: connect data-quality and engine-health indicators.
+Fri: run a headless render against sample MarketState snapshots.
+Weekend buffer: tune visual hierarchy.
+
+WEEK 06 - GLOBAL VITALS AND COMPONENT GUARD
+-------------------------------------------------------------------------------
+Mon: implement global_vitals_panel.py.
+Tue: implement component guard strip widget.
+Wed: wire top 5 heavyweight badges and veto indicators.
+Thu: define configuration schema for heavyweight names.
+Fri: add a guard-state regression test.
+Weekend buffer: verify alert colors across all veto states.
+
+WEEK 07 - MTF CHART SHELL
+-------------------------------------------------------------------------------
+Mon: write charts/qwebengine_plotly_bridge.py.
+Tue: write charts/mtf_chart.py.
+Wed: embed the chart in mtf_chart_panel.py.
+Thu: implement candle overlays for VWAP, OR, and IB.
+Fri: test incremental updates with 1000 points.
+Weekend buffer: confirm no redraw loop.
+
+WEEK 08 - EXTENDTRACES AND PERFORMANCE
+-------------------------------------------------------------------------------
+Mon: optimize JS payload batching.
+Tue: add requestAnimationFrame batching.
+Wed: test 5000+ tick stream with maxpoints.
+Thu: profile chart memory and repaint time.
+Fri: add performance report output to dashboard tests.
+Weekend buffer: reduce DOM churn.
+
+WEEK 09 - VOLUME PROFILE AND ORDER FLOW
+-------------------------------------------------------------------------------
+Mon: implement volume_profile_panel.py.
+Tue: add CVD gauge and imbalance chips.
+Wed: add exhaustion and absorption alerts.
+Thu: connect session profile anchors.
+Fri: validate profile rebuild from snapshot data.
+Weekend buffer: compare with backend microstructure.
+
+WEEK 10 - OPTION CHAIN AND VOLATILITY
+-------------------------------------------------------------------------------
+Mon: implement option_chain_panel.py.
+Tue: connect PCR, max pain, walls, and IV summary.
+Wed: add strike heatmap and ATM focus mode.
+Thu: show volatility risk thresholds.
+Fri: test option snapshot updates with stale chain fallback.
+Weekend buffer: confirm tables render with missing rows.
+
+WEEK 11 - REGIME AND NARRATIVE
+-------------------------------------------------------------------------------
+Mon: implement regime_panel.py with predictive HUD.
+Tue: implement narrative_panel.py.
+Wed: wire VIX and ATR transition signals.
+Thu: add narrative fit factor explanation text.
+Fri: test regime change highlighting.
+Weekend buffer: ensure chop warnings dominate.
+
+WEEK 12 - SMC VISUALS
+-------------------------------------------------------------------------------
+Mon: implement smc_visuals_panel.py.
+Tue: draw FVG, OB, BOS, CHoCH, breaker blocks.
+Wed: overlay liquidity pools on the chart.
+Thu: add trap markers and sweep indicators.
+Fri: validate rendering against sample structure snapshots.
+Weekend buffer: tune legend readability.
+
+WEEK 13 - RISK AND POSITIONS
+-------------------------------------------------------------------------------
+Mon: implement risk_panel.py.
+Tue: implement positions_panel.py.
+Wed: wire drawdown threshold pulses.
+Thu: show exposure and open-book summaries.
+Fri: test negative P&L alert behavior.
+Weekend buffer: check no flicker during rapid updates.
+
+WEEK 14 - HISTORY, BEHAVIORAL, ML
+-------------------------------------------------------------------------------
+Mon: implement history_panel.py.
+Tue: implement behavioral_panel.py.
+Wed: implement ml_insights_panel.py.
+Thu: wire rejection reasons and SHAP snippets.
+Fri: add filtered opportunity history tests.
+Weekend buffer: verify no stale duplication.
+
+WEEK 15 - CAPTAIN LOG AND MODE HANDSHAKES
+-------------------------------------------------------------------------------
+Mon: implement captains_log_panel.py.
+Tue: add live_mode_handshake.py.
+Wed: add identity verification modal.
+Thu: add compliance gate modal.
+Fri: add live enable token round-trip test.
+Weekend buffer: verify operator cannot bypass handshake.
+
+WEEK 16 - LAYOUT AND POLISH
+-------------------------------------------------------------------------------
+Mon: refine main_window.py docking.
+Tue: refine layout_manager.py density rules.
+Wed: add keyboard navigation and search.
+Thu: make theme tokens consistent across every panel.
+Fri: run visual QA against ChatGPT dash.png target.
+Weekend buffer: eliminate inconsistent padding.
+
+WEEK 17 - INTEGRATION AND RESILIENCE
+-------------------------------------------------------------------------------
+Mon: connect live backend snapshot feed.
+Tue: test fallback when frames stop arriving.
+Wed: test kill-switch and mode transitions.
+Thu: test panel degradation and stale overlays.
+Fri: run a long observe-mode session with recorded data.
+Weekend buffer: document root causes and patch defects.
+
+WEEK 18 - RELEASE HARDENING
+-------------------------------------------------------------------------------
+Mon: lock file contracts and defaults.
+Tue: finalize tests and benchmark results.
+Wed: write operator manual and developer notes.
+Thu: conduct final UI review and color pass.
+Fri: release a tagged internal dashboard build.
+Weekend buffer: reserve for hotfixes only.
+
+===============================================================================
+SECTION 10: ACCEPTANCE CRITERIA
+===============================================================================
+
+The dashboard is only complete when all of the following are true:
+1. It launches without blocking the backend.
+2. It renders all 16 panels.
+3. It respects HOT, WARM, and COLD refresh rules.
+4. It decodes binary hot frames safely.
+5. It obeys the kill-switch immediately.
+6. It supports LIVE handshake gating.
+7. It shows component guard vetoes.
+8. It can survive missing option-chain data.
+9. It can survive stale market feeds.
+10. It can run in read-only mode without trade permissions.
+
+===============================================================================
+SECTION 11: FINAL BUILD DISCIPLINE
+===============================================================================
+
+1. Never block the event loop with heavy computation.
+2. Never duplicate backend logic inside a widget.
+3. Never show a number that cannot be traced to a MarketState field.
+4. Never allow LIVE mode without compliance approval.
+5. Never hide stale data behind fake freshness.
+6. Never let a panel failure crash the terminal.
+7. Never redraw the chart from scratch when a delta update is enough.
+8. Never weaken the Obsidian Night palette into a generic admin theme.
+
+END STATE
+===============================================================================
+The resulting dashboard should feel like a sovereign operations console:
+- dark, precise, quiet, and fast
+- visually tight but not crowded
+- suitable for live decision support
+- usable by a junior developer without needing hidden context
+- faithful to the backend truth
+
+This is the build contract.

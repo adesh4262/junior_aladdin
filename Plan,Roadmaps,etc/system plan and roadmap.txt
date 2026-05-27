@@ -1,0 +1,2956 @@
+
+
+plan---
+
+
+JUNIOR ALADDIN — THE FINAL SOVEREIGN BLUEPRINT
+Merged from Plans 1, 2 & 3: Every Strongest Idea, Zero Redundancy
+
+SECTION 0: MERGE DECISIONS — WHY EACH CHOICE WAS MADE
+Before the plan, here is exactly what was picked from each plan and why.
+From Plan 1 (Ultimate Sovereign Blueprint): Market DNA Fingerprint Engine — no other plan had day-personality classification with historical matching. Trap Detection as a dedicated layer running on EVERY signal before scoring — Plan 2 had trap detection as a scoring factor (too weak), Plan 3 had none. Regime Transition Probability — predicting when regime is about to change, not just what it currently is. Session Memory — the system remembering what happened earlier in the day. Dynamic regime-adaptive scoring weights — Plan 2 and 3 used fixed weights. The most detailed feature computation order and data source specifications. The 5 Laws philosophy (strongest philosophical framework). Contextual stop losses tied to thesis invalidation.
+From Plan 2 (Definitive Mega Plan): SEBI April 2026 compliance layer — neither Plan 1 nor 3 addressed this. Tuesday expiry + 65 lot size — only Plan 2 had updated 2026 market rules. Static IP, Algo-ID, Limit-orders-only enforcement. Smart Money Concepts as a dedicated feature category (FVG, OB, Liquidity Pools, BOS, CHoCH, Breaker Blocks). FVG Retest and Liquidity Sweep Reversal strategies. Practical ₹50K capital math showing 1-lot reality. Complete config.yaml with every tunable parameter. Complete folder structure. 5-level self-learning hierarchy. Hybrid local+Colab+Drive architecture for the specific laptop. Security protocols for credential management. 18-week phased roadmap (most realistic).
+From Plan 3 (Sovereign Architecture): Best Behavioral Sentinel description with the most detailed revenge/FOMO/tilt rules. Pre-Event Straddle and Post-Event Momentum strategies (Plan 2 removed them, Plan 1 didn't have them — but they are valuable on event days). Scale-In concept for winners in Position Management. The most detailed SHAP integration across the journal and dashboard. Clearest dashboard panel descriptions. Best Self-Learning Loop weekly process description. Kelly-GARCH position sizing concept.
+Key Architecture Decisions:
+DecisionPlan 1Plan 2Plan 3Final ChoiceRationaleLaws5436All 5 from Plan 1 + Compliance from Plan 2Layers14161516Plan 1's 14 + Compliance + Market DNA as explicit layersBrains3+2 overlays4+2 overlays54+2 overlaysInstitutional Brain is needed (Plan 2/3), Event is better as overlay (Plan 1/2)Strategies10121613Plan 2's 12 + Pre-Event Straddle from Plan 3Scoring Factors9 dynamic10 fixed9 fixed10 dynamicPlan 2's trap as 10th factor + Plan 1's regime-adaptive weightsDashboard PanelsNone specified fully161816Plan 3's 18 had redundancy; Plan 2's 16 is optimalExpiry DayNot specifiedTuesdayThursdayTuesdayPlan 2 is correct for 2026Lot SizeNot specified65Not specified65Plan 2 is correct for 2026ComplianceNoneFull SEBI layerNoneFull SEBI layerNon-negotiable for April 2026Self-LearningConcepts only5 levels5-step weekly5 levels + weekly processPlan 2 levels + Plan 3 process detail
+
+SECTION 1: THE SIX LAWS
+Every decision in this system — every strategy, engine, line of code — must satisfy at least one law. If it violates any, it is rejected.
+Law 1 — Context First, Action Second. No trade exists in isolation. Before any chart is analyzed, the system must know the macro environment, the regime, the time of day, and the day type. A technically perfect setup in the wrong context is a loss waiting to happen. Professional traders reject 80% of "good" setups because the context is wrong.
+Law 2 — Confluence or Silence. A trade fires only when Technical Structure + Microstructure + Options Pressure + Narrative + Regime + Time Context all agree. If even one dimension is strongly against, the system goes silent. The best traders in the world are flat 70% of the time.
+Law 3 — Anti-Fragility. Every loss makes the system more cautious (smaller size, higher thresholds). Every win does NOT make it more aggressive. The system becomes stronger under stress. This is the opposite of human psychology — and that difference IS the edge.
+Law 4 — Trap Awareness. Before every trade, the system asks: "Is this a trap?" Markets are designed to take money from the majority. The Trap Detection Engine runs on EVERY signal before scoring. This is not optional — this is the single most important edge a systematic trader can have.
+Law 5 — Survival First, Profit Second. The system's primary job is to NOT lose money. Any day ending flat is a successful day. Any day avoiding a large loss is a victorious day. Profits come from consistency over months.
+Law 6 — Compliance First. No feature, no speed, no edge that violates SEBI's algo trading framework enters this system. Static IP, Algo-ID, Limit orders only, audit trail — all non-negotiable. A non-compliant system is no system.
+
+SECTION 2: COMPLETE 16-LAYER ARCHITECTURE
+╔═══════════════════════════════════════════════════════════════════╗
+║                 LAYER 0: EXTERNAL DATA UNIVERSE                   ║
+║   Angel One SmartAPI WebSocket v2 │ Angel One REST (fallback)     ║
+║   NSE FII/DII CSV │ Yahoo Finance │ India VIX │ Calendar JSON     ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║          LAYER 1: DATA VALIDATION & INGESTION ENGINE              ║
+║   Tick Validator │ Spike Filter │ Gap Detector │ Dedup            ║
+║   Candle Builder (1m,3m,5m,15m from single tick stream)           ║
+║   Option Chain Poller (30s) │ Feed Health │ Parquet Archival      ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║           LAYER 2: FEATURE COMPUTATION ENGINE                     ║
+║   2A: Price & Trend │ 2B: Momentum & Oscillators │ 2C: Volatility║
+║   2D: Volume & Profile │ 2E: Options & Greeks │ 2F: Microstructure║
+║   2G: Smart Money Concepts │ 2H: Key Levels │ 2I: Candle Patterns║
+║   2J: Fundamental │ 2K: MTF Alignment                             ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                  ┌─────────────┼─────────────┐
+                  ▼             ▼             ▼
+         ╔══════════════╗ ╔═══════════════╗ ╔════════════════╗
+         ║  LAYER 3A:   ║ ║  LAYER 3B:    ║ ║  LAYER 3C:     ║
+         ║  NARRATIVE   ║ ║  REGIME       ║ ║  TIME CONTEXT  ║
+         ║  ENGINE      ║ ║  ENGINE       ║ ║  ENGINE        ║
+         ║  -100 to +100║ ║  5 States +   ║ ║  9 Sessions    ║
+         ║  + Fit Factor║ ║  Confidence + ║ ║  Tuesday Expiry║
+         ║              ║ ║  Transition   ║ ║  Day Type      ║
+         ║              ║ ║  Probability  ║ ║  OR/IB Levels  ║
+         ╚══════════════╝ ╚═══════════════╝ ╚════════════════╝
+                  │             │             │
+                  └─────────────┼─────────────┘
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║        LAYER 4: MARKET DNA FINGERPRINT ENGINE (from Plan 1)       ║
+║   Day Personality Classification │ Historical Match               ║
+║   Session Memory │ Regime Transition Predictor                    ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║         LAYER 5: FOUR-BRAIN ENGINE + TWO OVERLAYS                 ║
+║   Brain 1: STRUCTURAL │ Brain 2: TACTICAL                        ║
+║   Brain 3: INSTITUTIONAL │ Brain 4: ADAPTIVE                     ║
+║   Overlay A: EVENT │ Overlay B: BEHAVIORAL                        ║
+║   Captain selects 0-2 active brains at any moment                 ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║           LAYER 6: STRATEGY ENGINE (13 Core Detectors)            ║
+║   Each returns: Opportunity(direction, score, sl, target, thesis) ║
+║   Pure functions — no side effects, no broker access              ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║        LAYER 7: TRAP DETECTION ENGINE (from Plan 1)               ║
+║   Fake Breakout Probability │ Stop Hunt Detector                  ║
+║   Volume Confirmation │ OI Contradiction │ Time-of-Day Bias       ║
+║   Spread Widening │ Session Memory Trap History                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║    LAYER 8: DYNAMIC CONFLUENCE SCORING ENGINE (10 Factors)        ║
+║   Structure │ Location │ Momentum │ Options │ Regime              ║
+║   MTF │ Smart Money │ Narrative │ Time │ Trap Detection           ║
+║   REGIME-ADAPTIVE WEIGHTS │ Confluence Bonus │ Hard Rejections    ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║              LAYER 9: ML / AI FILTER LAYER                        ║
+║   LightGBM Quality Filter (REJECT only) │ GARCH Volatility       ║
+║   Isolation Forest Anomaly │ XGBoost Regime Backup                ║
+║   SHAP Explainability for every decision                          ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║       LAYER 10: BEHAVIORAL SENTINEL (Psychology Engine)           ║
+║   Pre-Trade Checklist │ Revenge Detection │ FOMO Lock             ║
+║   Tilt Score │ Overtrading Prevention │ Cooldowns                 ║
+║   Mature Trader Trap Awareness Rules                              ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║         LAYER 11: PORTFOLIO RISK ENGINE                           ║
+║   Cost-Adjusted Position Sizing │ Kelly-GARCH Hybrid              ║
+║   Net Delta/Gamma Monitor │ Dynamic SL │ Daily Limits             ║
+║   Drawdown Manager │ Circuit Breaker │ Edge Decay Tracker         ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║      LAYER 12: CAPTAIN ORCHESTRATOR (Finite State Machine)        ║
+║   BOOT → OBSERVE → ACTIVE → CAUTIOUS → SAFE → LOCKED → SHUTDOWN  ║
+║   Brain Selector │ Engine Health │ Mode Manager │ Kill Switch      ║
+║   Morning Init │ Decision Logger │ Daily Lifecycle                ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║          LAYER 13: POSITION MANAGEMENT ENGINE                     ║
+║   Contextual SL │ Trailing SL │ Partial Exit │ Time Exit          ║
+║   Breakeven Move │ Confidence Decay │ Regime Change Exit          ║
+║   Scale-In (winners only) │ EOD Close                             ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                                ▼
+╔═══════════════════════════════════════════════════════════════════╗
+║     LAYER 14: COMPLIANCE & EXECUTION ENGINE                       ║
+║   SEBI Algo-ID Tag │ Static IP Enforcement │ Limit Orders Only    ║
+║   Order Router │ Slippage Simulator │ Broker Abstraction          ║
+║   3 Modes: ALERT │ PAPER │ LIVE                                   ║
+║   Cost Calculator (STT+Brokerage+GST+Stamp+Exchange)             ║
+║   Audit Trail (5-year retention)                                  ║
+╚═══════════════════════════════════════════════════════════════════╝
+                                │
+                  ┌─────────────┼─────────────┐
+                  ▼             ▼             ▼
+         ╔══════════════╗ ╔═══════════════╗ ╔═══════════════╗
+         ║  LAYER 15A:  ║ ║  LAYER 15B:   ║ ║  LAYER 15C:   ║
+         ║  POST-TRADE  ║ ║  SELF-LEARNING║ ║  DASHBOARD    ║
+         ║  JOURNAL     ║ ║  LOOP (5-Level║ ║  16 Panels    ║
+         ║  Auto-Gen    ║ ║  Evolution)   ║ ║  Streamlit    ║
+         ║  SHAP Values ║ ║  Strategy DNA ║ ║  + Plotly     ║
+         ╚══════════════╝ ╚═══════════════╝ ╚═══════════════╝
+
+Data Flow Contract — Fixed Execution Order Per 1-Minute Candle Close:
+ 1. Data Engine → updates candles, option chain, feed health
+ 2. Feature Engine → computes all features in dependency order
+ 3. Narrative Engine → updates narrative score
+ 4. Regime Engine → classifies regime + transition probability
+ 5. Time Engine → updates session phase + day type
+ 6. Market DNA Engine → updates day personality + session memory
+ 7. Captain selects active brains
+ 8. Active Brain(s) → scan via Strategy Engine
+ 9. Trap Engine → evaluates each opportunity
+10. Scoring Engine → scores each opportunity (regime-adaptive weights)
+11. ML Engine → filters opportunities (reject only)
+12. Behavioral Sentinel → checks psychological blocks
+13. Risk Engine → sizes and validates
+14. Captain → makes final decision
+15. Execution Engine → sends alert/paper/live order
+16. Position Management → manages all open positions
+17. Journal Engine → logs everything
+
+This order is fixed and inviolable. No engine runs out of order.
+
+SECTION 3: LAYER-BY-LAYER SPECIFICATIONS
+LAYER 0: EXTERNAL DATA UNIVERSE
+What Angel One SmartAPI Actually Provides (from Plan 1's detailed analysis):
+WebSocket v2 gives LTP, Best 5 Bid/Ask, Volume, OHLC, exchange timestamp for up to 100 subscribed instruments. REST API gives historical candles (1m/3m/5m/15m/1d), complete option chain (Strike, CE/PE LTP, OI, Volume, Bid/Ask), order placement/modification, positions, margins.
+What Must Be Computed Locally: IV (Black-Scholes inversion on option LTP via Newton-Raphson, max 50 iterations), all Greeks (Delta, Gamma, Theta, Vega from computed IV), RSI/MACD/all indicators (pandas-ta or custom), VWAP (from OHLCV), PCR (from OI), Volume Profile (from candle volume data), GEX proxy (from OI × Gamma).
+Instruments to Subscribe (~50 tokens): NIFTY 50 spot, NIFTY current week ATM ±5 CE/PE (22 options), NIFTY next week ATM ±5 CE/PE (22 options), India VIX, Bank Nifty (correlation), USDINR futures.
+Secondary Sources: NSE FII/DII CSV at 8:30 AM via requests + session cookies (or jugaad-data/nselib). Yahoo Finance for GIFT Nifty, S&P 500 futures, Nikkei, Hang Seng, Crude Oil, USD Index — called once at 8:30 AM, cached, updated every 30 minutes intraday. Economic Calendar as manually maintained JSON file updated every Sunday.
+LAYER 1: DATA VALIDATION & INGESTION
+Tick Validation Rules (in exact order):
+Rule 1 — Timestamp strictly increasing. Out-of-order ticks silently discarded, count logged every 5 minutes. Rule 2 — Price change > 2% from previous tick flagged as spike_candidate but NOT discarded (legitimate gap openings exist). Flag stored, Feature Engine suppresses pattern signals for next 3 candles. Rule 3 — No tick for >1 second: feed_health = DELAYED. >3 seconds: feed_health = STALE, Captain notified. >5 seconds: feed_health = DOWN, Captain enters SAFE mode. Rule 4 — Ticks outside 9:15:00-15:30:00 IST ignored. Pre-market auction ticks (9:00-9:08) stored separately for gap analysis. Rule 5 — NIFTY spot below 10000 or above 50000: reject (erroneous data).
+Candle Builder: All 4 timeframes built from single tick stream simultaneously. 1min candle "closed" at start of next minute. Until closed, it's "forming" and NOT used for signal generation. Storage: 1min maxlen=400, 3min maxlen=140, 5min maxlen=80, 15min maxlen=30.
+Option Chain Poller: Every 30 seconds via REST. ATM ±5 strikes × 2 expiries × 2 (CE+PE) = 44 instruments. Captures: LTP, Bid, Ask, Volume, OI, OI_change (computed vs previous snapshot), IV (computed via Black-Scholes), Delta, Gamma, Theta, Vega (computed from IV). IV computation: Newton-Raphson starting at 15% guess, converge within ₹0.10 of LTP, max 50 iterations.
+Data Quality Score (0-100): Feed HEALTHY +40, DELAYED +20, DOWN 0. Option chain updated within 60s +20. No spike flags in last 5 candles +20. Tick rate >1/sec +10. All timeframes consistent +10. Score <60: Scoring Engine raises minimum by 10. Score <40: Captain CAUTIOUS. Score <20: Captain SAFE.
+Parquet Archival: Daily at 3:35 PM. Candles → data/candles/NIFTY_1min_YYYY-MM-DD.parquet. Options → data/options/. Features → data/features/. Compression: Snappy. ~5-15 MB/day, ~2-4 GB/year.
+REST Fallback: WebSocket drops → REST polling every 2 seconds. REST fails 10 consecutive seconds → SAFE mode.
+LAYER 2: FEATURE COMPUTATION ENGINE
+Computation Order (respects dependencies):
+
+1. Price & Trend (no dependencies) → 2. Momentum & Oscillators (depends on price) → 3. Volatility (depends on price) → 4. Volume & Profile (depends on candles) → 5. Key Levels (depends on price history) → 6. Candle Patterns (depends on recent candles) → 7. Options & Greeks (depends on option chain) → 8. Smart Money Concepts (depends on swing points + candles) → 9. Microstructure (depends on market depth + ticks) → 10. Fundamental (independent, pre-market) → 11. MTF Alignment (depends on all timeframe features)
+
+2A — Price & Trend (per timeframe): EMA(9), EMA(21), EMA(50). VWAP with ±1σ/±2σ bands, VWAP_slope (linear regression over 10 candles). Supertrend(10,3). price_vs_vwap_pct. ema_9_vs_21. trend_direction (+1 if EMA9>EMA21>EMA50, -1 opposite, 0 otherwise).
+2B — Momentum & Oscillators (per timeframe): RSI(14), RSI_slope (current minus 3 bars ago). MACD(12,26,9) line, signal, histogram, histogram_slope. Price_acceleration = (Close-Close[-2]) - (Close[-1]-Close[-3]). Rate_of_change_5. Stochastic %K(14,3), %D(3).
+2C — Volatility (per timeframe): ATR(14), ATR_percentile (vs last 100 values). Bollinger Bands(20,2): upper, lower, width, width_percentile, %B. candle_range_avg(20). candle_body_ratio = |Close-Open|/(High-Low+0.01). intraday_range_pct.
+2D — Volume & Profile (session-level, rebuilt at 9:15): volume_sma_20, volume_zscore, volume_ratio, cumulative_volume_delta, OBV. POC (max volume price bucket), VAH/VAL (70% volume boundaries), HVN (>1.5x avg), LVN (<0.3x avg). Volume Profile built using triangular distribution across each candle's range (best approximation from OHLCV data without tick data).
+2E — Options & Greeks (every 30 seconds): PCR_oi, PCR_volume, PCR_change (vs 30 min ago). ATM_IV, IV_rank_30 (percentile vs 30 days), IV_skew (ATM CE IV - ATM PE IV). max_pain, max_pain_distance. highest_ce_oi_strike (resistance), highest_pe_oi_strike (support), ce/pe_wall_distance. synthetic_future = ATM_CE_LTP - ATM_PE_LTP + ATM_Strike. synthetic_premium = synthetic_future - spot. OI Classification per strike: Price↑+OI↑ = LONG_BUILDUP, Price↑+OI↓ = SHORT_COVERING, Price↓+OI↑ = SHORT_BUILDUP, Price↓+OI↓ = LONG_UNWINDING. GEX_proxy = Σ(CE_OI × CE_Gamma - PE_OI × PE_Gamma) × 65 × spot. Positive GEX = dampens volatility (range). Negative GEX = amplifies moves (trend/volatile).
+2F — Microstructure (every second): spread_bps, spread_zscore (vs last 300 readings). bid/ask_volume_total, bid_ask_imbalance. OFI = Δ(bid_volume) - Δ(ask_volume). ofi_cumulative_1min. trade_intensity. Absorption Detection: volume_ratio > 2.0 AND candle_body_ratio < 0.3 for ≥2 consecutive candles. Exhaustion Detection: new 10-bar high/low AND volume_ratio < 0.7 AND RSI extreme. Stop Hunt Detection: candle low pierces below swing low by ≥3 points AND close ABOVE swing low AND volume_ratio > 1.5 AND lower_wick > 2× body.
+2G — Smart Money Concepts (from Plan 2, on 5min and 15min): FVG: Three-candle gap between candle 1's high and candle 3's low (bullish) or vice versa. Track location, direction, status (unmitigated/partially/fully mitigated). Order Block: Last down candle before significant (≥2× ATR) bullish move, or vice versa. Track top/bottom as zone. Liquidity Pools: Clusters of equal highs (sell-side) or equal lows (buy-side). BOS: Price closes beyond most recent swing point in opposite direction of structure. CHoCH: First opposite BOS after a trend. Breaker Block: Failed OB that becomes opposite S/R.
+2H — Key Levels: PDH, PDL, PDC. OR levels (ORH/ORL at 9:30). IB levels (IBH/IBL at 10:15, IB_width). Swing points (5-bar lookback, last 10 per timeframe). S/R zones (when swing points cluster within 15 points). Market structure (bullish/bearish/neutral from swing sequence). OI-based levels (CE wall = resistance, PE wall = support).
+2I — Candle Patterns (8 high-significance patterns only): Hammer, Shooting Star, Engulfing (bullish/bearish), Doji, Morning Star, Evening Star, Inside Bar. Each returns confidence 0-100 based on form quality (+30), volume confirmation (+20), key level proximity (+30), trend context (+20).
+2J — Fundamental (pre-market + hourly): FII_net_5day_rolling. DII_net. Global_score (-50 to +50). VIX level + change %. USDINR direction. Crude Oil direction. Event proximity (0/1/2 from calendar JSON).
+2K — MTF Alignment: Per timeframe: +1 if price > VWAP AND EMA(9) > EMA(21) AND RSI > 50. -1 if below all. 0 otherwise. Weighted MTF = (1min×1) + (3min×1.5) + (5min×2) + (15min×3). Range: -7.5 to +7.5. This ensures 15min trend has 3× the influence of 1min.
+LAYER 3A: NARRATIVE ENGINE
+Score Computation (-100 to +100):
+narrative_score = (
+    fii_component × 0.25 +      # FII 5-day rolling net
+    global_component × 0.25 +   # GIFT Nifty + S&P + others
+    vix_component × 0.20 +      # VIX level + change
+    currency_component × 0.15 + # USD/INR direction
+    event_component × 0.15      # Calendar severity
+)
+
+Narrative Labels: +60 to +100 → STRONG_BULLISH. +25 to +59 → MILD_BULLISH. -24 to +24 → NEUTRAL. -59 to -25 → MILD_BEARISH. -100 to -60 → STRONG_BEARISH. Override: event_severity == 2 AND event within 2 hours → EVENT_RISK regardless of numeric score.
+Narrative Fit Factor (multiplied against every opportunity's final score): Long + STRONG_BULLISH → 1.2. Long + MILD_BULLISH → 1.0. Long + NEUTRAL → 0.8. Long + MILD_BEARISH → 0.4. Long + STRONG_BEARISH → 0.1. Long + EVENT_RISK → 0.0. Short: mirror. This single mechanism eliminates the #1 retail loss cause: trading against macro flow.
+Intraday Update (every 30 minutes): Can only REDUCE narrative score (add caution), never INCREASE it. VIX spikes >3% from opening → subtract 10. Rupee weakens >0.2% → subtract 5. Follows Law 3 (Anti-Fragility).
+LAYER 3B: REGIME ENGINE
+Five States: TRENDING (ADX >25, consistent swing structure, VWAP slope steep, volume supporting). RANGE (ADX <20, horizontal S/R, BB_width < 40th percentile). VOLATILE (ATR_percentile >80, VIX rising >3%, large candle bodies). CHOP (ADX <15, candle overlap >60%, low volume — MOST DANGEROUS). EVENT (event_severity == 2 AND within 2 hours — overrides all).
+Detection: Score each state, pick highest. Confidence = score/max. Stability filter: Regime must persist 3 consecutive 1-min candles before Captain switches brains.
+Regime Transition Probability (from Plan 1 — unique innovation):
+transition_score = 0
+if BB_width_percentile < 10 and regime == "RANGE":     transition_score += 30
+if adx_slope < -2 and regime == "TRENDING":             transition_score += 25
+if volume_surge and regime == "RANGE":                   transition_score += 25
+if vix_spike and regime in ["RANGE", "TRENDING"]:        transition_score += 20
+transition_probability = min(1.0, transition_score / 100)
+
+When transition_probability > 0.6: Captain tightens stops on open positions and reduces new position sizes by 30%.
+LAYER 3C: TIME CONTEXT ENGINE
+Session Phases (Updated for 2026 — Tuesday Expiry, 65 Lot Size):
+PhaseTime (IST)Size MultiplierRulesPRE_MARKET8:00-9:150.0Morning briefing runsOPENING_AUCTION9:15-9:160.0Record opening priceOR_FORMATION9:16-9:300.0Record ORH/ORLINITIAL_BALANCE9:30-10:150.7Market establishing toneGOLDEN_AM10:15-11:301.0Best window — full sizeLUNCH_LULL11:30-13:000.3Tactical Brain onlyGOLDEN_PM13:00-14:301.0Second-best windowCLOSING_SESSION14:30-15:100.5Tighter stopsLAST_MINUTES15:10-15:150.0Close existing only
+Expiry Day — TUESDAY (current 2026 schedule): Weekly: size ×0.7, all closed by 15:00, Max Pain active after 13:00, Structural Brain disabled after 14:00. Monthly (last Tuesday): size ×0.5, all closed by 14:45, Tactical only after 13:00. If Tuesday is holiday → expiry on previous trading day.
+Day Type Classification (at 10:15 AM): TREND_DAY (gap >0.5%, unfilled, narrow IB <60pts). RANGE_DAY (gap <0.3%, filled, wide IB >100pts). VOLATILE_DAY (IB >150pts, VIX >16). QUIET_DAY (IB <40pts, low volume). EXPIRY_DAY. EVENT_DAY.
+LAYER 4: MARKET DNA FINGERPRINT ENGINE (Plan 1's Unique Innovation)
+Day Fingerprint (12 characteristics, computed at 10:15 AM):
+pythonDownloadCopy codefingerprint = {
+    "gap_direction": +1/0/-1,
+    "gap_magnitude": float,
+    "gap_fill_status": "filled"/"unfilled"/"partial",
+    "ib_width": float,
+    "ib_direction": +1/0/-1,
+    "opening_volume_ratio": float,
+    "vix_change_pct": float,
+    "fii_flow_direction": +1/0/-1,
+    "day_of_week": int,
+    "days_to_expiry": int,
+    "global_cue_direction": +1/0/-1,
+    "regime_at_1015": str
+}
+Historical Matching: Store every day's fingerprint in SQLite. Find 10 most similar days (last 6 months) via cosine similarity. Retrieve: day type, session-wise P&L profile, close relative to ORH/ORL/VWAP, trap count. Aggregate into probability distribution.
+Session Memory (updated continuously):
+pythonDownloadCopy codesession_memory = {
+    "levels_defended": [],      # levels that held (2× stronger on return)
+    "levels_broken": [],        # broken levels (pullback entry zones)
+    "failed_breakouts": [],     # traps today (raises future trap probability)
+    "traps_detected": 0,
+    "dominant_direction_morning": str,
+    "momentum_decay_started": bool,
+    "largest_move_size": float,
+    "volume_profile_shift": str  # POC_MOVING_UP/STABLE/DOWN
+}
+Defended level → +15 score bonus. 2+ failed breakouts today → Trap Engine becomes more conservative (+15 auto trap penalty). This is the equivalent of a professional trader's mental model of the day.
+LAYER 5: FOUR-BRAIN ENGINE + TWO OVERLAYS
+Why 4+2, Not 3+2 or 5:
+Plan 1's 3+2 merged Institutional into Structural — but institutional signals (FII flow + OI buildup + smart money concepts) are fundamentally different from structural price action. They deserve a separate brain. Plan 3's 5 brains had Event as a full brain — wasteful because events happen a few days per month. Event is better as an overlay modifying existing brains.
+Brain 1 — STRUCTURAL: Capture the main directional move. Patient, selective, highest quality. Activation: Regime TRENDING or clean RANGE. Weighted MTF ≥±4.5. Narrative not strongly against. Session GOLDEN or IB. Max 3 trades/day. Target 8-25 NIFTY points. SL: contextual (thesis invalidation level). Max hold: 45 min. Min score: 65. Strategies: VWAP Pullback, Trend Continuation, ORB, S/R Rejection, Volume Profile POC Reversal, Institutional Flow Follow.
+Brain 2 — TACTICAL: Fast profits from micro-momentum, stop hunts, failed breakouts. Activation: spread <5 bps, volume_ratio >0.5, not LUNCH_LULL. Max 5 trades/day. 3-min cooldown. Target 3-8 points. SL: 0.8× ATR. Max hold: 10 min. Min score: 60. Strategies: ATM Momentum Burst, Stop Hunt + Reclaim, Failed Breakout Reversal, Absorption Reversal, Liquidity Sweep Reversal.
+Brain 3 — INSTITUTIONAL: Smart money footprints. FII flow, OI patterns, SMC. Activation: Smart Money Direction Score >±30, FII data current, clear OI buildup. Max 2 trades/day. Target 10-30 points. SL: 2× ATR. Max hold: 45 min. Strategies: OI Wall Bounce, FVG Retest Entry, Institutional Accumulation Breakout.
+Brain 4 — ADAPTIVE: Last resort when all others silent. ML-driven, minimum size. Activation: all brains silent ≥15 min, data quality >80, ML loaded. Max 1 trade/hour. Target 2-5 points. SL: 0.5× ATR. Risk: 0.25% max. Uses LightGBM probability + microstructure.
+Overlay A — EVENT: Activates when event_severity == 2 AND within 2 hours. Pre-event: force close directional positions 30 min before. Pre-Event Straddle (from Plan 3): if IV_rank <60, buy ATM CE+PE, max risk 0.4%, exit when event result known or either leg gains 50%. Post-event: wait 5 min, enter on first 5-min close confirming direction. All sizes at 30%.
+Overlay B — BEHAVIORAL: Constant modifier. No chase after move >1.5× ATR from VWAP. No entry if exhaustion in last 3 candles. No entry if price just swept liquidity pool without confirmation. Fake breakout auto-block if volume < average and spread widening.
+Brain Selection Matrix:
+RegimeNarrativeSessionActive BrainsSTRONG_TREND + MTF ±6+AlignedGOLDENStructural + InstitutionalWEAK_TREND + MTF ±4-5Non-oppositeGOLDENStructural (80% size)RANGEAnyGOLDEN/PMStructural for S/R playsRANGEAnyLUNCHTactical only (30%)VOLATILE + direction clearAlignedNot LUNCHStructural + TacticalVOLATILE + no directionAnyAnyTactical only (50%)CHOPAnyAnyAdaptive only or flatEVENTAnyAnyEvent Overlay, all restrictedAnyAnyData quality <60None — SAFE mode
+Max 2 brains simultaneous. Must agree on direction. If they disagree, only higher-priority brain's signals considered (Structural > Tactical > Institutional > Adaptive).
+LAYER 6: STRATEGY ENGINE — 13 CORE STRATEGIES
+Why 13: Plan 2's 12 + Plan 3's Pre-Event Straddle (valuable for event days, handled via Event Overlay). Plan 1's 10 was too few (missing SMC). Plan 3's 16 was too many (half won't fire enough to validate statistically).
+#StrategyBrainTargetExpected Win RateEdge Source1VWAP PullbackStructural8-15pts60-68%Institutional buying at VWAP2Trend Continuation (EMA)StructuralPrevious leg55-62%Fibonacci retracement3Opening Range BreakoutStructural2× OR50-58%Morning momentum4S/R RejectionStructural/TacticalOpposite boundary58-65%Multiple-tested levels5Volume Profile POC ReversalStructuralPOC55-60%Fair value reversion6Stop Hunt + ReclaimTacticalNext swing60-68%Institutional accumulation7OI Wall BounceInstitutionalOpposite wall55-62%Option writer defense8ATM Momentum BurstTactical3-5pts52-58%Premium surge capture9Failed Breakout ReversalTacticalRange boundary58-65%Bear/bull trap10Absorption ReversalTactical1.5× zone55-60%Accumulation complete11FVG Retest EntryInstitutionalRecent swing55-62%Unfilled imbalance12Liquidity Sweep ReversalTacticalNext pool58-65%Smart money accumulation13Pre-Event StraddleEvent Overlay50% of either leg50-55%Volatility expansion
+Strategy 1 — VWAP Pullback (BUY, all must be true): Regime TRENDING bullish. Price above VWAP ≥10 candles. Pulled back to within 0.15% of VWAP. RSI 35-55. Volume on pullback below average. Rejection wick (lower shadow >2× body). Close back above VWAP. Weighted MTF ≥+4.5. No resistance within 2× ATR above. Session GOLDEN. Narrative not MILD_BEARISH or worse. SL: Below pullback low minus 0.15× ATR (contextual — thesis invalidation). Target: Previous swing high or 1.5× risk.
+Strategy 6 — Stop Hunt + Reclaim (BUY): stop_hunt_flag True. Price pierced below swing low by ≥3 points. Close back ABOVE swing low. Volume >1.5× average. Lower wick >2× body. Next candle opens above swing low. OI activity at nearby PE strike. SL: Below stop hunt wick low. Target: Next swing high or 2× risk. Why highest edge: Represents institutional accumulation of retail stops — you align with smart money against retail.
+Strategy 11 — FVG Retest (BUY): Bullish FVG identified on 5min chart. Price pulls back into FVG zone. Bullish rejection candle inside FVG. Volume above average. FVG not yet fully mitigated. Trend supports. SL: Below FVG bottom minus 0.3× ATR. Target: Recent swing high.
+Strategy 12 — Liquidity Sweep Reversal (BUY): Equal lows identified (liquidity pool). Price sweeps below. Volume spikes. Price reclaims above within 1-2 candles. CHoCH or BOS confirms. SL: Below sweep low. Target: Next liquidity pool above.
+Strategy 13 — Pre-Event Straddle: Major event within 60-120 min. IV_rank <60. Buy ATM CE + ATM PE. Max risk 0.4% of capital. Exit: Immediately on event result, or if either leg gains 50%.
+LAYER 7: TRAP DETECTION ENGINE (Plan 1's Critical Innovation)
+Runs on EVERY signal from EVERY strategy BEFORE scoring. Not a strategy — a filter.
+Trap Probability Score (0-100):
+trap_score = 0
+
+# Volume on breakout (25 weight)
+if signal_is_breakout and volume_ratio < 0.8:    trap_score += 25
+elif volume_ratio < 1.0:                          trap_score += 15
+
+# Time-of-day bias (20 weight)
+if session == "LUNCH_LULL":                        trap_score += 20
+elif session == "CLOSING_SESSION":                 trap_score += 15
+elif session == "INITIAL_BALANCE":                 trap_score += 10
+
+# Session memory traps (15 weight)
+if session_memory["failed_breakouts"] >= 2:        trap_score += 15
+elif session_memory["failed_breakouts"] >= 1:      trap_score += 8
+
+# OI contradiction (15 weight)
+if bullish_breakout and ce_wall_within_30pts:       trap_score += 15
+if bearish_breakout and pe_wall_within_30pts:       trap_score += 15
+
+# RSI extreme (10 weight)
+if bullish and rsi > 70:                            trap_score += 10
+if bearish and rsi < 30:                            trap_score += 10
+
+# Spread widening (10 weight)
+if spread_zscore > 1.5:                             trap_score += 10
+
+# Candle wick dominance (5 weight)
+if breakout_candle_wick_ratio > 0.6:                trap_score += 5
+
+Actions: 0-25: no adjustment. 26-40: score penalty -10. 41-50: penalty -20 + log. 51-70: REJECTED. 71-100: REJECTED + level marked as trap zone for rest of session (+15 auto penalty on future signals at that level).
+LAYER 8: DYNAMIC CONFLUENCE SCORING (10 Factors, Regime-Adaptive)
+Ten Factors:
+FactorBase WeightPurposeTechnical Structure14%Setup qualityLocation Quality14%Entry at VWAP/POC/S-R/OI-Wall/FVG/OBMomentum12%RSI, MACD, acceleration alignmentOptions Pressure12%OI, IV, PCR, synthetic premiumRegime Match10%Strategy fit with current regimeMTF Alignment10%Weighted MTF in trade directionSmart Money8%FVG, OB, liquidity, BOS/CHoCHNarrative Fit7%Narrative Fit FactorTime Context7%Session multiplierTrap Safety6%Inverse of trap probability
+Regime-Adaptive Weight Modifiers (from Plan 1 — unique):
+RegimeWeight ChangesTRENDINGMomentum +5%, Structure -3%, Location -2%RANGELocation +5%, Momentum -3%, Time -2%VOLATILEOptions +5%, Regime +3%, Structure -5%, Narrative -3%CHOPALL reduced, min score threshold → 80EXPIRY (overlay)Options +8%, Institutional +4%, Momentum -6%, Location -6%
+Weights renormalized to 100% after modifiers.
+Confluence Bonus: 2+ strategies same direction → +10. Narrative + Technical + Institutional triple agreement → +15.
+Hard Rejection Rules (in order): final_score < 58 → reject. Any single factor < 15 → reject. Narrative Fit Factor == 0.0 → reject. trap_probability > 50 → reject. data_quality < 60 → reject. spread_zscore > 2.0 → reject. time_score == 0 → reject.
+LAYER 9: ML/AI FILTER
+Strict rule: ML can only REJECT. Never force a trade.
+LightGBM Quality Filter: 85-feature vector → probability 0-1. Below 0.50 → REJECT. 0.50-0.65 → PASS with 20% size reduction. Above 0.65 → full PASS. Training: weekly Sunday on Colab, walk-forward on 6 months, export to ONNX, inference <5ms locally.
+GARCH(1,1): Volatility forecast for SL sizing only. High forecast → wider stop. Fitted daily on 60 days' ATR.
+Isolation Forest: Anomaly detection on feature vectors. Score >0.7 → 5-min pause. Score >0.9 → SAFE mode.
+XGBoost Regime Backup: Independent regime classifier. Disagrees with rule-based → size -30%. Agrees → confidence up.
+SHAP: Top 5 features for every decision, displayed in dashboard and stored in journal.
+LAYER 10: BEHAVIORAL SENTINEL
+Pre-Trade Checklist (LIVE mode, non-dismissible): Narrative aligned? Score >65? Microstructure supporting? Size within risk? One-sentence thesis typed. Submit greyed until all complete. Takes 30-45 seconds. Eliminates impulsive entries.
+Revenge Detection: Last trade loss + <5 min → 5-min cooldown. 2 consecutive losses → 15 min. 3 consecutive → 30 min + daily loss check.
+FOMO Detection: Market moved >1% in 30 min + opportunity same direction + price >1.5× ATR from VWAP → min score raised to 78.
+Overtrading: >2 trades in LUNCH → disabled for rest of lunch. >5 total today → disabled.
+Tilt Score (0-100): Consecutive losses: 15 each (max 45). Negative P&L worsening: up to 20. Overtrading: up to 20. Revenge attempts: 15 each. Tilt >50 → warning. >70 → size ×0.5. >85 → disabled for day.
+Mature Trader Rules (from Plan 2): Technicals say BUY but volume doesn't confirm → no entry. Breakout reverses within 2 candles → fake breakout, blocked. 3rd+ touch of S/R → level weak, bounce blocked. Narrative strong one direction but price opposite → wait, don't trade counter-move. 3+ rejection rules nearly triggered (scores 20-25) → "marginal setup," recommend sitting out.
+LAYER 11: PORTFOLIO RISK ENGINE
+Hard Rules: Max risk per trade: 0.5% of capital. Max daily loss: 2% → LOCKED. Max trades/day: 5. Max consecutive losses before pause: 3.
+Practical ₹50K Capital Math (from Plan 2): 1 lot = 65 quantities. ATM premium ~₹50-100, margin ~₹10K-15K. Risk per lot with ₹15 SL = 65×15 = ₹975 (1.95% — close to daily max). Reality: 1 lot with ₹3-4 SL on premium, or OTM options with ₹15-30 premium and ₹5 SL (risk = 65×5 = ₹325).
+Six Sizing Multipliers (sequential): GARCH (forecast >1.5× median → ×0.5). Drawdown (>5% → ×0.75, >8% → ×0.5, >10% → LOCKED). Tilt (>70 → ×0.5). Session (LUNCH/CLOSING → ×0.5). Expiry (weekly → ×0.7, monthly → ×0.5). Score (>80 → ×1.0, 70-80 → ×0.8, 60-70 → ×0.6).
+Final lots = max(1, floor(base × all multipliers)).
+Net Greeks Monitor: Net Delta >±500 → block same-direction new trades. Excessive Gamma → block gamma-increasing trades.
+Circuit Breaker Triggers: Daily loss 2%, OR 3 consecutive losses + tilt >70, OR data gap >5 sec, OR 3 consecutive broker API errors. Actions: Cancel all pending. Close all positions via SL-Limit. LOCKED. Red dashboard. Manual re-authorization code required.
+Cost Model (from Plan 1 — missing in Plans 2/3): Every P&L number includes STT, brokerage (₹20/order or %), GST (18% on brokerage), stamp duty (state-specific), exchange charges. Tracked per trade in journal.
+Edge Decay Tracker (from Plan 1): Track each strategy's win rate over rolling 20-trade windows. If win rate drops below 40% for 20+ trades → raise threshold by 5 points. If drops below 30% → strategy PAUSED until next Self-Learning review.
+LAYER 12: CAPTAIN ORCHESTRATOR
+States: BOOT (8:00-9:15, initialization) → OBSERVE (9:15-9:30, OR formation) → ACTIVE (normal trading) → CAUTIOUS (tilt 50-70, drawdown 3-5%, VIX spike) → SAFE (data down, anomaly >0.7, daily loss >1.5%) → LOCKED (daily loss 2%, circuit breaker, kill switch) → SHUTDOWN (3:30 PM, archival).
+Engine Health: Heartbeat every 5 seconds. 3 missed → restart attempt. 3 failed restarts in 10 min → engine disabled. Critical engine (Data, Risk) disabled → SAFE. Non-critical (ML) disabled → rule-only mode.
+Morning Init (8:30 AM): Download FII/DII. Fetch global data. Load calendar JSON. Compute Narrative Score. Load ML models from local (synced from Drive). Load Strategy DNA. Verify static IP matches registered IP. Reset all daily counters. Set BOOT → OBSERVE at 9:15.
+Mode Manager: ALERT / PAPER / LIVE. Switching requires explicit command + confirmation. All 3 run identical logic — only execution differs.
+LAYER 13: POSITION MANAGEMENT
+Actions (checked every second per position): SL Check → exit via SL-Limit (not market — SEBI). SL-Limit price = SL level minus 2 points buffer. Target Check → Limit exit. Not filled in 30s → modify closer. Breakeven Move → after 1× risk in favor, SL to entry + 0.1× ATR. Partial Exit at T1 → after 1.5× risk, close 50% at limit, remaining 50% trails. Trailing Stop → trail at 1.0× ATR behind price, never backward. Time Exit → exceeds brain max hold without target. Confidence Decay → ML re-evaluates every 5 min, probability <0.35 → close. Regime Change → CHOP or EVENT during trade → tighten to 0.5× ATR. Scale-In (from Plan 3, winners only) → if price moves 2× risk in favor AND MTF still aligned AND regime unchanged → add 50% to position with new SL at breakeven of combined. Max 1 scale-in per trade. EOD Close → 15:15 PM (15:00 on expiry Tuesdays).
+LAYER 14: COMPLIANCE & EXECUTION
+SEBI Compliance (April 2026): Every order carries Algo-ID tag. Static IP verified on startup — mismatch → LIVE disabled. ONLY Limit and SL-Limit orders — no Market, no IOC. Code has no ordertype: "MARKET" anywhere. Max 9 OPS (below SEBI's 10 limit). 5-year audit trail in SQLite + monthly cloud backup.
+Broker Abstraction:
+pythonDownloadCopy codeclass BrokerInterface(ABC):
+    @abstractmethod
+    def place_limit_order(self, symbol, qty, price, direction, algo_id) -> OrderID
+    @abstractmethod
+    def place_sl_limit_order(self, symbol, qty, trigger, price, direction, algo_id) -> OrderID
+    @abstractmethod
+    def modify_order(self, order_id, new_price, new_trigger) -> bool
+    @abstractmethod
+    def cancel_order(self, order_id) -> bool
+    @abstractmethod
+    def get_positions(self) -> List[Position]
+Three Modes: ALERT → desktop notification (plyer) + SQLite log. PAPER → simulated fills at LTP + 0.3% slippage, paper portfolio tracked. LIVE → Limit order at LTP, not filled in 30s → cancelled (opportunity expired), SL-Limit placed immediately after entry confirmation.
+LAYER 15A: POST-TRADE JOURNAL
+Auto-generated SQLite record per trade: trade_id, entry_time, exit_time, symbol, direction, strategy, brain, regime, opportunity_score, ml_probability, trap_score, entry_price, exit_price, sl_price, target_price, pnl_points, pnl_rupees (cost-adjusted), exit_reason, hold_minutes, MFE, MAE, lots, features_json, session_phase, narrative_label, mtf_alignment, vix_at_entry, fii_score, behavioral_checklist_complete, mode, algo_id, static_ip, costs_json (STT, brokerage, GST, stamp, exchange).
+Daily Summary (3:30 PM): Win rate, profit factor, avg winner vs loser, best/worst trade with context, performance by regime/strategy/session, behavioral events, natural language summary.
+SHAP Rejection Analysis: Every ML rejection stored with SHAP. Weekly aggregate: "Most common rejection: high IV Rank (60% of rejections)."
+LAYER 15B: SELF-LEARNING LOOP (5 Levels from Plan 2 + Weekly Process from Plan 3)
+Level 1 — Strategy DNA Evolution (Weekly, Sunday): <20 trades last month → no action. Win rate <40% (20+ trades) → threshold +5. Win rate >70% → threshold -3 (min 55). Changes capped ±5/week.
+Level 2 — Feature Importance Drift (Weekly): SHAP rankings compared week-over-week. Important feature drops → market regime shift detected. Captain adjusts scoring.
+Level 3 — Pattern Footprint Library (Monthly): Successful trade feature snapshots clustered via K-Means (k=5-8). Clusters become "winning patterns." Current features matching winning cluster → confidence up. Matching losing cluster → confidence down.
+Level 4 — Regime Transition Learning (Monthly): Markov chain of regime transitions with probabilities. "After VOLATILE, 65% CHOP within 30 min — reduce exposure."
+Level 5 — ML Retraining (Weekly): Check PSI on top 10 SHAP features. PSI >0.2 → retrain. Compare new vs old AUC-ROC. Deploy only if better. Walk-forward validation.
+Rollback: Previous week's params always saved. 5 consecutive bad days → Captain auto-reverts.
+LAYER 15C: DASHBOARD — 16 PANELS
+Built with Streamlit + Plotly, separate thread, reads shared state + SQLite.
+Panel 1 — System Status Bar: State color (ACTIVE green / CAUTIOUS yellow / SAFE orange / LOCKED red). Active brains. Regime + confidence. Feed health. Time + session. Emergency stop button. Panel 2 — Morning Briefing: FII/DII, Global Score, VIX, Events, Narrative gauge + label. Panel 3 — Market Overview: NIFTY spot large, VWAP distance %, VIX live, volume z-score, MTF bar. Panel 4 — MTF Chart: Candlestick 1m/3m/5m/15m tabs with VWAP, EMAs, POC/VAH/VAL, swing points, FVG/OB zones, opportunity arrows, position SL/target lines. Panel 5 — Volume Profile: Horizontal histogram, POC yellow, VA shaded. Panel 6 — Option Chain Heatmap: ATM ±5, OI/change/IV/Delta, PCR/GEX/MaxPain summary. Panel 7 — Narrative & Fundamental: Global markets, currency, crude, event countdown, FII/DII 10-day rolling. Panel 8 — Regime & Brain Status: Regime gauge + confidence, active brains, current detections, top 3 opportunities. Panel 9 — Risk Console: Capital, P&L, drawdown %, trades taken/max, daily loss remaining, net delta/gamma, tilt gauge. Panel 10 — Active Positions: Open positions table with manual close button. Panel 11 — Trade History: Last 20 trades, equity curve. Panel 12 — Behavioral Health: Tilt gauge, checklist %, cooldown timer, revenge counter, FOMO flag. Panel 13 — ML & AI Insights: LightGBM probability, SHAP bar chart, GARCH forecast, drift warning. Panel 14 — Smart Money Visual: FVG zones, OBs, liquidity pools, BOS/CHoCH markers. Panel 15 — System Health: CPU/RAM %, feed latency, ticks/sec, engine heartbeats, errors. Panel 16 — Captain's Log: Scrolling text of every decision with timestamp and reason.
+
+SECTION 4: DATABASE SCHEMA
+sqlDownloadCopy code-- Core trading data
+CREATE TABLE trades (
+    trade_id INTEGER PRIMARY KEY,
+    entry_time TEXT, exit_time TEXT, symbol TEXT, direction TEXT,
+    strategy TEXT, brain TEXT, regime TEXT,
+    opportunity_score REAL, ml_probability REAL, trap_score REAL,
+    entry_price REAL, exit_price REAL, sl_price REAL, target_price REAL,
+    pnl_points REAL, pnl_rupees REAL, costs_total REAL,
+    exit_reason TEXT, hold_minutes REAL, mfe REAL, mae REAL, lots INTEGER,
+    features_json TEXT, session_phase TEXT, narrative_label TEXT,
+    mtf_alignment REAL, vix_at_entry REAL, fii_score REAL,
+    behavioral_checklist_complete INTEGER,
+    mode TEXT, algo_id TEXT, static_ip TEXT,
+    costs_json TEXT  -- {stt, brokerage, gst, stamp, exchange}
+);
+
+CREATE TABLE engine_logs (
+    log_id INTEGER PRIMARY KEY, timestamp TEXT,
+    engine_name TEXT, event_type TEXT, message TEXT, system_state TEXT
+);
+
+CREATE TABLE strategy_dna (
+    strategy_name TEXT PRIMARY KEY, current_threshold REAL,
+    win_rate_20 REAL, profit_factor_20 REAL,
+    last_updated TEXT, status TEXT  -- ACTIVE/REDUCED/PAUSED
+);
+
+CREATE TABLE daily_summary (
+    date TEXT PRIMARY KEY, total_trades INTEGER, wins INTEGER, losses INTEGER,
+    total_pnl REAL, win_rate REAL, profit_factor REAL,
+    max_drawdown REAL, best_strategy TEXT, worst_strategy TEXT,
+    narrative_label TEXT, regime_distribution TEXT
+);
+
+CREATE TABLE model_versions (
+    model_name TEXT, version INTEGER, trained_date TEXT,
+    auc_roc REAL, deployed INTEGER, file_path TEXT
+);
+
+CREATE TABLE compliance_audit (
+    audit_id INTEGER PRIMARY KEY, timestamp TEXT,
+    order_type TEXT, algo_id TEXT, static_ip TEXT,
+    symbol TEXT, qty INTEGER, price REAL, direction TEXT,
+    strategy TEXT, status TEXT
+);
+
+CREATE TABLE day_fingerprints (
+    date TEXT PRIMARY KEY, fingerprint_json TEXT,
+    day_type TEXT, session_pnl_json TEXT, close_vs_levels_json TEXT
+);
+
+CREATE TABLE session_memory_log (
+    date TEXT, timestamp TEXT,
+    memory_json TEXT  -- snapshot of session memory at that time
+);
+
+SECTION 5: COMPLETE TECH STACK
+Python 3.11.x
+smartapi-python >= 1.4.0
+pandas >= 2.2.0, numpy >= 1.26.0, numba >= 0.59.0, scipy >= 1.12.0
+lightgbm >= 4.3.0, xgboost >= 2.0.0, scikit-learn >= 1.4.0
+statsmodels >= 0.14.0 (GARCH)
+onnxruntime >= 1.17.0, onnxmltools >= 1.12.0
+shap >= 0.45.0
+streamlit >= 1.31.0, plotly >= 5.19.0
+aiohttp >= 3.9.0, httpx >= 0.27.0, websockets >= 12.0
+pyarrow >= 15.0.0
+structlog >= 24.1.0
+python-dotenv >= 1.0.0, cryptography (credential encryption)
+plyer >= 2.1.0 (desktop notifications)
+pytest >= 8.0.0, pytest-asyncio
+yfinance >= 0.2.36, gdown >= 5.1.0
+
+Hardware: Windows 11 laptop, 12GB RAM (~2-3GB used), 500GB SSD, 5-6GB GPU (used only in Colab training, not live). Cloud: Google Colab free GPU (Sunday training), Google Drive (model + backup sync).
+
+SECTION 6: FOLDER STRUCTURE
+junior_aladdin/
+├── .env                          # Secrets (NEVER in git)
+├── .gitignore
+├── config.yaml                   # All tunable parameters
+├── requirements.txt
+├── main.py                       # Entry point
+│
+├── src/
+│   ├── core/
+│   │   ├── data_engine.py        # Layer 0+1
+│   │   ├── candle_builder.py
+│   │   ├── option_chain.py
+│   │   ├── feed_health.py
+│   │   └── market_state.py       # MarketState dataclass
+│   ├── features/
+│   │   ├── price_features.py     # 2A
+│   │   ├── momentum_features.py  # 2B
+│   │   ├── volatility_features.py # 2C
+│   │   ├── volume_profile.py     # 2D
+│   │   ├── options_features.py   # 2E
+│   │   ├── microstructure.py     # 2F
+│   │   ├── smart_money.py        # 2G (FVG, OB, Liquidity, BOS, CHoCH)
+│   │   ├── key_levels.py         # 2H
+│   │   ├── candle_patterns.py    # 2I
+│   │   ├── fundamental.py        # 2J
+│   │   └── mtf_alignment.py      # 2K
+│   ├── context/
+│   │   ├── narrative_engine.py   # 3A
+│   │   ├── regime_engine.py      # 3B (includes transition probability)
+│   │   └── time_context.py       # 3C (Tuesday expiry!)
+│   ├── dna/
+│   │   └── market_dna.py         # Layer 4 (fingerprint + session memory)
+│   ├── brains/
+│   │   ├── brain_base.py
+│   │   ├── structural_brain.py
+│   │   ├── tactical_brain.py
+│   │   ├── institutional_brain.py
+│   │   ├── adaptive_brain.py
+│   │   ├── event_overlay.py
+│   │   └── behavioral_overlay.py
+│   ├── strategies/
+│   │   ├── strategy_base.py
+│   │   ├── vwap_pullback.py
+│   │   ├── trend_continuation.py
+│   │   ├── opening_range_breakout.py
+│   │   ├── sr_rejection.py
+│   │   ├── vol_profile_poc.py
+│   │   ├── stop_hunt_reclaim.py
+│   │   ├── oi_wall_bounce.py
+│   │   ├── atm_momentum.py
+│   │   ├── failed_breakout.py
+│   │   ├── absorption_reversal.py
+│   │   ├── fvg_retest.py
+│   │   ├── liquidity_sweep.py
+│   │   └── pre_event_straddle.py
+│   ├── filters/
+│   │   ├── trap_detector.py      # Layer 7
+│   │   └── opportunity_scorer.py # Layer 8 (dynamic weights)
+│   ├── ml/
+│   │   ├── lightgbm_filter.py
+│   │   ├── garch_forecaster.py
+│   │   ├── anomaly_detector.py
+│   │   ├── regime_classifier.py
+│   │   └── shap_explainer.py
+│   ├── psychology/
+│   │   ├── behavioral_sentinel.py
+│   │   └── mature_trader.py
+│   ├── risk/
+│   │   ├── risk_engine.py
+│   │   ├── greeks_monitor.py
+│   │   ├── circuit_breaker.py
+│   │   ├── cost_calculator.py    # STT, brokerage, GST, stamp
+│   │   └── edge_decay.py
+│   ├── captain/
+│   │   ├── captain_engine.py     # State machine
+│   │   ├── mode_manager.py
+│   │   └── morning_init.py
+│   ├── positions/
+│   │   ├── position_manager.py
+│   │   └── exit_rules.py
+│   ├── execution/
+│   │   ├── broker_interface.py   # Abstract class
+│   │   ├── angel_one_broker.py   # SmartAPI implementation
+│   │   ├── paper_broker.py
+│   │   ├── compliance.py         # Algo-ID, IP, order type enforcement
+│   │   └── order_validator.py
+│   ├── journal/
+│   │   ├── trade_journal.py
+│   │   ├── daily_summary.py
+│   │   └── shap_analysis.py
+│   ├── learning/
+│   │   ├── strategy_dna.py       # Level 1
+│   │   ├── feature_drift.py      # Level 2
+│   │   ├── pattern_library.py    # Level 3
+│   │   ├── regime_transitions.py # Level 4
+│   │   └── ml_retrainer.py       # Level 5
+│   └── utils/
+│       ├── logger.py, database.py, config_loader.py
+│       ├── black_scholes.py, helpers.py
+│
+├── dashboard/
+│   ├── app.py
+│   └── panels/ (panel_01 through panel_16)
+│
+├── notebooks/ (Colab: train_lightgbm, train_garch, weekly_evolution, backtest)
+├── models/ (ONNX files synced from Drive)
+├── data/ (historical/, live/, calendar/)
+├── logs/ (per-engine daily rotation)
+├── tests/ (per-module pytest)
+├── backups/
+
+
+SECTION 7: CONFIG.YAML (ALL TUNABLE PARAMETERS)
+yamlDownloadCopy codeversion: "12.0-FINAL"
+
+market:
+  index: "NIFTY"
+  lot_size: 65
+  expiry_day: "TUESDAY"
+  market_open: "09:15"
+  market_close: "15:30"
+  force_close: "15:15"
+  expiry_close: "15:00"
+
+data:
+  websocket_reconnect_delay: 2
+  option_poll_interval: 30
+  rest_fallback_interval: 2
+  feed_delay_ms: 1000
+  feed_stale_ms: 3000
+  feed_down_ms: 5000
+  candle_maxlen: {1m: 400, 3m: 140, 5m: 80, 15m: 30}
+  option_strikes_range: 5
+  parquet_compression: "snappy"
+
+features:
+  ema_periods: [9, 21, 50]
+  rsi_period: 14
+  atr_period: 14
+  macd: [12, 26, 9]
+  bb: {period: 20, std: 2}
+  supertrend: {period: 10, multiplier: 3}
+  volume_profile_bucket: 5
+  volume_profile_rebuild_sec: 1800
+
+regime:
+  trending_adx: 25
+  strong_trend_adx: 35
+  range_adx: 20
+  chop_adx: 15
+  volatile_atr_percentile: 80
+  stability_bars: 3
+  transition_threshold: 0.6
+
+narrative:
+  fii_strong: 2000
+  fii_mild: 500
+  vix_calm: 12
+  vix_caution: 16
+  vix_fear: 20
+  vix_panic: 25
+  currency_threshold: 0.2
+
+brains:
+  structural: {max_trades: 3, target: [8,25], sl_atr: 1.5, max_hold: 45, min_mtf: 4.5, min_score: 65}
+  tactical: {max_trades: 5, target: [3,8], sl_atr: 0.8, max_hold: 10, cooldown: 180, min_score: 60}
+  institutional: {max_trades: 2, target: [10,30], sl_atr: 2.0, max_hold: 45, min_smc_score: 30}
+  adaptive: {max_trades_hour: 1, target: [2,5], sl_atr: 0.5, max_risk: 0.0025}
+
+scoring:
+  base_weights: {structure: 0.14, location: 0.14, momentum: 0.12, options: 0.12, regime: 0.10, mtf: 0.10, smart_money: 0.08, narrative: 0.07, time: 0.07, trap: 0.06}
+  min_score: 58
+  min_component: 15
+  min_trap_safety: 30
+  confluence_bonus: 10
+  triple_confluence: 15
+
+ml:
+  lgbm_reject: 0.50
+  lgbm_caution: 0.65
+  anomaly_pause: 0.7
+  anomaly_safe: 0.9
+  garch_high_vol: 1.5
+  psi_retrain: 0.2
+
+risk:
+  max_risk_trade: 0.005
+  max_daily_loss: 0.02
+  max_trades_day: 5
+  max_consec_losses: 3
+  drawdown_caution: 0.03
+  drawdown_reduce: 0.05
+  drawdown_half: 0.08
+  drawdown_lock: 0.10
+  breakeven_trigger: 1.0
+  partial_exit_trigger: 1.5
+  trailing_atr: 1.0
+  scale_in_trigger: 2.0
+
+behavioral:
+  cooldown_1: 5
+  cooldown_2: 15
+  cooldown_3: 30
+  fomo_move: 0.01
+  fomo_vwap_distance: 1.5
+  fomo_min_score: 78
+  max_lunch_trades: 2
+  tilt_warning: 50
+  tilt_reduce: 70
+  tilt_disable: 85
+
+compliance:
+  order_types: ["LIMIT", "STOPLOSS_LIMIT"]
+  max_ops: 9
+  audit_years: 5
+
+learning:
+  min_trades_adjust: 20
+  bad_threshold_increase: 5
+  good_threshold_decrease: 3
+  min_threshold: 55
+  max_change_week: 5
+  rollback_days: 5
+
+position:
+  sl_buffer_points: 2
+  target_timeout_sec: 30
+  confidence_recheck_sec: 300
+  confidence_exit: 0.35
+  regime_tighten_atr: 0.5
+  max_scale_ins: 1
+
+SECTION 8: 18-WEEK IMPLEMENTATION ROADMAP
+Phase 1 — Foundation (Weeks 1-3):
+Week 1: Environment + compliance setup. Python 3.11, venv, all libraries. Get static IP from ISP. Register on Angel One SmartAPI. Generate new API key + TOTP. Create .env + .gitignore. Git repo. SQLite tables. Test SmartAPI login + WebSocket tick reception.
+Week 2: Data Engine (Layer 0+1). WebSocket manager with auto-reconnect. Tick validator. Candle builder (4 TF from single stream). Option chain poller. Feed health monitor. REST fallback. Parquet archival. Test with 1 full live day.
+Week 3: Data verification. Download 6 months historical candles via REST. Store in Parquet. Build historical replay loader. Compare live candles with official EOD data.
+Phase 2 — Intelligence (Weeks 4-6):
+Week 4: Feature Universe (Layer 2). Price + momentum + volatility + volume profile + options features. Test with live data, verify against TradingView.
+Week 5: Features continued + Context Engines. Microstructure + fundamental + Smart Money Concepts + key levels + candle patterns + MTF alignment. Narrative Engine. Regime Engine with transition probability. Time Context with Tuesday expiry.
+Week 6: Market DNA Engine. Day fingerprint computation. Historical matching on 6 months data. Session memory implementation. Integration test of all intelligence layers on 3 months history.
+Phase 3 — Decision Making (Weeks 7-9):
+Week 7: Strategy Engine. All 13 strategies as pure functions. Test each on historical data. Verify signal frequency (none should >10/day).
+Week 8: Scoring + Brains + Trap Detection. 10-factor dynamic scoring. 4-brain selection. Trap Detection Engine. Complete pipeline test: tick → features → context → DNA → brain → strategy → trap → score → opportunity.
+Week 9: Behavioral Sentinel + Risk Engine. All psychology rules. All sizing multipliers. Circuit breaker. Cost calculator. Greeks monitor. Test in ALERT mode for 3 live days.
+Phase 4 — ML & Execution (Weeks 10-12):
+Week 10: ML Layer. Prepare dataset from 6 months features. Train LightGBM on Colab, walk-forward. Export ONNX. Train GARCH, Isolation Forest, XGBoost backup. Load locally.
+Week 11: Position Management + Execution. All 9 exit types including scale-in. Execution Engine in PAPER mode with slippage. Compliance checks (Algo-ID, IP, Limit only). Full day PAPER run.
+Week 12: Dashboard + Journal + Self-Learning. 16 Streamlit panels. Post-trade journal. Daily summary. Self-Learning Loop (manual run on historical).
+Phase 5 — Testing (Weeks 13-16):
+Weeks 13-14: ALERT mode. 10 trading days. Observe signals, do NOT trade. Every evening review. After 10 days, tune scoring weights.
+Weeks 15-16: PAPER mode. 10+ trading days. Track P&L. Run Self-Learning after week 1. Target: profit factor >1.3. If not → continue paper with adjustments.
+Phase 6 — Live (Weeks 17-18):
+Week 17: Assisted live. ₹10,000 capital only (not full ₹50K). 1 lot only. YOU confirm each trade via checklist.
+Week 18: Semi-auto live. System auto-enters after checklist + risk approval. Still 1 lot. After 5 consecutive profitable days → increase to full capital.
+Week 19+: Full auto only after 20+ paper days profitable, 10+ assisted live days profitable, compliance verified, Self-Learning 4+ cycles complete.
+
+SECTION 9: WHAT MAKES THIS THE STRONGEST POSSIBLE SYSTEM
+Unique innovations not in any single plan:
+
+1. 
+Market DNA + Session Memory + Trap Detection working together: Session Memory feeds Trap Detection (2+ traps today raises future trap probability), Market DNA provides historical context (similar days had X% traps), and all three inform every trade decision. No plan had all three integrated.
+
+2. 
+Dynamic regime-adaptive scoring weights + dedicated Trap Detection layer: Plan 1 had dynamic weights but a weaker trap mechanism. Plan 2 had trap as a scoring factor but fixed weights. This system has both — the strongest combination.
+
+3. 
+SEBI compliance as a core architectural layer with Smart Money Concepts and institutional brain — no plan had compliance + SMC + institutional analysis all together.
+
+4. 
+5-level self-learning hierarchy (from Plan 2) integrated with edge decay tracking (from Plan 1) and pattern footprint library clustering — the most comprehensive learning system.
+
+5. 
+Contextual stop losses (from Plan 1: stops that invalidate the thesis, not arbitrary ATR multiples) + scale-in for winners (from Plan 3) + cost-adjusted P&L (from Plan 1) — the most complete position management.
+
+6. 
+6 Laws covering philosophy (Laws 1-5 from Plan 1) + regulatory reality (Law 6 from Plan 2) — the most complete trading framework.
+
+
+
+SECTION 10: REALISTIC EXPECTATIONS & GOLDEN RULES
+Performance Targets (after 3 months): Win rate 55-65%. Profit factor 1.5-2.0. Max monthly drawdown <6%. Average 2-4 trades/day. Average 3-12 points/trade.
+Capital Growth (₹50K, disciplined): Month 1: ₹50K → ₹51-52K (calibration). Month 3: → ₹62-65K. Month 6: → ₹75-90K. Not guarantees — realistic targets.
+10 Golden Rules:
+
+1. Never trade without current Narrative Score. Data unavailable → NEUTRAL, sizes ×0.5.
+2. Circuit breaker is sacred. No workarounds.
+3. Pre-trade checklist is not optional in LIVE mode. Ever.
+4. Trust but verify Self-Learning Loop every Sunday.
+5. System's job is not prediction — it's quality filtering + discipline enforcement.
+6. Limit orders only. No market orders. SEBI mandate + better fills.
+7. Rotate credentials immediately if exposure suspected.
+8. Paper trade minimum 21 days before real money.
+9. Start LIVE with ₹10,000 only, 1 lot only, regardless of sizing engine.
+10. Log everything. If it's not logged, it didn't happen. The system that doesn't log cannot learn.
+
+
+
+
+
+ROADMAP ---
+
+
+
+
+JUNIOR ALADDIN — THE ULTIMATE CONSTRUCTION MANUAL
+Day-by-Day, File-by-File, Function-by-Function
+Zero Se Advanced — Kuch Bhi Skip Nahi Hoga
+
+PRE-PHASE: FOUNDATION SETUP
+Duration: Day 1 to Day 7
+Version: v0.0 → v0.1.0
+
+DAY 1: MACHINE + ACCOUNTS + INTERNET
+TASK 1.1 — Machine Verification (1 hour)
+ACTION: Open Settings → System → About
+NOTE DOWN:
+  - OS: Windows 11 (version number)
+  - RAM: 12 GB (confirm)
+  - Storage: 500 GB SSD (confirm free space > 100 GB)
+  - Processor: Note exact model
+  - GPU: Note exact model + VRAM (5-6 GB expected)
+
+ACTION: Open Task Manager → Performance → Screenshot lo
+  - CPU tab: Note cores/threads
+  - Memory tab: Note available RAM
+  - GPU tab: Note dedicated memory
+
+VERIFY: Agar RAM < 8 GB ya SSD < 50 GB free → pehle hardware fix karo
+
+TASK 1.2 — Internet + Static IP (1 hour + follow-up)
+ACTION: Go to speedtest.net → Run test
+NOTE DOWN:
+  - Download: _____ Mbps (need > 10)
+  - Upload: _____ Mbps (need > 5)
+  - Ping: _____ ms (need < 50)
+
+ACTION: Call your ISP (Jio/Airtel/ACT/BSNL/local)
+SCRIPT: "Mujhe apne broadband connection pe ek static IP address chahiye.
+         Algo trading ke liye use karna hai. Kitna charge hoga monthly?"
+
+EXPECTED:
+  - Cost: ₹150-500/month
+  - Activation: 1-3 business days
+  - They will give you a fixed IP like: 103.xx.xx.xx
+
+IF ISP SAYS NO:
+  - Option A: Dusre ISP se pucho
+  - Option B: DigitalOcean Droplet (₹350/month) → https://www.digitalocean.com
+  - Option C: AWS Lightsail (₹300/month) → https://lightsail.aws.amazon.com
+
+NOTE: Static IP milne me 1-3 din lagenge. Baaki kaam parallel chalta rahega.
+      Static IP ke bina LIVE trading nahi hoga, but development + ALERT +
+      PAPER mode sab chalega.
+
+TASK 1.3 — UPS / Power Backup Check (30 min)
+CHECK: Kya tumhare paas UPS hai?
+  - Agar HAI → verify it holds 30+ minutes on laptop
+  - Agar NAHI → Order karo: APC BX600C ya Microtek 600VA (₹2500-4000)
+  - Jab tak UPS nahi aata → hamesha laptop charger pe rakhna trading ke time
+
+WHY: Power cut = WebSocket disconnect = open position unmanaged = potential loss
+
+TASK 1.4 — Angel One Account Verification (1 hour)
+ACTION: Open browser → Go to https://www.angelone.in → Login
+
+CHECK 1: Account active hai?
+  - Dashboard dikhna chahiye with portfolio
+  - Agar login nahi ho raha → Angel One customer care: 080-47480048
+
+CHECK 2: F&O segment activated hai?
+  - Go to Profile → Segments
+  - Look for "F&O" or "Derivatives" → should say "Active"
+  - Agar NOT active:
+    ACTION: Call Angel One → Request F&O activation
+    NEED: Income proof (ITR / salary slip / bank statement)
+    TIME: 1-2 business days
+    NOTE: Bina F&O activation ke NIFTY options trade nahi kar sakte
+
+CHECK 3: Sufficient balance hai?
+  - For development: ₹0 needed (API access free hai)
+  - For PAPER mode: ₹0 needed
+  - For LIVE mode (later): ₹10,000 minimum deposit karenge
+
+CHECK 4: Note down your details:
+  - Client ID (Angel One login ID): __________
+  - Registered Email: __________
+  - Registered Phone: __________
+
+TASK 1.5 — SmartAPI App Creation (30 min)
+ACTION: Open browser → Go to https://smartapi.angelone.in/
+ACTION: Login with Angel One credentials
+
+ACTION: Click "Create App" ya "My Apps" → "Add New App"
+FILL:
+  - App Name: JuniorAladdin
+  - Redirect URL: https://localhost
+  - Postback URL: (leave blank or https://localhost)
+  - Description: "Personal algo trading system for NIFTY options"
+ACTION: Click Submit/Create
+
+NOTE DOWN (CRITICAL — ye kabhi share nahi karna, screenshot mat lo):
+  - API Key: __________________________________
+  - Client ID: ________________________________ (same as Angel One login)
+
+IMPORTANT: Agar pehle koi purani app banai thi jiske credentials kahi
+expose hue the → DELETE that old app → Create fresh new app
+
+TASK 1.6 — TOTP Setup (30 min)
+BACKGROUND: TOTP = Time-based One-Time Password. Angel One login ke liye
+OTP chahiye. Normally ye phone pe aata hai. But algo trading me hum
+programmatically TOTP generate karenge using a secret key.
+
+ACTION: Open Angel One mobile app
+ACTION: Go to Settings/Profile → Security → Enable TOTP/2FA
+  - Agar already enabled:
+    Go to TOTP settings → "View Secret Key" ya "Reset TOTP"
+  - Agar not enabled:
+    Enable it → It will show a QR code AND a text secret key
+
+NOTE DOWN THE SECRET KEY:
+  - This is a long alphanumeric string like: JBSWY3DPEHPK3PXP
+  - This is the TOTP_SECRET that goes in your .env file
+  - WITHOUT this, your system cannot auto-login
+
+VERIFY IT WORKS:
+  ACTION: Install Google Authenticator app on phone
+  ACTION: Scan the QR code or enter secret manually
+  ACTION: The 6-digit code shown should match what Angel One accepts
+
+TECHNICAL TEST:
+  - We'll verify programmatic TOTP in Day 3 when Python is set up
+
+DAY 1 COMPLETE CHECKLIST:
+
+*  Machine specs verified
+*  ISP called for static IP (activation pending)
+*  UPS checked/ordered
+*  Angel One account active with F&O segment
+*  SmartAPI app created, API Key noted
+*  TOTP secret key obtained
+
+
+DAY 2: PYTHON + LIBRARIES + GIT
+TASK 2.1 — Python 3.11 Installation (30 min)
+ACTION: Open browser → https://www.python.org/downloads/
+ACTION: Find Python 3.11.x (NOT 3.12, NOT 3.13 — compatibility issues)
+  - Example: Python 3.11.9 or Python 3.11.8
+ACTION: Download "Windows installer (64-bit)"
+ACTION: Run the installer
+
+⚠️ CRITICAL CHECKBOX: On the FIRST screen of installer:
+  ☑ "Add python.exe to PATH" ← TICK THIS. BAHUT IMPORTANT.
+  If you miss this, commands won't work from terminal.
+
+ACTION: Click "Customize installation"
+  ☑ pip (must be checked)
+  ☑ tcl/tk and IDLE
+  ☑ py launcher
+  ☑ for all users (recommended)
+ACTION: Click Install → Wait → Close
+
+VERIFY:
+  ACTION: Open Command Prompt (Win+R → type "cmd" → Enter)
+  TYPE: python --version
+  EXPECTED OUTPUT: Python 3.11.x
+  TYPE: pip --version
+  EXPECTED OUTPUT: pip 2x.x from ... (python 3.11)
+
+  IF "python is not recognized":
+    → Python was not added to PATH
+    → Uninstall → Reinstall → This time check "Add to PATH"
+    → Or manually add to PATH: Search "Environment Variables" in Windows
+      → System Variables → Path → Add: C:\Python311\ and C:\Python311\Scripts\
+
+TASK 2.2 — Project Directory + Virtual Environment (30 min)
+ACTION: Choose a location for your project
+  RECOMMENDED: D:\junior_aladdin\ (or C:\Projects\junior_aladdin\)
+  AVOID: Desktop, Downloads, or any OneDrive-synced folder
+
+ACTION: Open Command Prompt
+TYPE:
+  mkdir D:\junior_aladdin
+  cd D:\junior_aladdin
+
+CREATE VIRTUAL ENVIRONMENT:
+TYPE:
+  python -m venv venv
+
+WHAT THIS DOES: Creates an isolated Python environment inside "venv" folder.
+All our libraries install here — doesn't pollute your system Python.
+
+ACTIVATE VIRTUAL ENVIRONMENT:
+TYPE:
+  venv\Scripts\activate
+
+YOUR PROMPT SHOULD NOW SHOW: (venv) D:\junior_aladdin>
+  The (venv) prefix means virtual environment is active.
+
+⚠️ RULE: EVERY TIME you open a new terminal to work on this project:
+  cd D:\junior_aladdin
+  venv\Scripts\activate
+  THEN start working.
+
+VERIFY:
+TYPE: python --version
+SHOULD SHOW: Python 3.11.x
+TYPE: pip list
+SHOULD SHOW: pip, setuptools (just 2-3 packages)
+
+TASK 2.3 — Install Core Libraries (45 min)
+ACTION: Inside activated venv, create requirements file
+
+CREATE FILE: requirements.txt (in D:\junior_aladdin\)
+CONTENT:
+---
+# Broker Connection
+smartapi-python>=1.4.0
+pyotp>=2.9.0
+
+# Data Processing
+pandas>=2.2.0
+numpy>=1.26.0
+scipy>=1.12.0
+pyarrow>=15.0.0
+
+# Async & Networking
+aiohttp>=3.9.0
+httpx>=0.27.0
+websockets>=12.0
+
+# Configuration & Security
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+cryptography>=42.0.0
+
+# Logging
+structlog>=24.1.0
+
+# Machine Learning
+lightgbm>=4.3.0
+xgboost>=2.0.0
+scikit-learn>=1.4.0
+statsmodels>=0.14.0
+onnxruntime>=1.17.0
+onnxmltools>=1.12.0
+shap>=0.45.0
+
+# Performance
+numba>=0.59.0
+
+# Dashboard
+streamlit>=1.31.0
+plotly>=5.19.0
+
+# Notifications
+plyer>=2.1.0
+
+# External Data
+yfinance>=0.2.36
+requests>=2.31.0
+
+# Cloud Sync
+gdown>=5.1.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+---
+
+INSTALL:
+TYPE: pip install -r requirements.txt
+WAIT: This takes 10-20 minutes. Some libraries (lightgbm, numba) are large.
+
+IF ANY ERROR DURING INSTALL:
+  - "Microsoft Visual C++ required" → Install Visual Studio Build Tools:
+    https://visualstudio.microsoft.com/visual-cpp-build-tools/
+    → Install "Desktop development with C++"
+    → Then retry pip install
+  - "wheel build failed for numba" → pip install numba==0.58.0 (try older version)
+  - Any other error → Google the exact error message
+
+TASK 2.4 — Verify ALL Installations (15 min)
+CREATE FILE: test_imports.py (in project root)
+CONTENT:
+---
+import sys
+print(f"Python: {sys.version}")
+print()
+
+libraries = {
+    "SmartApi": "smartapi-python",
+    "pyotp": "pyotp",
+    "pandas": "pandas",
+    "numpy": "numpy",
+    "scipy": "scipy",
+    "pyarrow": "pyarrow",
+    "aiohttp": "aiohttp",
+    "httpx": "httpx",
+    "websockets": "websockets",
+    "dotenv": "python-dotenv",
+    "yaml": "pyyaml",
+    "cryptography": "cryptography",
+    "structlog": "structlog",
+    "lightgbm": "lightgbm",
+    "xgboost": "xgboost",
+    "sklearn": "scikit-learn",
+    "statsmodels": "statsmodels",
+    "onnxruntime": "onnxruntime",
+    "shap": "shap",
+    "numba": "numba",
+    "streamlit": "streamlit",
+    "plotly": "plotly",
+    "plyer": "plyer",
+    "yfinance": "yfinance",
+    "requests": "requests",
+    "gdown": "gdown",
+    "pytest": "pytest",
+}
+
+passed = 0
+failed = 0
+for module, package in libraries.items():
+    try:
+        __import__(module)
+        print(f"  ✅ {package}")
+        passed += 1
+    except ImportError:
+        print(f"  ❌ {package} — NEEDS INSTALL: pip install {package}")
+        failed += 1
+
+print(f"\nResult: {passed} passed, {failed} failed")
+if failed == 0:
+    print("🎉 ALL LIBRARIES READY!")
+else:
+    print("⚠️ Fix failed libraries before proceeding")
+---
+
+RUN: python test_imports.py
+
+EXPECTED: All ✅ green. If any ❌:
+  pip install <package_name>
+  Then run test again.
+
+TASK 2.5 — Git Installation & Repository (30 min)
+INSTALL GIT:
+ACTION: Go to https://git-scm.com/download/win → Download → Install
+  - Use default options for everything
+  - "Use Git from Windows Command Prompt" ← select this
+
+VERIFY:
+TYPE: git --version
+EXPECTED: git version 2.xx.x
+
+CONFIGURE GIT:
+TYPE:
+  git config --global user.name "YourName"
+  git config --global user.email "your@email.com"
+
+INITIALIZE REPOSITORY:
+  cd D:\junior_aladdin
+  git init
+
+CREATE .gitignore FILE:
+CREATE FILE: .gitignore
+CONTENT:
+---
+# SECRETS — NEVER EVER COMMIT
+.env
+*.env
+.env.*
+
+# Virtual Environment
+venv/
+.venv/
+
+# Data Files (too large for git)
+data/
+*.parquet
+*.db
+*.sqlite
+*.sqlite3
+
+# Model Files
+models/*.onnx
+models/*.pkl
+models/*.joblib
+
+# Logs
+logs/
+*.log
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Backups
+backups/
+
+# Temp files
+*.tmp
+*.bak
+test_imports.py
+---
+
+FIRST COMMIT:
+TYPE:
+  git add .
+  git commit -m "Day 2: Project initialized with Python 3.11 and all libraries"
+
+DAY 2 COMPLETE CHECKLIST:
+
+*  Python 3.11 installed and in PATH
+*  Virtual environment created and working
+*  All 25+ libraries installed and verified
+*  Git installed and repository initialized
+*  .gitignore created (protecting .env and data files)
+
+
+DAY 3: FOLDER STRUCTURE + SECRETS + CONFIG
+TASK 3.1 — Complete Folder Structure (30 min)
+ACTION: In Command Prompt, inside project folder, run ALL of these:
+
+mkdir src
+mkdir src\core
+mkdir src\features
+mkdir src\context
+mkdir src\dna
+mkdir src\brains
+mkdir src\strategies
+mkdir src\filters
+mkdir src\ml
+mkdir src\psychology
+mkdir src\risk
+mkdir src\captain
+mkdir src\positions
+mkdir src\execution
+mkdir src\journal
+mkdir src\learning
+mkdir src\utils
+mkdir dashboard
+mkdir dashboard\panels
+mkdir notebooks
+mkdir models
+mkdir data
+mkdir data\historical
+mkdir data\historical\candles
+mkdir data\historical\options
+mkdir data\historical\features
+mkdir data\live
+mkdir data\calendar
+mkdir logs
+mkdir tests
+mkdir tests\unit
+mkdir tests\integration
+mkdir backups
+
+NOW CREATE __init__.py FILES (makes folders into Python packages):
+
+For each folder inside src/, create empty __init__.py:
+
+type nul > src\__init__.py
+type nul > src\core\__init__.py
+type nul > src\features\__init__.py
+type nul > src\context\__init__.py
+type nul > src\dna\__init__.py
+type nul > src\brains\__init__.py
+type nul > src\strategies\__init__.py
+type nul > src\filters\__init__.py
+type nul > src\ml\__init__.py
+type nul > src\psychology\__init__.py
+type nul > src\risk\__init__.py
+type nul > src\captain\__init__.py
+type nul > src\positions\__init__.py
+type nul > src\execution\__init__.py
+type nul > src\journal\__init__.py
+type nul > src\learning\__init__.py
+type nul > src\utils\__init__.py
+type nul > dashboard\__init__.py
+type nul > tests\__init__.py
+type nul > tests\unit\__init__.py
+type nul > tests\integration\__init__.py
+
+VERIFY STRUCTURE:
+TYPE: tree /F src (shows folder tree with files)
+Should show all folders with __init__.py inside each
+
+TASK 3.2 — Create .env Secrets File (15 min)
+⚠️ THIS IS THE MOST SENSITIVE FILE IN THE ENTIRE PROJECT
+
+CREATE FILE: .env (in project root D:\junior_aladdin\.env)
+CONTENT:
+---
+# Angel One SmartAPI Credentials
+ANGEL_API_KEY=paste_your_api_key_here
+ANGEL_CLIENT_ID=paste_your_client_id_here
+ANGEL_PASSWORD=paste_your_trading_password_here
+ANGEL_TOTP_SECRET=paste_your_totp_secret_here
+
+# Network Configuration
+STATIC_IP_PRIMARY=
+STATIC_IP_SECONDARY=
+
+# System Mode (ALERT / PAPER / LIVE)
+TRADING_MODE=ALERT
+
+# Capital Configuration
+INITIAL_CAPITAL=50000
+RISK_PER_TRADE=0.005
+
+# Database
+DB_PATH=data/junior_aladdin.db
+---
+
+ACTION: Replace all paste_your_xxx values with actual credentials from Day 1
+
+VERIFY .env IS PROTECTED:
+  ACTION: Open .gitignore → Confirm ".env" is listed
+  ACTION: git status → .env should NOT appear in the list
+  If .env appears in git status → STOP → Fix .gitignore → git rm --cached .env
+
+⚠️ SECURITY RULES:
+  - NEVER share .env with anyone
+  - NEVER paste .env contents in chat/email/forum
+  - NEVER screenshot .env
+  - NEVER commit .env to git
+  - Keep a backup: Copy .env to a password-protected USB drive
+  - If credentials are ever exposed: IMMEDIATELY rotate them
+    (delete SmartAPI app, create new one, get new API key)
+
+TASK 3.3 — Create config.yaml (45 min)
+CREATE FILE: config.yaml (in project root)
+This is the MASTER configuration file. Every tunable parameter lives here.
+Unlike .env (which has secrets), config.yaml is safe to commit to git.
+
+CONTENT:
+---
+# Junior Aladdin Master Configuration
+# Version: 12.0-FINAL
+# Last Updated: 2026-03-25
+
+system:
+  name: "Junior Aladdin"
+  version: "12.0"
+  log_level: "INFO"
+
+market:
+  index: "NIFTY"
+  exchange: "NSE"
+  nfo_exchange: "NFO"
+  lot_size: 65                    # Updated Jan 2026
+  expiry_day: "TUESDAY"           # Updated 2026
+  strike_interval: 50             # NIFTY strike gap
+  market_open: "09:15"
+  market_close: "15:30"
+  force_close_time: "15:15"       # Normal days
+  expiry_close_time: "15:00"      # Expiry days
+  nifty_spot_token: "99926000"    # Angel One token for NIFTY 50
+  india_vix_token: "26017"        # Angel One token for India VIX
+
+sessions:
+  opening_auction:
+    start: "09:15"
+    end: "09:16"
+    size_multiplier: 0.0
+    trading_allowed: false
+  or_formation:
+    start: "09:16"
+    end: "09:30"
+    size_multiplier: 0.0
+    trading_allowed: false
+  initial_balance:
+    start: "09:30"
+    end: "10:15"
+    size_multiplier: 0.7
+    trading_allowed: true
+  golden_morning:
+    start: "10:15"
+    end: "11:30"
+    size_multiplier: 1.0
+    trading_allowed: true
+  lunch_lull:
+    start: "11:30"
+    end: "13:00"
+    size_multiplier: 0.3
+    trading_allowed: true
+    tactical_only: true
+  golden_afternoon:
+    start: "13:00"
+    end: "14:30"
+    size_multiplier: 1.0
+    trading_allowed: true
+  closing_session:
+    start: "14:30"
+    end: "15:10"
+    size_multiplier: 0.5
+    trading_allowed: true
+  last_minutes:
+    start: "15:10"
+    end: "15:15"
+    size_multiplier: 0.0
+    trading_allowed: false
+
+data:
+  websocket_reconnect_delay_sec: 2
+  websocket_max_retries: 5
+  option_chain_poll_interval_sec: 30
+  rest_fallback_interval_sec: 2
+  feed_delay_threshold_ms: 1000
+  feed_stale_threshold_ms: 3000
+  feed_down_threshold_ms: 5000
+  candle_deque_sizes:
+    1min: 400
+    3min: 140
+    5min: 80
+    15min: 30
+  option_strikes_range: 5         # ATM ± this many strikes
+  parquet_compression: "snappy"
+  max_instruments_websocket: 100
+
+features:
+  ema_periods: [9, 21, 50]
+  rsi_period: 14
+  atr_period: 14
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  bb_period: 20
+  bb_std: 2.0
+  supertrend_period: 10
+  supertrend_multiplier: 3.0
+  volume_sma_period: 20
+  volume_profile_bucket_size: 5   # NIFTY points per bucket
+  volume_profile_rebuild_sec: 1800
+  swing_lookback: 5               # bars for swing detection
+  swing_store_count: 10           # store last N swings per TF
+  sr_cluster_distance: 15         # NIFTY points
+  risk_free_rate: 0.065           # 6.5% for India (Black-Scholes)
+  iv_max_iterations: 50
+  iv_tolerance: 0.10              # ₹0.10
+
+narrative:
+  fii_weight: 0.25
+  global_weight: 0.25
+  vix_weight: 0.20
+  currency_weight: 0.15
+  event_weight: 0.15
+  fii_strong_threshold_crore: 2000
+  fii_mild_threshold_crore: 500
+  vix_calm: 12
+  vix_normal: 16
+  vix_caution: 20
+  vix_fear: 25
+  currency_threshold_pct: 0.2
+
+regime:
+  trending_adx_threshold: 25
+  strong_trend_adx: 35
+  range_adx_threshold: 20
+  chop_adx_threshold: 15
+  volatile_atr_percentile: 80
+  stability_filter_bars: 3
+  transition_alert_threshold: 0.6
+
+brains:
+  structural:
+    max_trades_per_day: 3
+    target_range_points: [8, 25]
+    sl_atr_multiplier: 1.5
+    max_hold_minutes: 45
+    min_weighted_mtf: 4.5
+    min_score: 65
+  tactical:
+    max_trades_per_day: 5
+    target_range_points: [3, 8]
+    sl_atr_multiplier: 0.8
+    max_hold_minutes: 10
+    cooldown_seconds: 180
+    min_spread_bps: 5
+    min_score: 60
+  institutional:
+    max_trades_per_day: 2
+    target_range_points: [10, 30]
+    sl_atr_multiplier: 2.0
+    max_hold_minutes: 45
+    min_smc_score: 30
+    min_score: 65
+  adaptive:
+    max_trades_per_hour: 1
+    target_range_points: [2, 5]
+    sl_atr_multiplier: 0.5
+    max_risk_pct: 0.0025
+    min_data_quality: 80
+    min_score: 70
+
+scoring:
+  base_weights:
+    technical_structure: 0.14
+    location_quality: 0.14
+    momentum: 0.12
+    options_pressure: 0.12
+    regime_match: 0.10
+    mtf_alignment: 0.10
+    smart_money: 0.08
+    narrative_fit: 0.07
+    time_context: 0.07
+    trap_safety: 0.06
+  regime_modifiers:
+    trending:
+      momentum: 0.05
+      technical_structure: -0.03
+      location_quality: -0.02
+    range:
+      location_quality: 0.05
+      momentum: -0.03
+      time_context: -0.02
+    volatile:
+      options_pressure: 0.05
+      regime_match: 0.03
+      technical_structure: -0.05
+      narrative_fit: -0.03
+    chop:
+      min_score_override: 80
+    expiry:
+      options_pressure: 0.08
+      momentum: -0.06
+      location_quality: -0.02
+  min_total_score: 58
+  min_component_score: 15
+  confluence_bonus_2_strategies: 10
+  triple_confluence_bonus: 15
+
+trap:
+  volume_weight: 25
+  time_of_day_weight: 20
+  session_memory_weight: 15
+  oi_contradiction_weight: 15
+  rsi_extreme_weight: 10
+  spread_widening_weight: 10
+  wick_dominance_weight: 5
+  reject_threshold: 50
+  heavy_penalty_threshold: 40
+  light_penalty_threshold: 25
+
+ml:
+  lightgbm_reject_threshold: 0.50
+  lightgbm_caution_threshold: 0.65
+  lightgbm_caution_size_reduction: 0.20
+  anomaly_pause_threshold: 0.7
+  anomaly_safe_threshold: 0.9
+  garch_high_vol_multiplier: 1.5
+  psi_retrain_threshold: 0.2
+  shap_top_features: 5
+  feature_count: 85
+
+risk:
+  max_risk_per_trade_pct: 0.005   # 0.5%
+  max_daily_loss_pct: 0.02        # 2%
+  max_trades_per_day: 5
+  max_consecutive_losses: 3
+  drawdown_caution_pct: 0.03
+  drawdown_reduce_pct: 0.05
+  drawdown_half_pct: 0.08
+  drawdown_lock_pct: 0.10
+  breakeven_trigger_ratio: 1.0
+  partial_exit_trigger_ratio: 1.5
+  trailing_atr_multiplier: 1.0
+  scale_in_trigger_ratio: 2.0
+  max_scale_ins: 1
+
+behavioral:
+  cooldown_after_1_loss_min: 5
+  cooldown_after_2_losses_min: 15
+  cooldown_after_3_losses_min: 30
+  fomo_market_move_threshold: 0.01
+  fomo_vwap_distance_atr: 1.5
+  fomo_min_score_override: 78
+  max_trades_in_lunch: 2
+  tilt_warning_threshold: 50
+  tilt_reduce_threshold: 70
+  tilt_disable_threshold: 85
+  tilt_consecutive_loss_points: 15
+  tilt_negative_pnl_max_points: 20
+  tilt_overtrading_max_points: 20
+  tilt_revenge_attempt_points: 15
+
+costs:
+  stt_sell_pct: 0.000125          # 0.0125% on sell side
+  brokerage_per_order: 20         # ₹20 flat
+  gst_on_brokerage_pct: 0.18     # 18%
+  stamp_duty_pct: 0.00003        # Approx 0.003%
+  exchange_charges_pct: 0.0005   # Approx 0.05%
+
+compliance:
+  allowed_order_types: ["LIMIT", "STOPLOSS_LIMIT"]
+  max_orders_per_second: 9
+  audit_retention_years: 5
+
+position_management:
+  sl_limit_buffer_points: 2
+  target_fill_timeout_sec: 30
+  confidence_recheck_interval_sec: 300
+  confidence_exit_threshold: 0.35
+  regime_change_tighten_atr: 0.5
+  eod_close_time: "15:15"
+  expiry_close_time: "15:00"
+
+learning:
+  min_trades_for_adjustment: 20
+  bad_winrate_threshold: 0.40
+  good_winrate_threshold: 0.70
+  threshold_increase_on_bad: 5
+  threshold_decrease_on_good: 3
+  min_strategy_threshold: 55
+  max_threshold_change_per_week: 5
+  rollback_after_bad_days: 5
+
+captain:
+  heartbeat_interval_sec: 5
+  max_missed_heartbeats: 3
+  max_restart_attempts: 3
+  restart_window_minutes: 10
+
+dashboard:
+  refresh_interval_sec: 2
+  max_trade_history_display: 20
+---
+
+SAVE this file. It will be loaded by Config loader.
+
+TASK 3.4 — Economic Calendar Initial Setup (15 min)
+CREATE FILE: data/calendar/economic_calendar.json
+CONTENT:
+{
+  "events": [
+    {"date": "2026-04-01", "name": "SEBI New Algo Rules Effective", "severity": 1},
+    {"date": "2026-04-06", "name": "RBI MPC Decision", "severity": 2},
+    {"date": "2026-04-14", "name": "Dr. Ambedkar Jayanti - Market Holiday", "severity": 0},
+    {"date": "2026-05-01", "name": "Maharashtra Day - Market Holiday", "severity": 0}
+  ],
+  "_severity_guide": {
+    "0": "Holiday or no impact",
+    "1": "Minor event - mild caution",
+    "2": "Major event - high uncertainty, reduce exposure"
+  },
+  "_update_instructions": "Update this file every Sunday evening with events for the coming week. Sources: RBI website, NSE circulars, economic calendar websites."
+}
+
+NOTE: Ye file har Sunday manually update karna hai with:
+  - RBI policy dates
+  - FOMC/Fed meeting dates
+  - India GDP/CPI release dates
+  - Budget day
+  - Quarterly results season start
+  - Any major global events
+
+TASK 3.5 — Commit Day 3
+git add .
+git commit -m "Day 3: Folder structure, .env secrets, config.yaml, economic calendar"
+
+DAY 3 COMPLETE CHECKLIST:
+
+*  All folders created with init.py
+*  .env file with credentials (NOT in git)
+*  config.yaml with all parameters
+*  Economic calendar JSON with initial events
+*  Git commit done
+
+
+DAY 4: UTILITY MODULES — THE BUILDING BLOCKS
+TASK 4.1 — Logger Module (30 min)
+CREATE FILE: src/utils/logger.py
+
+PURPOSE: Structured JSON logging. Every engine logs through this.
+         Separate log files per engine. Daily rotation.
+
+FUNCTIONS TO BUILD:
+  setup_logger(name: str) → structlog.BoundLogger
+    - Create logs/ directory if not exists
+    - File handler: logs/{name}_{date}.log
+    - Console handler: print to terminal
+    - JSON format for file, readable format for console
+    - Include: timestamp (ISO), log level, engine name, message
+
+TEST:
+  python -c "
+  from src.utils.logger import setup_logger
+  log = setup_logger('test_engine')
+  log.info('System starting', version='12.0')
+  log.warning('Feed delayed', lag_ms=1500)
+  log.error('Connection failed', retry=3)
+  "
+  → Check logs/test_engine_2026-03-28.log exists with JSON entries
+
+TASK 4.2 — Config Loader Module (20 min)
+CREATE FILE: src/utils/config_loader.py
+
+PURPOSE: Load config.yaml once, provide getter methods.
+         Singleton pattern — loaded once, used everywhere.
+
+CLASS: Config
+METHODS:
+  load(path="config.yaml") → dict: Load YAML file, cache in class variable
+  get(*keys, default=None): Navigate nested keys
+    Example: Config.get("market", "lot_size") → 65
+    Example: Config.get("brains", "structural", "max_trades_per_day") → 3
+    Example: Config.get("nonexistent", "key", default=0) → 0
+
+TEST:
+  python -c "
+  from src.utils.config_loader import Config
+  print(Config.get('market', 'lot_size'))           # Should print: 65
+  print(Config.get('market', 'expiry_day'))          # Should print: TUESDAY
+  print(Config.get('scoring', 'min_total_score'))    # Should print: 58
+  print(Config.get('fake', 'key', default='N/A'))    # Should print: N/A
+  "
+
+TASK 4.3 — Database Manager Module (45 min)
+CREATE FILE: src/utils/database.py
+
+PURPOSE: SQLite database management. Create tables, insert, query.
+         Single database file: data/junior_aladdin.db
+
+CLASS: Database
+METHODS:
+  __init__(db_path): Create DB file, create all tables
+  _create_tables(): CREATE TABLE IF NOT EXISTS for ALL 7 tables:
+    - trades (30+ columns as specified in plan)
+    - engine_logs
+    - strategy_dna
+    - daily_summary
+    - model_versions
+    - compliance_audit
+    - day_fingerprints
+  execute(query, params=None): Run any SQL
+  fetch_all(query, params=None): SELECT → list of rows
+  fetch_one(query, params=None): SELECT → single row
+  insert_trade(trade_dict): Insert into trades table
+  insert_log(engine, event_type, message, state): Insert into engine_logs
+  close(): Close connection
+
+TEST:
+  python -c "
+  from src.utils.database import Database
+  db = Database()
+  # Test insert
+  db.insert_log('test', 'startup', 'Database test', 'BOOT')
+  # Test query
+  rows = db.fetch_all('SELECT * FROM engine_logs')
+  print(f'Rows in engine_logs: {len(rows)}')
+  # Verify all tables exist
+  tables = db.fetch_all(\"SELECT name FROM sqlite_master WHERE type='table'\")
+  for t in tables:
+      print(f'  Table: {t[0]}')
+  db.close()
+  print('✅ Database OK')
+  "
+  → Should show all 7 tables
+  → File data/junior_aladdin.db should be created
+
+TASK 4.4 — Helpers Module (20 min)
+CREATE FILE: src/utils/helpers.py
+
+PURPOSE: Common utility functions used across the system.
+
+FUNCTIONS:
+  ist_now() → datetime: Current time in IST timezone
+  is_market_hours() → bool: True if 9:15-15:30 IST
+  is_pre_market() → bool: True if 8:00-9:15 IST
+  round_to_strike(price, step=50) → int: Round price to nearest NIFTY strike
+    Example: round_to_strike(24537) → 24550
+    Example: round_to_strike(24520) → 24500 (rounds to nearest, not up)
+  format_rupees(amount) → str: ₹1,234.56 format
+  trading_days_between(start, end) → int: Count excluding weekends/holidays
+  next_expiry_date(from_date=None) → date: Next Tuesday (or Monday if holiday)
+  is_expiry_day(date=None) → bool: Is given date an expiry day
+  pct_change(old, new) → float: Percentage change
+
+TEST:
+  python -c "
+  from src.utils.helpers import *
+  print(f'IST Now: {ist_now()}')
+  print(f'Market Hours: {is_market_hours()}')
+  print(f'Round 24537: {round_to_strike(24537)}')
+  print(f'Round 24520: {round_to_strike(24520)}')
+  print(f'Format: {format_rupees(1234.56)}')
+  print(f'Next Expiry: {next_expiry_date()}')
+  "
+
+TASK 4.5 — Black-Scholes Module (30 min)
+CREATE FILE: src/utils/black_scholes.py
+
+PURPOSE: Compute IV and Greeks for options when broker doesn't provide them.
+         Angel One does NOT give IV/Greeks — we compute locally.
+
+FUNCTIONS:
+  black_scholes_price(S, K, T, r, sigma, option_type="CE") → float
+    - S = spot price, K = strike, T = time to expiry (years)
+    - r = risk-free rate (0.065 for India), sigma = volatility
+    - Returns theoretical option price
+
+  implied_volatility(market_price, S, K, T, r, option_type="CE") → float
+    - Newton-Raphson iteration
+    - Start guess: sigma = 0.15 (15%)
+    - Iterate: adjust sigma until BS_price matches market_price within ₹0.10
+    - Max 50 iterations
+    - If no convergence: return last sigma estimate
+    - Return sigma (e.g., 0.13 = 13% IV)
+
+  compute_delta(S, K, T, r, sigma, option_type) → float
+  compute_gamma(S, K, T, r, sigma) → float
+  compute_theta(S, K, T, r, sigma, option_type) → float
+  compute_vega(S, K, T, r, sigma) → float
+
+  compute_all_greeks(S, K, T, r, sigma, option_type) → dict
+    Returns: {"delta": x, "gamma": x, "theta": x, "vega": x}
+
+TEST:
+  python -c "
+  from src.utils.black_scholes import *
+
+  # Test case: NIFTY at 24500, ATM CE, 3 days to expiry, 15% IV
+  S, K, T, r, sigma = 24500, 24500, 3/365, 0.065, 0.15
+  price = black_scholes_price(S, K, T, r, sigma, 'CE')
+  print(f'BS Price: {price:.2f}')  # Should be ~90-120
+
+  # Test IV computation: given market price, find IV
+  market_ltp = 100.0
+  iv = implied_volatility(market_ltp, S, K, T, r, 'CE')
+  print(f'Implied Vol: {iv*100:.1f}%')  # Should be ~13-17%
+
+  # Verify: BS price with computed IV should ≈ market_ltp
+  verify_price = black_scholes_price(S, K, T, r, iv, 'CE')
+  print(f'Verify Price: {verify_price:.2f} (should be ≈ {market_ltp})')
+
+  # Test Greeks
+  greeks = compute_all_greeks(S, K, T, r, iv, 'CE')
+  print(f'Delta: {greeks[\"delta\"]:.3f}')   # ATM CE delta ≈ 0.50
+  print(f'Gamma: {greeks[\"gamma\"]:.5f}')
+  print(f'Theta: {greeks[\"theta\"]:.2f}')   # Negative for long options
+  print(f'Vega:  {greeks[\"vega\"]:.2f}')
+  "
+
+TASK 4.6 — MarketState Dataclass (30 min)
+CREATE FILE: src/core/market_state.py
+
+PURPOSE: Single shared state object that ALL engines read/write.
+         Thread-safe. Updated in defined order by each engine.
+         This is the DATA CONTRACT of the entire system.
+
+CLASS: MarketState (Python dataclass)
+FIELDS: (every field from the mega plan — organized by layer)
+
+  # Layer 1 — Raw Data
+  timestamp, spot, candles (dict of 4 deques), option_chain,
+  market_depth, feed_health, feed_lag_ms, ticks_per_second,
+  data_quality_score
+
+  # Layer 2 — Features (dict per timeframe)
+  features, options_features, microstructure, key_levels,
+  smart_money, candle_patterns
+
+  # Layer 3 — Context
+  narrative_score, narrative_label, narrative_fit_factors,
+  regime, regime_confidence, regime_transition_prob,
+  session_phase, session_size_multiplier, day_type,
+  or_high, or_low, ib_high, ib_low, ib_width
+
+  # Layer 4 — Market DNA
+  day_personality, historical_match_score, session_memory
+
+  # Layer 5 — Brain State
+  active_brains, brain_confidence
+
+  # Opportunities Pipeline
+  raw_opportunities, trapped_opportunities, scored_opportunities,
+  ml_filtered, behavioral_filtered, approved_opportunities
+
+  # Risk State
+  capital, daily_pnl, drawdown_pct, trades_today,
+  consecutive_losses, tilt_score, risk_state
+
+  # System State
+  system_state, mode, engine_health
+
+  # Positions
+  open_positions
+
+METHODS:
+  update(**kwargs): Thread-safe field update
+  snapshot() → dict: Return copy of all fields (for dashboard)
+  reset_daily(): Reset daily counters (called at 8:30 AM)
+
+INCLUDE: threading.Lock for thread safety
+
+TEST:
+  python -c "
+  from src.core.market_state import MarketState
+  state = MarketState()
+  state.update(spot=24500.0, feed_health='HEALTHY')
+  print(f'Spot: {state.spot}')
+  print(f'Feed: {state.feed_health}')
+  snap = state.snapshot()
+  print(f'Snapshot keys: {len(snap)}')
+  print('✅ MarketState OK')
+  "
+
+TASK 4.7 — Commit Day 4
+git add .
+git commit -m "Day 4: All utility modules - logger, config, database, helpers, black_scholes, market_state"
+
+DAY 4 COMPLETE CHECKLIST:
+
+*  Logger working with file + console output
+*  Config loader reading all yaml values correctly
+*  Database created with all 7 tables
+*  Helper functions tested
+*  Black-Scholes IV + Greeks computing correctly
+*  MarketState dataclass with thread safety
+
+
+DAY 5-6: ANGEL ONE API CONNECTION — FULL SETUP
+TASK 5.1 — Login & Authentication Module (Day 5, 2 hours)
+CREATE FILE: src/core/auth_manager.py
+
+PURPOSE: Handle Angel One authentication, token management, auto-refresh.
+
+CLASS: AuthManager
+ATTRIBUTES:
+  smart_api: SmartConnect object
+  auth_token: str (JWT token for API calls)
+  feed_token: str (for WebSocket)
+  refresh_token: str
+  last_auth_time: datetime
+  is_authenticated: bool
+
+METHODS:
+  authenticate() → bool:
+    1. Load credentials from .env using python-dotenv
+    2. Create SmartConnect(api_key)
+    3. Generate TOTP using pyotp.TOTP(secret).now()
+    4. Call generateSession(client_id, password, totp)
+    5. If success: store all tokens, set is_authenticated=True
+    6. If fail: log error, return False
+    7. Log: "Authenticated successfully" with client_id
+
+  refresh_session() → bool:
+    1. Check if token is older than 25 minutes
+    2. If yes: call generateToken(refresh_token)
+    3. Update auth_token
+    4. Log: "Token refreshed"
+
+  get_smart_api() → SmartConnect:
+    If not authenticated: call authenticate()
+    If token old: call refresh_session()
+    Return smart_api object
+
+  logout():
+    Call smart_api.terminateSession(client_id)
+    Set is_authenticated = False
+
+ERROR HANDLING:
+  - Network error → retry 3 times with 2-second gap
+  - Invalid credentials → log CRITICAL, do not retry
+  - TOTP expired → generate new TOTP, retry once
+  - Session expired → full re-authenticate
+
+TEST (run during any time, not just market hours):
+CREATE FILE: tests/unit/test_auth.py
+---
+from src.core.auth_manager import AuthManager
+
+def test_authentication():
+    auth = AuthManager()
+    result = auth.authenticate()
+    assert result == True, "Authentication failed!"
+    print(f"✅ Authenticated. Token: {auth.auth_token[:20]}...")
+
+    # Test profile fetch
+    api = auth.get_smart_api()
+    profile = api.getProfile(auth.refresh_token)
+    assert profile['status'] == True
+    print(f"✅ Profile: {profile['data']['name']}")
+
+    auth.logout()
+    print("✅ Logged out")
+
+if __name__ == "__main__":
+    test_authentication()
+---
+RUN: python tests/unit/test_auth.py
+EXPECTED: 3 green checkmarks
+
+TASK 5.2 — Instrument Token Mapper (Day 5, 2 hours)
+CREATE FILE: src/core/instrument_mapper.py
+
+PURPOSE: Map NIFTY option symbols to Angel One instrument tokens.
+         Example: NIFTY 24500 CE 01APR2026 → token "51234"
+
+BACKGROUND: Angel One uses numeric "tokens" to identify instruments.
+You need to know the token to subscribe via WebSocket or place orders.
+These tokens change with each expiry — so we build the map at startup.
+
+CLASS: InstrumentMapper
+METHODS:
+  build_map(smart_api, spot_price) → dict:
+    1. Call smart_api.searchScrip("NFO", "NIFTY") → returns ALL NIFTY options
+    2. Parse each result:
+       - tradingsymbol: "NIFTY01APR2526400CE"
+       - Extract: expiry date, strike price, option type (CE/PE)
+    3. Filter: Keep only current week expiry + next week expiry
+    4. Filter: Keep only ATM ±5 strikes (based on spot_price)
+    5. Build dict: {(strike, expiry_date, "CE"): token, ...}
+    6. Log: total instruments mapped
+
+  get_option_token(strike, expiry, opt_type) → str:
+    Lookup from the map
+
+  get_subscription_list(spot_price) → list:
+    Return list of tokens for WebSocket subscription:
+    - NIFTY spot (99926000)
+    - India VIX (26017)
+    - ATM ±5 CE + PE for current week (22 tokens)
+    - ATM ±5 CE + PE for next week (22 tokens)
+    - Total: ~46 tokens (well within 100 limit)
+
+  get_current_expiry() → date:
+    Find next Tuesday from today
+    If today is Tuesday → today is expiry
+
+  get_next_expiry() → date:
+    Find Tuesday after current expiry
+
+PARSING LOGIC for tradingsymbol:
+  "NIFTY01APR2526400CE"
+  → NIFTY = index name
+  → 01APR25 = expiry date (01 April 2025)
+  → 26400 = strike price
+  → CE = option type
+
+  Use regex: r"NIFTY(\d{2}[A-Z]{3}\d{2})(\d+)(CE|PE)"
+  Parse date: datetime.strptime(date_str, "%d%b%y")
+
+TEST:
+  python -c "
+  from src.core.auth_manager import AuthManager
+  from src.core.instrument_mapper import InstrumentMapper
+
+  auth = AuthManager()
+  auth.authenticate()
+  api = auth.get_smart_api()
+
+  mapper = InstrumentMapper()
+  spot = 24500  # approximate current NIFTY level
+  token_map = mapper.build_map(api, spot)
+  print(f'Total tokens mapped: {len(token_map)}')
+
+  # Show some examples
+  sub_list = mapper.get_subscription_list(spot)
+  print(f'Subscription tokens: {len(sub_list)}')
+
+  current_exp = mapper.get_current_expiry()
+  print(f'Current expiry: {current_exp}')
+  print(f'Next expiry: {mapper.get_next_expiry()}')
+
+  auth.logout()
+  "
+
+TASK 5.3 — Historical Data Downloader (Day 5, 1 hour)
+CREATE FILE: src/core/historical_downloader.py
+
+PURPOSE: Download 6 months of NIFTY 1-min candle data from Angel One.
+         This becomes the training data for ML models and backtesting.
+
+FUNCTION: download_historical_candles(smart_api, days_back=180):
+  1. Calculate start_date = today - days_back
+  2. For each trading day from start_date to yesterday:
+     a. Call smart_api.getCandleData({
+          exchange: "NSE",
+          symboltoken: "99926000",    # NIFTY 50 spot
+          interval: "ONE_MINUTE",
+          fromdate: f"{date} 09:15",
+          todate: f"{date} 15:30"
+        })
+     b. Parse response: Each candle = [timestamp, O, H, L, C, V]
+     c. Convert to DataFrame with columns: timestamp, open, high, low, close, volume
+     d. Save as: data/historical/candles/NIFTY_1min_{date}.parquet
+     e. time.sleep(0.5)  # Rate limit: max 2 requests/second
+     f. Print progress: "Downloaded: 45/180 days (25%)"
+
+  3. After all downloads:
+     - Count total files
+     - Count total candles
+     - Verify: each file has ~375 rows (375 minutes in trading day)
+     - Log summary
+
+FUNCTION: download_daily_candles(smart_api, days_back=365):
+  Same but with interval="ONE_DAY" for daily candles
+  Save as: data/historical/candles/NIFTY_daily.parquet (single file)
+  This is used for: IV Rank computation, regime history, etc.
+
+ERROR HANDLING:
+  - API returns error for a date → skip that date, log it
+  - Rate limit hit → sleep 5 seconds, retry
+  - Network error → retry 3 times
+  - Weekend/holiday dates → skip automatically (API returns empty)
+
+RUN: python -c "
+  from src.core.auth_manager import AuthManager
+  from src.core.historical_downloader import download_historical_candles
+  auth = AuthManager(); auth.authenticate()
+  download_historical_candles(auth.get_smart_api(), days_back=180)
+  auth.logout()
+"
+TIME: ~5-10 minutes for 180 days
+RUN THIS IN: Evening or weekend (non-market hours preferred)
+
+VERIFY:
+  - data/historical/candles/ should have 120-130 .parquet files
+  - Each file: 370-380 rows
+  - Random check: open a file, verify prices look like NIFTY (20000-30000 range)
+
+TASK 5.4 — WebSocket Manager (Day 6, 3 hours)
+CREATE FILE: src/core/websocket_manager.py
+
+PURPOSE: Manage real-time WebSocket connection to Angel One.
+         Receive live ticks. Auto-reconnect on failure.
+         THIS IS THE HEART OF LIVE DATA.
+
+CLASS: WebSocketManager
+ATTRIBUTES:
+  sws: SmartWebSocketV2 object
+  is_connected: bool
+  reconnect_count: int
+  callback_on_tick: function (called when tick received)
+  callback_on_connect: function
+  callback_on_disconnect: function
+  subscribed_tokens: list
+
+METHODS:
+  __init__(auth_manager, instrument_mapper, on_tick_callback):
+    Store references
+    Set up callbacks
+
+  connect():
+    1. Get tokens from auth_manager
+    2. Create SmartWebSocketV2(auth_token, api_key, client_id, feed_token)
+    3. Set callbacks: on_open, on_data, on_error, on_close
+    4. Call sws.connect() — this is BLOCKING, runs in separate thread
+    5. Log: "WebSocket connected"
+
+  _on_open(wsapp):
+    1. Build subscription list from instrument_mapper
+    2. Subscribe: sws.subscribe(correlation_id, mode=3, token_list)
+       mode=1: LTP only
+       mode=2: LTP + Quote (OHLC)
+       mode=3: LTP + Quote + Market Depth (best 5 bid/ask)
+       WE USE mode=3 for full data
+    3. Set is_connected = True
+    4. Log: f"Subscribed to {len(tokens)} instruments"
+
+  _on_data(wsapp, message):
+    1. Parse message — Angel One sends binary/JSON with fields:
+       - token: instrument token
+       - ltp: last traded price
+       - open, high, low, close: OHLC
+       - volume: total volume
+       - best_5_bid: [{price, qty}, ...] (5 levels)
+       - best_5_ask: [{price, qty}, ...] (5 levels)
+       - exchange_timestamp: timestamp from exchange
+    2. Call callback_on_tick(parsed_tick)
+
+  _on_error(wsapp, error):
+    1. Log error
+    2. Set is_connected = False
+    3. If error is connection-related: schedule reconnect
+
+  _on_close(wsapp):
+    1. Log: "WebSocket disconnected"
+    2. Set is_connected = False
+    3. Attempt reconnect after delay
+
+  _reconnect():
+    1. Wait config.data.websocket_reconnect_delay_sec (2 seconds)
+    2. reconnect_count += 1
+    3. If reconnect_count > config.data.websocket_max_retries (5):
+       Log CRITICAL: "Max reconnect attempts reached"
+       Set feed_health = DOWN
+       Notify Captain
+       RETURN
+    4. Call connect() again
+    5. If success: reconnect_count = 0
+
+  disconnect():
+    1. Unsubscribe all tokens
+    2. Close connection
+    3. Set is_connected = False
+
+THREADING:
+  WebSocket runs in its own thread (daemon thread).
+  Ticks are pushed to a queue that the main loop processes.
+  This prevents WebSocket blocking from affecting the main computation.
+
+TEST (MARKET HOURS ONLY):
+CREATE FILE: tests/integration/test_websocket_live.py
+---
+import time
+from src.core.auth_manager import AuthManager
+from src.core.instrument_mapper import InstrumentMapper
+from src.core.websocket_manager import WebSocketManager
+
+tick_count = 0
+def on_tick(tick):
+    global tick_count
+    tick_count += 1
+    if tick_count <= 5:
+        print(f"Tick #{tick_count}: token={tick.get('token')}, "
+              f"ltp={tick.get('ltp')}, vol={tick.get('volume')}")
+    if tick_count == 20:
+        print(f"\n✅ Received {tick_count} ticks successfully")
+        print("Stopping...")
+
+auth = AuthManager()
+auth.authenticate()
+mapper = InstrumentMapper()
+mapper.build_map(auth.get_smart_api(), 24500)  # approximate spot
+
+ws = WebSocketManager(auth, mapper, on_tick)
+ws.connect()
+
+# Wait for ticks
+time.sleep(30)
+ws.disconnect()
+auth.logout()
+---
+RUN (during 9:15-15:30 only): python tests/integration/test_websocket_live.py
+EXPECTED: See 20 ticks printed, then stop
+
+TASK 5.5 — NSE Data Fetcher (Day 6, 1 hour)
+CREATE FILE: src/core/nse_fetcher.py
+
+PURPOSE: Download FII/DII data from NSE website daily at 8:30 AM.
+
+CLASS: NSEFetcher
+METHODS:
+  fetch_fii_dii() → dict:
+    1. Create requests.Session()
+    2. First visit https://www.nseindia.com to get cookies
+       (NSE blocks direct API calls without cookies)
+       headers = {"User-Agent": "Mozilla/5.0 ..."}
+       session.get("https://www.nseindia.com", headers=headers)
+    3. Now fetch FII/DII data:
+       url = "https://www.nseindia.com/api/fiidiiTradeReact"
+       response = session.get(url, headers=headers)
+    4. Parse JSON response
+    5. Extract: FII buy, FII sell, FII net, DII buy, DII sell, DII net
+    6. Return as dict
+
+    IF NSE BLOCKS:
+       Alternative: pip install jugaad-data
+       from jugaad_data.nse import NSELive
+       nse = NSELive()
+       data = nse.fii_dii()
+
+  fetch_fii_dii_historical(days_back=30) → DataFrame:
+    Download last 30 days FII/DII data for Narrative Engine history
+
+YAHOO FINANCE FETCHER:
+  fetch_global_data() → dict:
+    Using yfinance library:
+    1. GIFT Nifty / SGX Nifty:
+       Try: yf.Ticker("^NSEI").fast_info  (or NIFTY futures symbol)
+    2. S&P 500 Futures:
+       yf.Ticker("ES=F").fast_info → lastPrice, previousClose
+    3. USD/INR:
+       yf.Ticker("USDINR=X").fast_info → lastPrice
+    4. Crude Oil:
+       yf.Ticker("CL=F").fast_info → lastPrice
+    5. Nikkei 225:
+       yf.Ticker("^N225").fast_info → lastPrice
+    6. Hang Seng:
+       yf.Ticker("^HSI").fast_info → lastPrice
+
+    Return dict with all values + % changes from previous close
+
+  CACHE: Call once at 8:30 AM. Store result.
+         Update USDINR and Crude every 30 minutes intraday.
+
+TEST:
+  python -c "
+  from src.core.nse_fetcher import NSEFetcher
+  nse = NSEFetcher()
+  fii = nse.fetch_fii_dii()
+  print(f'FII Data: {fii}')
+  global_data = nse.fetch_global_data()
+  for k, v in global_data.items():
+      print(f'  {k}: {v}')
+  "
+
+TASK 5.6 — Commit Days 5-6
+git add .
+git commit -m "Day 5-6: Auth manager, instrument mapper, historical downloader, websocket manager, NSE fetcher"
+
+
+DAY 7: INTEGRATION VERIFICATION + FIRST LIVE DATA TEST
+TASK 7.1 — Run Historical Download (2 hours, evening/weekend)
+RUN the historical downloader from Task 5.3
+WAIT for it to complete (~5-10 minutes for 180 days)
+VERIFY:
+  ls data/historical/candles/ | wc -l  → should be 120-130 files
+  (or count manually in File Explorer)
+
+CHECK a random file:
+  python -c "
+  import pandas as pd
+  df = pd.read_parquet('data/historical/candles/NIFTY_1min_2026-03-20.parquet')
+  print(f'Rows: {df.shape[0]}')
+  print(f'Columns: {list(df.columns)}')
+  print(df.head())
+  print(df.tail())
+  print(f'Open range: {df.open.min():.0f} - {df.open.max():.0f}')
+  "
+
+TASK 7.2 — Full Connection Test (Market Hours, 30 min)
+CREATE FILE: tests/integration/test_full_connection.py
+
+PURPOSE: Test ALL external connections simultaneously
+
+CONTENT:
+  1. Authenticate Angel One → ✅ or ❌
+  2. Fetch instrument map → ✅ with count
+  3. Fetch historical 1 candle → ✅ with data
+  4. Connect WebSocket, receive 5 ticks → ✅ with sample
+  5. Fetch option chain (1 request) → ✅ with sample
+  6. Fetch FII/DII from NSE → ✅ with data
+  7. Fetch global data from Yahoo → ✅ with data
+  8. Load economic calendar → ✅ with next event
+  9. Write test entry to SQLite → ✅
+  10. Read back from SQLite → ✅
+
+RUN: python tests/integration/test_full_connection.py
+EXPECTED: 10/10 green checkmarks
+IF ANY FAIL: Fix before proceeding to Phase 1
+
+TASK 7.3 — Version 0.1.0 Tag
+git add .
+git commit -m "v0.1.0: Pre-Phase complete - all connections verified, environment ready"
+git tag v0.1.0
+
+✅ VERSION 0.1.0 CHECKPOINT
+WHAT'S WORKING:
+  ✅ Python 3.11 with all 25+ libraries
+  ✅ Project structure (17 source folders, 7 DB tables)
+  ✅ .env with secured credentials
+  ✅ config.yaml with all parameters
+  ✅ Logger, Config, Database, Helpers, Black-Scholes, MarketState
+  ✅ Angel One auth + token refresh
+  ✅ Instrument token mapping
+  ✅ Historical data download (6 months)
+  ✅ WebSocket live tick reception
+  ✅ NSE FII/DII data fetch
+  ✅ Yahoo Finance global data fetch
+  ✅ Economic calendar loaded
+  ✅ Git version control
+
+WHAT'S NOT YET:
+  ❌ Tick validation
+  ❌ Candle building
+  ❌ Feature computation
+  ❌ Context engines
+  ❌ Strategies
+  ❌ Scoring
+  ❌ ML models
+  ❌ Risk management
+  ❌ Execution
+  ❌ Dashboard
+
+NEXT: Phase 1 - Build the Data Engine
+
+
+PHASE 1: DATA ENGINE
+Duration: Day 8 to Day 21 (2 Weeks)
+Version: v0.1.0 → v0.3.0
+
+DAY 8-9: TICK VALIDATION + CANDLE BUILDING
+TASK 8.1 — Tick Validator (Day 8, 3 hours)
+CREATE FILE: src/core/tick_validator.py
+
+CLASS: TickValidator
+STATE:
+  last_timestamp: datetime = None
+  last_price: float = None
+  stats: {total: 0, rejected: 0, spikes: 0, duplicates: 0, stale: 0}
+
+METHOD: validate(tick: dict) → (is_valid: bool, flags: dict)
+
+  RULE 1 — TIMESTAMP ORDER:
+    if tick.timestamp <= self.last_timestamp:
+      stats['duplicates'] += 1
+      return (False, {"reason": "out_of_order_timestamp"})
+
+  RULE 2 — PRICE CONTINUITY:
+    if self.last_price is not None:
+      change_pct = abs(tick.price - self.last_price) / self.last_price
+      if change_pct > 0.02:  # 2% change in one tick
+        flags['spike'] = True
+        stats['spikes'] += 1
+        # Do NOT reject — legitimate gap openings exist
+        # But flag it for Feature Engine to suppress patterns
+
+  RULE 3 — MARKET HOURS:
+    tick_time = tick.timestamp.time()
+    if not (time(9,15) <= tick_time <= time(15,30)):
+      if time(9,0) <= tick_time < time(9,8):
+        flags['pre_auction'] = True  # Store separately for gap analysis
+      return (False, {"reason": "outside_market_hours"})
+
+  RULE 4 — PRICE SANITY:
+    if tick.price < 10000 or tick.price > 50000:
+      stats['rejected'] += 1
+      return (False, {"reason": "price_out_of_range"})
+
+  RULE 5 — STALE DETECTION:
+    gap_ms = (tick.timestamp - self.last_timestamp).total_seconds() * 1000
+    if gap_ms > 5000: flags['stale'] = True
+    elif gap_ms > 3000: flags['delayed'] = True
+    elif gap_ms > 1000: flags['slow'] = True
+
+  # All checks passed
+  self.last_timestamp = tick.timestamp
+  self.last_price = tick.price
+  stats['total'] += 1
+  return (True, flags)
+
+METHOD: get_stats() → dict: Return current stats
+METHOD: reset_stats(): Reset all counters (called daily)
+METHOD: log_summary(): Log stats every 5 minutes
+
+CREATE TESTS: tests/unit/test_tick_validator.py
+  test_normal_tick() → should pass
+  test_out_of_order() → should reject
+  test_large_price_jump() → should pass with spike flag
+  test_duplicate_timestamp() → should reject
+  test_outside_hours() → should reject
+  test_insane_price() → should reject
+  test_stale_gap() → should pass with stale flag
+
+RUN: pytest tests/unit/test_tick_validator.py -v
+
+TASK 8.2 — Candle Builder (Day 8-9, 4 hours)
+CREATE FILE: src/core/candle_builder.py
+
+CLASS: CandleBuilder
+STATE:
+  candles: {"1min": deque(maxlen=400), "3min": deque(maxlen=140),
+            "5min": deque(maxlen=80), "15min": deque(maxlen=30)}
+  forming_1min: dict = None  # Current incomplete candle
+  closed_1min_buffer: list = []  # Buffer for aggregation
+  last_1min_close_time: datetime = None
+
+METHOD: on_tick(price: float, volume: int, timestamp: datetime):
+  """Called for every validated tick"""
+
+  current_minute = timestamp.replace(second=0, microsecond=0)
+
+  IF self.forming_1min is None:
+    # First tick of the day — start new candle
+    self.forming_1min = {
+      "timestamp": current_minute,
+      "open": price, "high": price, "low": price, "close": price,
+      "volume": volume, "is_complete": False
+    }
+    RETURN
+
+  IF current_minute > self.forming_1min["timestamp"]:
+    # Minute changed! Close the forming candle.
+    self.forming_1min["is_complete"] = True
+    self.forming_1min["close"] = self.forming_1min["close"]  # last tick's price
+
+    # Add to 1-min deque
+    self.candles["1min"].append(self.forming_1min.copy())
+
+    # Add to buffer for higher TF aggregation
+    self.closed_1min_buffer.append(self.forming_1min.copy())
+
+    # Check if higher timeframes need closing
+    self._check_higher_timeframes()
+
+    # Start new forming candle
+    self.forming_1min = {
+      "timestamp": current_minute,
+      "open": price, "high": price, "low": price, "close": price,
+      "volume": volume, "is_complete": False
+    }
+  ELSE:
+    # Same minute — update forming candle
+    self.forming_1min["high"] = max(self.forming_1min["high"], price)
+    self.forming_1min["low"] = min(self.forming_1min["low"], price)
+    self.forming_1min["close"] = price
+    self.forming_1min["volume"] += volume
+
+METHOD: _check_higher_timeframes():
+  buffer = self.closed_1min_buffer
+  buffer_count = len(buffer)
+
+  # 3-minute candle: every 3 closed 1-min candles
+  # Alignment: 9:15-9:18, 9:18-9:21, etc.
+  if buffer_count >= 3 and buffer_count % 3 == 0:
+    last_3 = buffer[-3:]
+    candle_3m = self._aggregate(last_3)
+    self.candles["3min"].append(candle_3m)
+
+  # 5-minute candle: every 5
+  if buffer_count >= 5 and buffer_count % 5 == 0:
+    last_5 = buffer[-5:]
+    candle_5m = self._aggregate(last_5)
+    self.candles["5min"].append(candle_5m)
+
+  # 15-minute candle: every 15
+  if buffer_count >= 15 and buffer_count % 15 == 0:
+    last_15 = buffer[-15:]
+    candle_15m = self._aggregate(last_15)
+    self.candles["15min"].append(candle_15m)
+
+METHOD: _aggregate(candle_list: list) → dict:
+  return {
+    "timestamp": candle_list[0]["timestamp"],
+    "open": candle_list[0]["open"],
+    "high": max(c["high"] for c in candle_list),
+    "low": min(c["low"] for c in candle_list),
+    "close": candle_list[-1]["close"],
+    "volume": sum(c["volume"] for c in candle_list),
+    "is_complete": True
+  }
+
+METHOD: get_candles(timeframe: str) → deque:
+  return self.candles[timeframe]
+
+METHOD: get_forming_candle() → dict:
+  return self.forming_1min  # Current incomplete — for display only
+
+METHOD: get_last_closed(timeframe: str) → dict:
+  if len(self.candles[timeframe]) > 0:
+    return self.candles[timeframe][-1]
+  return None
+
+CREATE TESTS: tests/unit/test_candle_builder.py
+  test_single_tick():
+    Feed 1 tick → forming candle should exist
+  test_minute_change():
+    Feed ticks across 2 minutes → 1 closed 1-min candle
+  test_ohlc_correct():
+    Feed known prices → verify O=first, H=max, L=min, C=last
+  test_3min_aggregation():
+    Feed ticks across 3 minutes → 1 closed 3-min candle
+    Verify: H of 3-min = max(H of three 1-min)
+  test_5min_aggregation():
+    Same for 5-min
+  test_15min_aggregation():
+    Same for 15-min
+  test_volume_aggregation():
+    Sum of 1-min volumes = higher TF volume
+  test_deque_maxlen():
+    Feed 500 1-min candles → deque should have exactly 400
+
+RUN: pytest tests/unit/test_candle_builder.py -v
+
+TASK 8.3 — Commit
+git commit -m "Day 8-9: Tick validator + candle builder with all timeframes"
+
+
+DAY 10-11: OPTION CHAIN + FEED HEALTH
+TASK 10.1 — Option Chain Poller (Day 10, 3 hours)
+CREATE FILE: src/core/option_chain_poller.py
+
+CLASS: OptionChainPoller
+STATE:
+  current_chain: dict = {}
+  previous_chain: dict = {}
+  last_poll_time: datetime = None
+  poll_count: int = 0
+
+METHOD: poll(smart_api, spot_price: float) → dict:
+  """Called every 30 seconds"""
+
+  1. Save current_chain as previous_chain
+  2. Determine ATM strike: round(spot_price / 50) * 50
+  3. Get strikes to fetch: ATM-250 to ATM+250 (step 50) = 11 strikes
+
+  4. For each strike:
+     For each type in ["CE", "PE"]:
+       - Get token from InstrumentMapper
+       - Fetch LTP via REST: smart_api.ltpData("NFO", symbol, token)
+       - Get OI, Volume from the same or separate call
+
+  5. For each option:
+     - ltp = fetched LTP
+     - bid, ask = from market depth if available
+     - volume = fetched volume
+     - oi = fetched OI
+     - oi_change = current_oi - previous_chain[strike][type]["oi"]
+       (0 if no previous data)
+     - Compute IV:
+       T = days_to_expiry / 365
+       iv = implied_volatility(ltp, spot, strike, T, 0.065, type)
+     - Compute Greeks:
+       greeks = compute_all_greeks(spot, strike, T, 0.065, iv, type)
+     - OI Classification:
+       Compare current vs previous:
+       price_change = current_ltp - previous_ltp
+       oi_change = current_oi - previous_oi
+       if price_change > 0 and oi_change > 0: "LONG_BUILDUP"
+       if price_change > 0 and oi_change < 0: "SHORT_COVERING"
+       if price_change < 0 and oi_change > 0: "SHORT_BUILDUP"
+       if price_change < 0 and oi_change < 0: "LONG_UNWINDING"
+
+  6. Store in current_chain:
+     {
+       24500: {
+         "ce": {"ltp": 145.5, "bid": 144, "ask": 147, "volume": 1250000,
+                "oi": 8500000, "oi_change": 250000, "iv": 0.135,
+                "delta": 0.52, "gamma": 0.003, "theta": -8.5,
+                "vega": 12.3, "classification": "LONG_BUILDUP"},
+         "pe": { ... same structure ... }
+       },
+       24550: { ... },
+       ...
+     }
+
+  7. Update last_poll_time
+  8. Return current_chain
+
+RATE LIMITING:
+  - Angel One allows ~10 requests/second
+  - We need ~22 requests per poll (11 strikes × 2 types)
+  - At 2 requests/second = ~11 seconds per poll cycle
+  - This fits within our 30-second poll interval
+  - Add time.sleep(0.5) between requests
+
+TEST (market hours):
+  Run poller once, print full chain, verify IV and Greeks look reasonable
+
+TASK 10.2 — Feed Health Monitor (Day 10, 1 hour)
+CREATE FILE: src/core/feed_health.py
+
+CLASS: FeedHealthMonitor
+RUNS: In background thread, checks every 500ms
+
+STATE:
+  last_tick_time: datetime = None
+  last_option_update: datetime = None
+  ticks_in_window: deque(maxlen=20)  # timestamps of last 20 ticks
+  current_health: str = "DOWN"
+  data_quality_score: float = 0.0
+
+METHOD: on_tick(timestamp):
+  self.last_tick_time = timestamp
+  self.ticks_in_window.append(timestamp)
+
+METHOD: on_option_update(timestamp):
+  self.last_option_update = timestamp
+
+METHOD: check() → (health: str, quality: float):
+  """Called every 500ms"""
+
+  now = ist_now()
+
+  # Tick gap
+  if self.last_tick_time is None:
+    tick_gap_ms = 999999
+  else:
+    tick_gap_ms = (now - self.last_tick_time).total_seconds() * 1000
+
+  # Option chain age
+  if self.last_option_update is None:
+    option_age_sec = 999
+  else:
+    option_age_sec = (now - self.last_option_update).total_seconds()
+
+  # Ticks per second
+  if len(self.ticks_in_window) >= 2:
+    window_sec = (self.ticks_in_window[-1] - self.ticks_in_window[0]).total_seconds()
+    tps = len(self.ticks_in_window) / max(window_sec, 0.001)
+  else:
+    tps = 0
+
+  # Health classification
+  if tick_gap_ms > 5000:
+    health = "DOWN"
+  elif tick_gap_ms > 3000:
+    health = "STALE"
+  elif tick_gap_ms > 1000:
+    health = "DELAYED"
+  else:
+    health = "HEALTHY"
+
+  # Data quality score (0-100)
+  score = 0
+  if health == "HEALTHY": score += 40
+  elif health == "DELAYED": score += 20
+  if option_age_sec < 60: score += 20
+  if tps > 1: score += 10
+  # Remaining 30 points added by Feature Engine (no spikes, TF consistent)
+
+  self.current_health = health
+  self.data_quality_score = score
+  return health, score
+
+METHOD: get_tps() → float: Return ticks per second
+METHOD: get_feed_lag() → float: Return lag in ms
+
+TASK 10.3 — REST Fallback (Day 11, 1 hour)
+ADD TO: src/core/data_engine.py (we create this next)
+
+LOGIC:
+  When feed_health becomes "STALE" or "DOWN":
+    1. Start a polling loop in separate thread
+    2. Every 2 seconds:
+       - Call smart_api.getCandleData() for NIFTY 1-min
+       - Get the latest candle
+       - Feed it to candle_builder as synthetic ticks
+       - Set flag: using_fallback = True
+    3. When WebSocket reconnects and ticks resume:
+       - Stop REST polling thread
+       - Set using_fallback = False
+       - Log: "Switched back to WebSocket from REST fallback"
+
+TASK 10.4 — Parquet Archival (Day 11, 1 hour)
+ADD TO: src/core/data_engine.py
+
+FUNCTION: archive_daily_data():
+  """Called at 15:35 IST (5 minutes after market close)"""
+
+  1. Convert candles_1min deque → pandas DataFrame
+  2. Save: data/historical/candles/NIFTY_1min_{today}.parquet
+  3. Convert option chain snapshots → DataFrame
+     (store all 30-second snapshots from the day)
+  4. Save: data/historical/options/NIFTY_options_{today}.parquet
+  5. Log: file sizes, row counts
+
+  COMPRESSION: snappy (fast compression, good ratio)
+  EXPECTED SIZE: ~5-15 MB per day per file
+
+
+DAY 12-14: DATA ENGINE ASSEMBLY + LIVE TEST
+TASK 12.1 — Assemble Data Engine (Day 12, 4 hours)
+CREATE FILE: src/core/data_engine.py
+
+PURPOSE: The master data component. Combines all sub-components.
+
+CLASS: DataEngine
+COMPONENTS:
+  auth_manager: AuthManager
+  instrument_mapper: InstrumentMapper
+  websocket_manager: WebSocketManager
+  tick_validator: TickValidator
+  candle_builder: CandleBuilder
+  option_chain_poller: OptionChainPoller
+  feed_health_monitor: FeedHealthMonitor
+  market_state: MarketState (reference to shared state)
+
+METHODS:
+  start():
+    1. Authenticate
+    2. Build instrument map
+    3. Start feed health monitor thread
+    4. Start WebSocket connection thread
+    5. Start option chain polling thread (every 30 sec)
+    6. Log: "Data Engine started"
+
+  _process_tick(raw_tick):
+    """Called by WebSocket on every tick"""
+    1. Parse raw_tick into standard format
+    2. Validate with tick_validator
+    3. If valid:
+       - Update feed_health_monitor.on_tick()
+       - Feed to candle_builder.on_tick()
+       - Update market_state: spot, market_depth
+    4. If 1-min candle just closed:
+       - Signal to Captain: "new_candle_closed" event
+       - This triggers the full computation pipeline
+
+  _poll_option_chain():
+    """Called every 30 seconds by polling thread"""
+    1. Get current spot from market_state
+    2. Call option_chain_poller.poll()
+    3. Update market_state.option_chain
+    4. Update feed_health_monitor.on_option_update()
+
+  stop():
+    1. Disconnect WebSocket
+    2. Stop polling threads
+    3. Archive daily data
+    4. Logout
+    5. Log: "Data Engine stopped"
+
+  get_status() → dict:
+    Return: {
+      "feed_health": ...,
+      "ticks_per_second": ...,
+      "data_quality_score": ...,
+      "using_fallback": ...,
+      "last_tick_time": ...,
+      "candle_counts": {"1min": len, "3min": len, ...}
+    }
+
+TASK 12.2 — First Full-Day Live Test (Day 13, Full Market Day)
+CREATE FILE: tests/integration/test_data_engine_live.py
+
+PURPOSE: Run data engine for FULL TRADING DAY (9:00 AM - 3:35 PM)
+
+WHAT TO MONITOR (print every 5 minutes):
+  - Feed health status
+  - Ticks per second
+  - Data quality score
+  - Candle counts per timeframe
+  - Current spot price
+  - Last option chain update time
+  - Memory usage (via psutil or task manager)
+
+WHAT TO VERIFY END OF DAY:
+  1. Total 1-min candles ≈ 375 (6.25 hours × 60 minutes)
+  2. Total 3-min candles ≈ 125
+  3. Total 5-min candles ≈ 75
+  4. Total 15-min candles ≈ 25
+  5. Parquet files created in data/historical/
+  6. No memory leaks (RAM should be stable, not growing)
+  7. Feed health was HEALTHY >95% of the time
+  8. No crashes or unhandled exceptions
+  9. Option chain updated ~750 times (every 30 sec for 6.25 hours)
+  10. 5-min candle OHLC = correct aggregation of five 1-min candles
+
+RUN: Start at 8:55 AM, stop at 3:35 PM
+
+IF ANY ISSUE:
+  - Fix the bug
+  - Run again next market day
+  - Do NOT proceed until 1 clean full-day run
+
+TASK 12.3 — Second Full-Day Test (Day 14)
+RUN another full day to confirm stability
+
+ADDITIONAL CHECK:
+  - Compare today's archived candles with Angel One's chart
+  - Does the OHLC match for any random 5-min candle?
+  - Open: data/historical/candles/NIFTY_1min_{today}.parquet
+  - Pick candle at 10:30 AM → compare with TradingView/Angel One chart
+
+IF BOTH DAYS CLEAN: Data Engine is production ready ✅
+
+TASK 12.4 — Replay Engine (Day 14, remaining time)
+CREATE FILE: src/core/replay_engine.py
+
+PURPOSE: Play back historical data as if it were live.
+         Used for testing strategies, features, and the full pipeline
+         on historical data without waiting for market hours.
+
+CLASS: ReplayEngine
+METHODS:
+  load(date_str: str):
+    Load Parquet file for given date
+    Convert to list of candle dicts
+
+  play(candle_builder: CandleBuilder, speed: str = "instant"):
+    speed options:
+      "instant" → feed all candles immediately (for backtesting)
+      "1x" → real-time speed (1 candle per minute)
+      "10x" → 10× speed
+      "100x" → 100× speed
+
+    For each candle in loaded data:
+      Generate synthetic ticks from OHLC:
+        tick1: open
+        tick2: high (if high > open) or low (if low < open)
+        tick3: the other extreme
+        tick4: close
+      Feed each tick to candle_builder.on_tick()
+      If speed != "instant": sleep(60 / speed_multiplier)
+
+TEST:
+  Load 1 historical day
+  Feed through replay engine in "instant" mode
+  Verify: candle_builder produces same candles as original file
+
+TASK 12.5 — Commit + Version Tag
+git add .
+git commit -m "v0.2.0: Data Engine complete - WebSocket, validation, candles, options, feed health, archival, replay"
+git tag v0.2.0
+
+✅ VERSION 0.2.0 CHECKPOINT
+WORKING:
+  ✅ Live tick reception via WebSocket
+  ✅ Tick validation (5 rules)
+  ✅ 4-timeframe candle building from single stream
+  ✅ Option chain polling every 30 seconds
+  ✅ IV + Greeks computation
+  ✅ OI classification per strike
+  ✅ Feed health monitoring
+  ✅ REST fallback when WebSocket drops
+  ✅ Daily Parquet archival
+  ✅ Historical data replay
+  ✅ 2 full-day live tests passed
+
+NEXT: Phase 2 - Feature Computation Engine
+
+
+From here, I'll provide the remaining phases in a condensed but still precise format, since the pattern is established.
+
+PHASE 2: FEATURE COMPUTATION
+Day 15-28 (2 Weeks) → Version v0.3.0 → v0.5.0
+Day 15-16: Price + Momentum features (src/features/price_features.py, momentum_features.py). Compute EMA, RSI, VWAP, MACD, Supertrend per timeframe. Test against TradingView values.
+Day 17: Volatility features (volatility_features.py). ATR, Bollinger Bands, percentiles. Test.
+Day 18: Volume Profile (volume_profile.py). POC, VAH, VAL, HVN, LVN. Triangular distribution approximation. Test.
+Day 19: Options features (options_features.py). PCR, IV rank, IV skew, max pain, GEX proxy, synthetic future. Test.
+Day 20: Microstructure (microstructure.py). Spread, OFI, absorption, exhaustion, stop hunt flags. Test.
+Day 21-22: Smart Money Concepts (smart_money.py). FVG detection, Order Blocks, Liquidity Pools, BOS, CHoCH. On 5min+15min only. Test.
+Day 23: Key Levels (key_levels.py). PDH/PDL, OR/IB levels, swing points, S/R zones. Candle Patterns (candle_patterns.py). 8 patterns. Test.
+Day 24: Fundamental features (fundamental.py). FII/DII scoring, global score, VIX. MTF Alignment (mtf_alignment.py). Weighted score. Test.
+Day 25: Feature Engine orchestrator (feature_engine.py). Calls all modules in dependency order. Test on 1 month historical replay. Verify: no NaN, computation <200ms per candle.
+Day 26-27: Context engines. Narrative (narrative_engine.py), Regime (regime_engine.py with transition probability), Time Context (time_context.py with Tuesday expiry). Test each on historical data.
+Day 28: Market DNA (market_dna.py). Fingerprint computation, historical matching, session memory. Populate fingerprints for all historical days. Integration test of full intelligence pipeline. Commit v0.5.0.
+
+PHASE 3: DECISION MAKING
+Day 29-42 (2 Weeks) → v0.5.0 → v0.7.0
+Day 29-30: Strategy base class + first 4 strategies (VWAP Pullback, Trend Continuation, ORB, S/R Rejection). Pure functions, test on history.
+Day 31-32: Strategies 5-8 (POC Reversal, Stop Hunt, OI Wall, ATM Momentum). Test.
+Day 33-34: Strategies 9-13 (Failed Breakout, Absorption, FVG Retest, Liquidity Sweep, Pre-Event Straddle). Test signal counts — each should be 0-10 per day.
+Day 35: Brain Engine. All 4 brains + 2 overlays with activation logic. Brain selection matrix. Test.
+Day 36-37: Trap Detection Engine. 7-factor trap probability. Test with synthetic scenarios. Scoring Engine. 10 factors with regime-adaptive weights. Confluence bonus. Hard rejections. Calibrate on historical signals.
+Day 38-39: Behavioral Sentinel. Checklist, revenge detection, FOMO, overtrading, tilt score. Mature trader rules. Test.
+Day 40-41: Risk Engine. Position sizing with 6 multipliers. Daily limits. Circuit breaker. Cost calculator (STT, brokerage, GST, stamp). Edge decay tracker. Greeks monitor. Test.
+Day 42: Full pipeline integration test — replay 1 month, verify signal funnel (20 raw → 5 approved per day). Commit v0.7.0.
+
+PHASE 4: ML + EXECUTION
+Day 43-56 (2 Weeks) → v0.7.0 → v1.0.0
+Day 43-45: ML training data preparation (Colab notebook). Feature extraction for 6 months. Label generation. LightGBM training with Optuna hyperparameter tuning. Walk-forward validation. ONNX export.
+Day 46: GARCH, Isolation Forest, XGBoost regime classifier training. All exported and downloaded to models/ folder.
+Day 47-48: Local ML inference modules. LightGBM filter, GARCH forecaster, anomaly detector, regime classifier, SHAP explainer. Test inference <5ms.
+Day 49-50: Position Management Engine. All 10 exit types (SL, target, breakeven, partial, trailing, time, confidence decay, regime change, scale-in, EOD). Test.
+Day 51-52: Execution Engine. Broker abstraction, Angel One implementation, Paper broker, Compliance layer (Algo-ID, IP check, Limit orders only), Order validator. Test in PAPER mode.
+Day 53-54: Captain Orchestrator. State machine (BOOT→OBSERVE→ACTIVE→CAUTIOUS→SAFE→LOCKED→SHUTDOWN). Brain selector. Engine health monitoring. Morning init sequence. Mode manager. Main entry point (main.py).
+Day 55-56: First full-day PAPER mode test. Start 8:30 AM, run through 3:30 PM. Verify complete pipeline. Fix bugs. Run 2nd day. Commit v0.9.0.
+
+PHASE 5: DASHBOARD + LEARNING
+Day 57-70 (2 Weeks) → v0.9.0 → v1.0.0
+Day 57-60: Streamlit dashboard. Build all 16 panels one by one. Connect to MarketState + SQLite. Test alongside trading engine.
+Day 61-62: Post-trade journal. Auto-record generation. Daily summary. SHAP rejection analysis.
+Day 63-64: Self-Learning Loop. Strategy DNA evolution. Feature drift tracking. Pattern library. Regime transitions. Weekly evolution Colab notebook.
+Day 65-66: Full integration testing. 2 clean live days with dashboard + journal + all engines.
+Day 67-70: Bug fixes, polish, documentation. Commit v1.0.0.
+
+PHASE 6: ALERT MODE TESTING
+Day 71-84 (10 Trading Days) → v1.0.0 → v1.0.1
+Run system in ALERT mode every market day. Receive notifications. Do NOT trade. Review each signal against charts. Score signals: GOOD/OKAY/BAD/FALSE. After 5 days: first tuning round. After 10 days: acceptance check — ≥55% signals rated GOOD/OKAY. Commit v1.0.1.
+
+PHASE 7: PAPER MODE TESTING
+Day 85-98 (10 Trading Days) → v1.0.1 → v1.1.0
+Switch to PAPER mode. System takes simulated trades. Track daily P&L. Run Self-Learning Loop after Day 5. Acceptance: profit factor >1.3, win rate >50%, max daily loss never exceeded 2%. Commit v1.1.0.
+
+PHASE 8: LIVE TRADING
+Day 99+ → v1.1.0 → v1.2.0+
+Week 1 Live: Assisted mode. ₹10,000 capital. 1 lot only. YOU confirm every trade. Max 2 trades/day.
+Week 2 Live: Semi-auto. 3 trades/day. Allow Tactical Brain. Extend to 15:00 close.
+Week 3+ Live: After 5 profitable days → full auto. After 5 profitable weeks → increase capital to ₹25K. After 5 more → ₹50K.
+Ongoing: Sunday: Self-Learning Loop. Monthly: Full system review. Quarterly: Architecture review. Version increments with each evolution cycle.
+
+MASTER TIMELINE SUMMARY
+DayWhat You BuildVersion1Machine + accounts + ISP call—2Python + libraries + Git—3Folders + .env + config.yaml—4Logger, Config, DB, Helpers, BS, MarketState—5-6Auth, Token Map, Historical DL, WebSocket, NSE—7Integration verificationv0.1.08-9Tick validator + Candle builder—10-11Option chain + Feed health + Fallback + Archival—12-14Data engine assembly + 2 live tests + Replayv0.2.015-24All 11 feature categoriesv0.4.025-28Context engines + Market DNAv0.5.029-3413 strategiesv0.6.035-42Brains + Trap + Scoring + Behavioral + Riskv0.7.043-48ML training + local inferencev0.8.049-56Position mgmt + Execution + Captain + Paper testv0.9.057-70Dashboard + Journal + Self-Learningv1.0.071-84ALERT mode testing (10 market days)v1.0.185-98PAPER mode testing (10 market days)v1.1.099+LIVE trading (₹10K → ₹25K → ₹50K)v1.2.0+
+Total: ~14 weeks from Day 1 to first live trade.

@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-05-27T04:57:08.253488+00:00",
+  "raw_root": "F:\\junior_aladdin\\data_center\\major\\raw",
+  "structured_root": "F:\\junior_aladdin\\data_center\\major\\structured",
+  "raw_files": 6,
+  "structured_files": 2,
+  "raw_rows": 2228,
+  "structured_rows": 16,
+  "dropped_rows": 2212,
+  "corruption_count": 0,
+  "schema_mismatch_count": 3,
+  "continuity_issue_count": 2,
+  "verified": false,
+  "raw_file_results": [
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2024-05-25\\BANKNIFTY\\02_20.parquet",
+      "rows": 1,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction",
+        "symbol"
+      ],
+      "schema_ok": false,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": "schema_mismatch:raw"
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2024-05-25\\NIFTY\\01_20.parquet",
+      "rows": 2,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction",
+        "symbol"
+      ],
+      "schema_ok": false,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": "schema_mismatch:raw"
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2024-05-25\\NIFTY\\02_20.parquet",
+      "rows": 1,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction",
+        "symbol"
+      ],
+      "schema_ok": false,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": "schema_mismatch:raw"
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2026-05-26\\NIFTY\\09_54.parquet",
+      "rows": 50,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction"
+      ],
+      "schema_ok": true,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": null
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2026-05-26\\NIFTY\\09_56.parquet",
+      "rows": 599,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction"
+      ],
+      "schema_ok": true,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": null
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\raw\\2026-05-27\\NIFTY\\04_54.parquet",
+      "rows": 1575,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction"
+      ],
+      "schema_ok": true,
+      "continuity_ok": true,
+      "corruption": false,
+      "timestamp_duplicates": 0,
+      "timestamp_out_of_order": false,
+      "error": null
+    }
+  ],
+  "structured_file_results": [
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\structured\\2024-05-25\\NIFTY\\2026-05-28\\01_20.parquet",
+      "rows": 8,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "oi",
+        "oi_change",
+        "iv",
+        "strike",
+        "option_type",
+        "expiry",
+        "sequence",
+        "exchange",
+        "symbol",
+        "spot_ltp",
+        "moneyness"
+      ],
+      "schema_ok": true,
+      "continuity_ok": false,
+      "corruption": false,
+      "timestamp_duplicates": 7,
+      "timestamp_out_of_order": false,
+      "error": null
+    },
+    {
+      "path": "F:\\junior_aladdin\\data_center\\major\\structured\\2024-05-25\\NIFTY\\expiry\\01_20.parquet",
+      "rows": 8,
+      "columns": [
+        "token",
+        "ltp",
+        "volume",
+        "open",
+        "high",
+        "low",
+        "close",
+        "timestamp",
+        "direction",
+        "sequence",
+        "exchange",
+        "symbol"
+      ],
+      "schema_ok": true,
+      "continuity_ok": false,
+      "corruption": false,
+      "timestamp_duplicates": 7,
+      "timestamp_out_of_order": false,
+      "error": null
+    }
+  ]
+}

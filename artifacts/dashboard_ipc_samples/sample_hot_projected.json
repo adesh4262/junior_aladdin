@@ -1,0 +1,31 @@
+{
+  "system_state": "ACTIVE",
+  "mode": "PAPER",
+  "feed_health": "HEALTHY",
+  "data_quality_score": 92.0,
+  "ticks_per_second": 14.5,
+  "feed_lag_ms": 34.0,
+  "using_fallback": false,
+  "last_update_timestamp": "2026-05-22T10:15:00+05:30",
+  "timestamp": "2026-05-22T10:15:00+05:30",
+  "spot": 24580.25,
+  "previous_close": 24520.1,
+  "capital": 50000.0,
+  "daily_pnl": 1245.0,
+  "drawdown_pct": 0.018,
+  "trades_today": 2,
+  "consecutive_losses": 0,
+  "tilt_score": 14.0,
+  "risk_state": "NORMAL",
+  "session_phase": "GOLDEN_AM",
+  "day_type": "TREND_DAY",
+  "regime": "TRENDING",
+  "narrative_label": "MILD_BULLISH",
+  "active_brains": [
+    "structural",
+    "institutional"
+  ],
+  "regime_transition_prob": 0.12,
+  "component_guard_heavyweights": [],
+  "heavyweights": []
+}

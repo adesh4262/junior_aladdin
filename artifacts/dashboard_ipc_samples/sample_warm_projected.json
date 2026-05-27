@@ -1,0 +1,190 @@
+{
+  "narrative_score": 68.0,
+  "narrative_label": "MILD_BULLISH",
+  "regime": "TRENDING",
+  "regime_confidence": 0.84,
+  "regime_transition_prob": 0.12,
+  "session_phase": "GOLDEN_AM",
+  "day_type": "TREND_DAY",
+  "or_high": null,
+  "or_low": null,
+  "ib_high": null,
+  "ib_low": null,
+  "ib_width": null,
+  "session_size_multiplier": 1.0,
+  "active_brains": [
+    "structural",
+    "institutional"
+  ],
+  "brain_confidence": {},
+  "features": {
+    "1min": {
+      "rsi": 58.0,
+      "vwap": 24562.0
+    },
+    "5min": {
+      "rsi": 61.0
+    }
+  },
+  "features_1m": {
+    "rsi": 58.0,
+    "vwap": 24562.0
+  },
+  "options_summary": {
+    "pcr_oi": 0.0,
+    "atm_iv": 0.0,
+    "max_pain": 0.0,
+    "highest_ce_oi_strike": 0.0,
+    "highest_pe_oi_strike": 0.0
+  },
+  "options_features": {
+    "pcr_oi": 1.08,
+    "atm_iv": 0.14
+  },
+  "smart_money_summary": {
+    "sm_direction_score": 18.0,
+    "total_fvgs": 2,
+    "bullish_fvgs": 2,
+    "bearish_fvgs": 0
+  },
+  "smart_money": {
+    "5min": {
+      "fvg_zones": 2
+    }
+  },
+  "narrative_fit_factors": {
+    "long_fit": 1.0,
+    "short_fit": 0.4
+  },
+  "volume_profile": {
+    "poc": 24550,
+    "vah": 24590,
+    "val": 24515
+  },
+  "session_volume_profile": {
+    "poc": 24550
+  },
+  "microstructure": {
+    "spread": 0.8,
+    "imbalance": 0.61
+  },
+  "order_flow": {
+    "delta": 125,
+    "aggression": "buy"
+  },
+  "cvd": 640,
+  "imbalance": {
+    "buy": 0.61,
+    "sell": 0.39
+  },
+  "absorption_alerts": [
+    {
+      "id": 1,
+      "side": "buy"
+    }
+  ],
+  "exhaustion_alerts": [
+    {
+      "id": 1,
+      "side": "sell"
+    }
+  ],
+  "session_profile_anchors": {
+    "open": 24520,
+    "mid": 24555
+  },
+  "poc": 24550,
+  "vah": 24590,
+  "val": 24515,
+  "mtf_candles": {
+    "1m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24540,
+        "high": 24565,
+        "low": 24535,
+        "close": 24560,
+        "volume": 1100
+      },
+      {
+        "timestamp": "2026-05-22T10:11:00+05:30",
+        "open": 24560,
+        "high": 24585,
+        "low": 24558,
+        "close": 24580,
+        "volume": 980
+      }
+    ],
+    "5m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24520,
+        "high": 24585,
+        "low": 24510,
+        "close": 24580,
+        "volume": 4200
+      }
+    ]
+  },
+  "candles_by_tf": {
+    "1m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24540,
+        "high": 24565,
+        "low": 24535,
+        "close": 24560,
+        "volume": 1100
+      },
+      {
+        "timestamp": "2026-05-22T10:11:00+05:30",
+        "open": 24560,
+        "high": 24585,
+        "low": 24558,
+        "close": 24580,
+        "volume": 980
+      }
+    ],
+    "5m": [
+      {
+        "timestamp": "2026-05-22T10:10:00+05:30",
+        "open": 24520,
+        "high": 24585,
+        "low": 24510,
+        "close": 24580,
+        "volume": 4200
+      }
+    ]
+  },
+  "vwap_bands": {
+    "5m": {
+      "vwap": [
+        24540.0
+      ],
+      "upper1": [
+        24570.0
+      ],
+      "lower1": [
+        24510.0
+      ],
+      "upper2": [
+        24600.0
+      ],
+      "lower2": [
+        24480.0
+      ]
+    }
+  },
+  "or_levels": {
+    "high": 24590.0,
+    "low": 24505.0
+  },
+  "ib_levels": {
+    "high": 24605.0,
+    "low": 24495.0
+  },
+  "active_timeframe": "5m",
+  "timeframe": "5m",
+  "timestamp": "2026-05-22T10:15:00+05:30",
+  "last_update_timestamp": "2026-05-22T10:15:00+05:30"
+}

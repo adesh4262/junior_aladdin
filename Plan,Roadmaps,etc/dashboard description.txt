@@ -1,0 +1,622 @@
+# JUNIOR ALADDIN AI TRADING TERMINAL — COMPLETE DASHBOARD VISUAL DESCRIPTION
+
+## Overall Dashboard Style & Theme
+
+The dashboard is designed as a premium futuristic institutional-grade AI trading terminal inspired by Bloomberg Terminal, Obsidian Night UI, and modern fintech interfaces. The complete interface uses a dark neon cyber-finance theme with deep navy blue and black backgrounds.
+
+Main accent colors:
+
+* Neon cyan / electric blue for borders, highlights, icons
+* Bright green for bullish/profit/healthy states
+* Red/orange for bearish/risk/warnings
+* White/light gray for primary text
+* Soft muted gray for secondary text
+
+The complete dashboard feels:
+
+* highly professional
+* dense with information
+* modular
+* military-grade control system
+* AI command center
+* institutional trading cockpit
+
+The UI should feel alive and real-time.
+
+---
+
+# GLOBAL LAYOUT STRUCTURE
+
+The dashboard is divided into multiple horizontal and vertical sections using bordered modular cards/panels.
+
+Top section:
+
+* Global navigation bar
+* Branding
+* Search
+* Notification controls
+* AI assistant status
+
+Middle section:
+
+* Market status panels
+* System health
+* Connection status
+* Calendar
+* Portfolio overview
+
+Center:
+
+* Large live trading chart panel
+
+Left side:
+
+* AI captain and market context
+* Regime detector
+* Actions/log panels
+
+Right side:
+
+* Open positions
+* Risk console
+* Strategy signals
+* Execution engine
+
+Bottom:
+
+* Trade book
+* Performance graph
+* Alerts & notifications
+* Footer status strip
+
+Everything uses:
+
+* thin glowing borders
+* soft gradients
+* glassmorphism-like dark panels
+* subtle glow effects
+* minimal rounded corners
+
+---
+
+# TOP NAVIGATION BAR
+
+Very top horizontal strip across entire dashboard.
+
+## Left side branding
+
+Logo:
+
+* glowing blue genie/aladdin-style icon
+* text:
+  "JUNIOR ALADDIN"
+  subtitle:
+  "AI TRADING TERMINAL"
+
+Typography:
+
+* futuristic
+* uppercase
+* glowing cyan
+
+---
+
+## Main Navigation Tabs
+
+Horizontal menu tabs:
+
+* Dashboard
+* Market
+* Charts
+* Options
+* Strategies
+* Risk
+* Portfolio
+* Analytics
+* Journal
+
+Each tab:
+
+* icon above or beside text
+* active tab highlighted with cyan glow
+* hover effect
+* dark transparent background
+
+---
+
+## Top Center Search Bar
+
+Large search bar:
+
+* rounded edges
+* placeholder:
+  "Search (Ctrl + /)"
+* dark background
+* glowing border
+
+---
+
+## Top Right Controls
+
+Icons:
+
+* favorites/star
+* notifications/bell
+* mail/messages
+* settings/gear
+
+Then:
+
+* AI assistant avatar/icon
+
+Text beside avatar:
+CAPTAIN MODE
+AUTONOMOUS
+
+Green glowing indicator shows active AI mode.
+
+---
+
+# TOP INFORMATION PANELS
+
+Below navbar is a row of compact information cards.
+
+---
+
+## Panel 1 — NIFTY 50
+
+Contains:
+
+* NIFTY 50 title
+* live price
+* green percentage gain
+* mini line chart
+* real-time movement
+
+---
+
+## Panel 2 — Market Status
+
+Contains:
+
+* MARKET STATUS
+* OPEN
+* market timing
+* IST timezone
+
+Green glowing status.
+
+---
+
+## Panel 3 — NIFTY FUT
+
+Contains:
+
+* futures value
+* price movement
+* mini graph
+
+---
+
+## Panel 4 — Indian Market Calendar
+
+Contains:
+
+* upcoming expiry
+* holiday
+* important market dates
+* small calendar icon
+
+---
+
+## Panel 5 — Data Synchronization
+
+Contains:
+
+* feed status
+* latency
+* data quality
+* sync icon/cloud icon
+
+Everything real-time.
+
+---
+
+## Panel 6 — System Status
+
+Contains:
+
+* overall health
+* uptime
+* CPU usage
+* RAM usage
+
+Health shown in green.
+
+---
+
+## Panel 7 — Connection Status
+
+Contains:
+
+* broker connection:
+  Angel One
+* API status
+* WebSocket status
+* live indicator
+
+---
+
+## Panel 8 — Digital Clock
+
+Large digital time display:
+
+* current time
+* date
+* weekday
+
+---
+
+# LEFT SIDE PANELS
+
+---
+
+## DATA & FEED HEALTH PANEL
+
+Contains multiple rows:
+
+* WebSocket
+* Market Data Feed
+* Candle Builder
+* Feature Engine
+* Captain Engine
+* Strategy Engine
+* Risk Engine
+* Execution Engine
+
+Each row:
+
+* status text
+* latency
+* glowing green indicator
+
+This panel represents internal system health monitoring.
+
+---
+
+## CONNECTION PANEL
+
+Shows:
+
+* API status
+* WebSocket
+* Order update
+* Position update
+* Auth token
+* reconnect button
+
+Institutional connectivity feel.
+
+---
+
+# ACCOUNT & PORTFOLIO OVERVIEW PANEL
+
+Large central info card.
+
+Contains:
+
+* Net liquidation
+* Unrealized P&L
+* Realized P&L
+* Buying power
+* Margin used
+* Margin available
+* Exposure
+* Risk level
+
+Values:
+
+* profits in green
+* risk percentages color-coded
+
+---
+
+# CAPTAIN & MARKET CONTEXT PANEL
+
+AI intelligence section.
+
+Contains:
+
+* Captain state
+* Market regime
+* Active brain
+* Confidence meter
+
+Then narrative text:
+Example:
+"Market in strong bullish momentum. Institutional buying observed in index futures. Trend continuation probability high for next session."
+
+Feels like AI market commander commentary.
+
+---
+
+# REGIME DETECTOR PANEL
+
+Semi-circular gauge meter.
+
+Displays:
+
+* Bullish percentage
+* Trend strength
+* Volatility
+* Momentum
+
+Uses:
+
+* green/yellow/red colors
+
+Acts like market environment detector.
+
+---
+
+# ACTIONS PANEL
+
+Contains quick action buttons:
+
+* New Order
+* Close Position
+* Flatten All
+* Sync Data
+* Risk Check
+* Health Check
+
+Below:
+live scrolling system logs.
+
+Example logs:
+
+* signal generated
+* order executed
+* websocket reconnected
+* market data received
+
+Feels like command terminal.
+
+---
+
+# CENTER MAIN CHART PANEL
+
+Largest panel in dashboard.
+
+This is the primary trading view.
+
+Contains:
+
+* candlestick chart
+* volume bars
+* EMA indicators
+* price labels
+* drawing tools sidebar
+* timeframe selector
+
+Timeframes:
+
+* 1m
+* 3m
+* 5m
+* 15m
+* 1H
+  etc.
+
+Top controls:
+
+* indicators
+* templates
+* settings
+
+Chart colors:
+
+* green bullish candles
+* red bearish candles
+
+Dark institutional trading appearance similar to TradingView/Bloomberg hybrid.
+
+---
+
+# RISK CONSOLE PANEL
+
+Contains:
+
+* Daily P&L
+* Drawdown
+* Risk remaining
+* VaR
+* Position risk
+* Concentration
+
+Includes:
+
+* horizontal risk meter bar
+
+Status:
+RISK LEVEL LOW
+
+Green/yellow/red visualization.
+
+---
+
+# STRATEGY SIGNALS PANEL
+
+Displays active strategy signals.
+
+Examples:
+
+* VWAP Pullback
+* FVG Retest
+* Order Block
+* Liquidity Sweep
+
+Each signal:
+
+* LONG/SHORT
+* confidence score
+* active/waiting status
+
+Green/red colored labels.
+
+---
+
+# OPEN POSITIONS PANEL
+
+Contains active trades table.
+
+Columns:
+
+* Symbol
+* Quantity
+* LTP
+* P&L
+* P&L %
+
+Green profits highlighted.
+
+Includes:
+
+* total P&L
+* view all positions button
+
+---
+
+# EXECUTION ENGINE PANEL
+
+Contains:
+
+* execution mode
+* algorithm name
+* last order
+* latency
+* success rate
+
+Feels like HFT execution control panel.
+
+---
+
+# TRADE BOOK PANEL
+
+Bottom-left large table.
+
+Contains:
+
+* Time
+* Symbol
+* Side
+* Quantity
+* Price
+* Status
+* P&L
+
+Rows update in real-time.
+
+Buy orders in green.
+Sell orders in red.
+
+---
+
+# PERFORMANCE PANEL
+
+Contains:
+
+* equity curve/performance graph
+
+Metrics:
+
+* Win rate
+* Profit factor
+* Average win
+* Average loss
+* Best trade
+
+Graph glows green.
+
+---
+
+# ALERTS & NOTIFICATIONS PANEL
+
+Contains scrolling alerts feed.
+
+Examples:
+
+* Weekly expiry tomorrow
+* RBI policy monitoring
+* Compliance checks passed
+* Unusual volume detected
+
+Alerts categorized:
+
+* HIGH
+* MEDIUM
+* LOW
+
+Different colors per severity.
+
+---
+
+# FOOTER STATUS BAR
+
+Very bottom strip across dashboard.
+
+Contains:
+
+* System healthy
+* Captain mode autonomous
+* Risk mode conservative
+* Data center location
+* Backup active
+* Version number
+* License type
+* Secure connection indicator
+
+Green glowing secure status on right side.
+
+---
+
+# DESIGN LANGUAGE DETAILS
+
+UI should use:
+
+* glowing neon outlines
+* soft shadows
+* glass panels
+* subtle gradients
+* smooth hover animations
+* professional typography
+* dense but organized layout
+
+No cartoonish appearance.
+
+Should feel:
+
+* institutional
+* AI-powered
+* autonomous
+* elite trader workstation
+* hedge-fund-grade platform
+
+---
+
+# VISUAL INSPIRATION
+
+Design inspiration references:
+
+* Bloomberg Terminal
+* TradingView Pro
+* Obsidian Night Theme
+* Sci-fi AI control room
+* Quant trading workstation
+* Cyberpunk fintech UI
+
+---
+
+# IMPORTANT NOTE
+
+This description represents the example reference image showing how the dashboard should generally look and feel visually. It is NOT mandatory to build the exact same dashboard pixel-by-pixel. However, try to create a dashboard very similar in structure, atmosphere, styling, and professional trading-terminal appearance.
