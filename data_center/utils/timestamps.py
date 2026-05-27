@@ -1,8 +1,8 @@
 """
 Junior Aladdin — Timestamp Utilities
 ======================================
-Strongest Version: Optimized for Hourly Data Partitioning to prevent
-the Small Files Problem.
+Strongest Version: Optimized for Hourly Data Partitioning with descriptive 
+range naming (e.g., 09_10) as per the architectural blueprint.
 """
 
 from datetime import datetime, timezone
@@ -30,10 +30,13 @@ def format_date_partition(ms: int) -> str:
 
 def format_time_partition(ms: int) -> str:
     """
-    Convert epoch ms to time partition key.
-    Strongest Strategy: Using HH (Hourly) instead of HH_MM to consolidate small files.
+    Convert epoch ms to descriptive hourly range string.
+    Example: 10:15 AM -> "10_11" (represents 10:00 to 11:00 slot)
     """
-    return epoch_ms_to_datetime(ms).strftime("%H")
+    dt = epoch_ms_to_datetime(ms)
+    start_hour = dt.hour
+    end_hour = start_hour + 1
+    return f"{start_hour:02d}_{end_hour:02d}"
 
 
 def is_valid_timestamp_ms(ms: int, min_ms: int = 946684800000, max_ms: int = 4102444800000) -> bool:
