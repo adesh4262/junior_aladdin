@@ -1,7 +1,8 @@
 """
 Junior Aladdin — Timestamp Utilities
 ======================================
-Functions for timestamp conversion, validation, and formatting.
+Strongest Version: Optimized for Hourly Data Partitioning to prevent
+the Small Files Problem.
 """
 
 from datetime import datetime, timezone
@@ -28,8 +29,11 @@ def format_date_partition(ms: int) -> str:
 
 
 def format_time_partition(ms: int) -> str:
-    """Convert epoch ms to time partition key: HH_MM."""
-    return epoch_ms_to_datetime(ms).strftime("%H_%M")
+    """
+    Convert epoch ms to time partition key.
+    Strongest Strategy: Using HH (Hourly) instead of HH_MM to consolidate small files.
+    """
+    return epoch_ms_to_datetime(ms).strftime("%H")
 
 
 def is_valid_timestamp_ms(ms: int, min_ms: int = 946684800000, max_ms: int = 4102444800000) -> bool:
@@ -41,10 +45,7 @@ def timestamp_continuity_check(
     timestamps: list[int],
     max_gap_ms: int = 5000
 ) -> list[int]:
-    """
-    Find gaps in timestamp sequence.
-    Returns indices where gaps larger than max_gap_ms are detected.
-    """
+    """Find gaps in timestamp sequence."""
     gaps = []
     for i in range(1, len(timestamps)):
         diff = timestamps[i] - timestamps[i - 1]
