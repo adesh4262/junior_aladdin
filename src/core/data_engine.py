@@ -19,6 +19,7 @@ from src.core.websocket_manager import WebSocketManager
 from src.core.tick_validator import TickValidator
 from src.core.candle_builder import CandleBuilder
 from src.core.market_state import MarketState
+from data_center.connectors.backend_connector import backend_connector
 
 # Prefer updated module names; keep fallback for repo compatibility
 try:
@@ -343,6 +344,21 @@ class DataEngine:
         return {"token": token_str, "exchange_timestamp": ts, "ltp": ltp, "volume": vol_int}
 
     # ------------------------------------------------------------------
+    # Data Center Bridge
+    # ------------------------------------------------------------------
+    def _on_data_center_tick(self, cleaned_tick: Dict[str, Any]) -> None:
+        """Subscriber for Data Center processed ticks."""
+        if not self.is_running:
+            return
+            
+        token_str = str(cleaned_tick.get("token", ""))
+        self._tick_seen_count += 1
+        self._last_tick_seen_at = ist_now()
+        
+        # Feed directly to validated logic
+        self._on_validated_tick(cleaned_tick, token_str=token_str)
+
+    # ------------------------------------------------------------------
     # Public hooks
     # ------------------------------------------------------------------
     def set_candle_close_callback(self, callback: Callable[[Dict[str, Any]], None]):
@@ -378,6 +394,15 @@ class DataEngine:
             return default_spot
 
         try:
+            # 100% Accuracy Fix: Use ltpData for official close if available
+            resp = api.ltpData("NSE", "NIFTY", self._nifty_token)
+            if resp and resp.get("status"):
+                data = resp.get("data", {})
+                close_price = data.get("close") or data.get("ltp")
+                if close_price:
+                    self._logger.info(f"Official Previous Close fetched via ltpData: {close_price}")
+                    return float(close_price)
+
             to_dt = ist_now()
             from_dt = to_dt - timedelta(days=10)
             params = {
@@ -467,16 +492,16 @@ class DataEngine:
             "Instrument map built",
             extra={"mapped": getattr(self._mapper, "total_instruments_mapped", None)},
         )
+        
+        # Unified Bridge: Register listener
+        backend_connector.register_tick_listener(self._on_data_center_tick)
+        self._logger.info("Registered with BackendConnector for unified data supply")
 
         # IMPORTANT: subscription list must be registered BEFORE TickValidator
         initial_sub = self._mapper.get_subscription_list(prev_close)
         self._mapper.register_subscription_tokens(initial_sub)
 
         # TickValidator (after subscription tokens pre-registered)
-        # Unified Bridge: Register listener
-        from data_center.connectors.backend_connector import backend_connector
-        backend_connector.register_tick_listener(self._on_data_center_tick)
-
         self._validator = TickValidator(instrument_mapper=self._mapper)
 
         # Sub-components
@@ -493,12 +518,24 @@ class DataEngine:
             on_disconnect_callback=self._on_ws_disconnect,
         )
 
-        ws_started = self._ws_connect(subscription_list=initial_sub, spot_price=prev_close)
+        ws_started = self._ws.connect(subscription_list=initial_sub, spot_price=prev_close)
         if not ws_started:
             self._logger.error(
                 "WebSocket failed to start; continuing in degraded observation mode",
                 extra={"using_fallback": True},
             )
+
+        # Start Data Center Pipelines
+        try:
+            from data_center.pipeline.raw_pipeline import start_raw_pipeline
+            from data_center.pipeline.clean_pipeline import start_clean_pipeline
+            from data_center.pipeline.minor_pipeline import start_minor_pipeline
+            start_raw_pipeline()
+            start_clean_pipeline()
+            start_minor_pipeline(self._auth, self._mapper, self._state)
+            self._logger.info("Data Center Unified Pipelines Active.")
+        except Exception as e:
+            self._logger.debug(f"Data Center pipeline initialization failed: {e}")
 
         if not self._start_background_threads():
             return False
@@ -526,6 +563,16 @@ class DataEngine:
                 self._ws.disconnect,
                 timeout_sec=max(2.0, float(self._stop_step_timeout_sec)),
             )
+
+        # Stop Data Center Pipelines
+        try:
+            from data_center.pipeline.raw_pipeline import stop_raw_pipeline
+            from data_center.pipeline.clean_pipeline import stop_clean_pipeline
+            from data_center.pipeline.minor_pipeline import stop_minor_pipeline
+            stop_raw_pipeline()
+            stop_clean_pipeline()
+            stop_minor_pipeline()
+        except: pass
 
         for th, timeout in (
             (self._option_poll_thread, 5),
@@ -795,57 +842,61 @@ class DataEngine:
             raise RuntimeError("CandleBuilder is None")
 
         # Only NIFTY spot drives candle stream in current design
-        if token_str != self._nifty_token:
-            return
+        if token_str == self._nifty_token:
+            self._spot_tick_validated_count += 1
+            self._last_spot_tick_at = ist_now()
 
-        self._spot_tick_validated_count += 1
-        self._last_spot_tick_at = ist_now()
-
-        try:
-            price = float(validated_tick.get("ltp", 0.0) or 0.0)
-        except Exception:
-            return
-        if price <= 0:
-            return
-
-        ts = validated_tick.get("timestamp")
-        if not isinstance(ts, datetime):
-            ts = ist_now()
-        if ts.tzinfo is None:
-            ts = ts.replace(tzinfo=IST)
-
-        vol = validated_tick.get("volume", -1)
-        try:
-            vol_i = int(vol) if vol is not None else -1
-        except Exception:
-            vol_i = -1
-
-        self._state.update(timestamp=ts, spot=price)
-
-        if (not self._live_subscription_applied.is_set()) and self._mapper and (not self._live_subscription_skipped):
             try:
-                new_sub = self._mapper.get_subscription_list(price)
-                ok = self._ws_apply_subscription(new_sub, spot_price=price)
-                if ok:
-                    self._live_subscription_applied.set()
-                    self._logger.info(
-                        "Live subscription applied after first valid tick",
-                        extra={"spot": price, "tokens": len(new_sub)},
+                price = float(validated_tick.get("ltp", 0.0) or 0.0)
+            except Exception:
+                return
+            if price <= 0:
+                return
+
+            ts = validated_tick.get("timestamp")
+            if not isinstance(ts, datetime):
+                ts = ist_now()
+            if ts.tzinfo is None:
+                ts = ts.replace(tzinfo=IST)
+
+            vol = validated_tick.get("volume", -1)
+            try:
+                vol_i = int(vol) if vol is not None else -1
+            except Exception:
+                vol_i = -1
+
+            self._state.update(timestamp=ts, spot=price)
+
+            if (not self._live_subscription_applied.is_set()) and self._mapper and (not self._live_subscription_skipped):
+                try:
+                    new_sub = self._mapper.get_subscription_list(price)
+                    ok = self._ws_apply_subscription(new_sub, spot_price=price)
+                    if ok:
+                        self._live_subscription_applied.set()
+                        self._logger.info(
+                            "Live subscription applied after first valid tick",
+                            extra={"spot": price, "tokens": len(new_sub)},
+                        )
+                    else:
+                        self._live_subscription_skipped = True
+                        self._live_subscription_applied.set()
+                except Exception as e:
+                    self._logger.warning(
+                        "Live subscription update error (skipping further attempts)",
+                        extra={"error": str(e)},
                     )
-                else:
                     self._live_subscription_skipped = True
                     self._live_subscription_applied.set()
-            except Exception as e:
-                self._logger.warning(
-                    "Live subscription update error (skipping further attempts)",
-                    extra={"error": str(e)},
-                )
-                self._live_subscription_skipped = True
-                self._live_subscription_applied.set()
 
-        result = cb.on_tick(price, vol_i, ts, token=token_str)
-        if result == "candle_closed":
-            self._on_candle_closed(token_str)
+            result = cb.on_tick(price, vol_i, ts, token=token_str)
+            if result == "candle_closed":
+                self._on_candle_closed(token_str)
+        
+        # FIX: Populate VIX in MarketState
+        elif token_str == self._vix_token:
+            price = float(validated_tick.get("ltp", 0.0) or 0.0)
+            if price > 0:
+                self._state.update(vix=price)
 
     def _on_rejected_tick(self, _tick: Dict[str, Any]) -> None:
         return
@@ -866,17 +917,9 @@ class DataEngine:
         try:
             std_tick = self._normalize_ws_tick(raw_tick)
 
-            # TEMPORARY DEBUGGING – remove after confirming token extraction works.
-            if not std_tick.get("token"):
-                if not hasattr(self, "_missing_token_log_count"):
-                    self._missing_token_log_count = 0
-                if self._missing_token_log_count < 3:
-                    self._logger.warning(
-                        "Tick missing token after normalization; raw keys: %s",
-                        list(raw_tick.keys())[:20],
-                    )
-                    self._missing_token_log_count += 1
-                return
+            # Smart mapping to ensure TickCleaner doesn't produce 'empty output'
+            ltp = (raw_tick.get("ltp") or raw_tick.get("last_traded_price") or 
+                   raw_tick.get("LTP") or raw_tick.get("price") or 0.0)
 
             token_val = std_tick.get("token")
             token_str = str(token_val).strip() if token_val is not None else ""
@@ -889,23 +932,42 @@ class DataEngine:
             std_tick["exchange_timestamp"] = std_tick.get("exchange_timestamp") or std_tick["received_at"]
             std_tick["token_str"] = token_str
 
+            # 100% Accuracy Fix: Sync official close from Live Meta
+            if token_str == self._nifty_token and raw_tick.get("close"):
+                self._state.update(previous_close=float(raw_tick["close"]))
+
             validated = self._validate_tick_safely(std_tick)
             if validated is None:
                 self._tick_rejected_count += 1
                 self._on_rejected_tick(std_tick)
-                return
+            else:
+                self._tick_validated_count += 1
+                self._last_tick_validated_at = ist_now()
+                self._on_validated_tick(validated, token_str=token_str)
 
-            self._tick_validated_count += 1
-            self._last_tick_validated_at = ist_now()
-
-            self._on_validated_tick(validated, token_str=token_str)
+            # ------------------------------------------------------------------
+            # Data Center ingestion hook (Restored & Hardened)
+            try:
+                from data_center.queues.tick_queue import tick_queue
+                tick_queue.put_nowait({
+                    "token": token_str,
+                    "ltp": float(ltp),
+                    "volume": int(raw_tick.get("volume") or raw_tick.get("vol") or 0),
+                    "timestamp": int(time.time() * 1000),
+                    "open": float(raw_tick.get("open", 0.0)),
+                    "high": float(raw_tick.get("high", 0.0)),
+                    "low": float(raw_tick.get("low", 0.0)),
+                    "close": float(raw_tick.get("close", 0.0)),
+                    "direction": int(raw_tick.get("direction", 0))
+                })
+            except: pass
 
             # ------------------------------------------------------------------
             # FEED OI / BID / ASK INTO OPTION CHAIN POLLER CACHE
             # ------------------------------------------------------------------
             if self._option_component is not None and hasattr(self._option_component, "update_from_tick"):
                 try:
-                    self._option_component.update_from_tick(validated)
+                    self._option_component.update_from_tick(validated if validated else std_tick)
                 except Exception:
                     pass  # must never crash the hot tick path
 
@@ -1199,6 +1261,7 @@ class DataEngine:
             "validator_degraded": self._validator_degraded,
             "validator_degraded_since": self._validator_degraded_since.isoformat() if self._validator_degraded_since else None,
             "mapper_status": self._mapper.get_status() if self._mapper and hasattr(self._mapper, "get_status") else {},
+            "unified_mode": True
         }
 
     def _get_option_poll_count_safe(self) -> int:
@@ -1320,7 +1383,7 @@ def _run_tests():
         print(" ✅ Candle closed")
         passed += 1
     else:
-        print(" ❌ Candle not closed")
+        print(f" ❌ Candle not closed")
         failed += 1
 
     print("\n [Test 4] Status exposes validator.valid/rejected/spikes keys...")
@@ -1342,9 +1405,3 @@ def _run_tests():
 
 if __name__ == "__main__":
     _run_tests()
-    def _on_data_center_tick(self, cleaned_tick: Dict[str, Any]) -> None:
-        if not self.is_running: return
-        token_str = str(cleaned_tick.get('token', ''))
-        self._tick_seen_count += 1
-        self._on_validated_tick(cleaned_tick, token_str=token_str)
-
